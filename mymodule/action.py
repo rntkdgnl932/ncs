@@ -239,13 +239,7 @@ def item_open(cla):
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.3)
                 if tal_1_2 == True:
-                    tal_2 = False
-                    while tal_2 is False:
-                        menu_result = menu_open(cla)
-                        if menu_result == True:
-                            click_pos_2(795, 260, cla)
-                            tal_2 = True
-                            time.sleep(1)
+
                     tal_3 = False
                     while tal_3 is False:
                         full_path = "c:\\nightcrow\\imgs\\clean_screen\\talgut.PNG"
@@ -255,6 +249,11 @@ def item_open(cla):
                         if imgs_ is not None and imgs_ != False:
                             talgut_ing_(cla)
                             tal_3 = True
+                        else:
+                            menu_open(cla)
+                            time.sleep(0.1)
+                            click_pos_2(795, 260, cla)
+                            time.sleep(1)
 
                 bag_open(cla)
                 time.sleep(0.2)
@@ -308,13 +307,6 @@ def item_open(cla):
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.3)
                 if tal_1_2 == True:
-                    tal_2 = False
-                    while tal_2 is False:
-                        menu_result = menu_open(cla)
-                        if menu_result == True:
-                            click_pos_2(795, 260, cla)
-                            tal_2 = True
-                            time.sleep(1)
                     tal_3 = False
                     while tal_3 is False:
                         full_path = "c:\\nightcrow\\imgs\\clean_screen\\talgut.PNG"
@@ -324,6 +316,11 @@ def item_open(cla):
                         if imgs_ is not None and imgs_ != False:
                             talgut_ing_(cla)
                             tal_3 = True
+                        else:
+                            menu_open(cla)
+                            time.sleep(0.1)
+                            click_pos_2(795, 260, cla)
+                            time.sleep(1)
                 bag_open(cla)
                 time.sleep(0.2)
                 click_pos_2(935, 265, cla)
@@ -376,13 +373,6 @@ def item_open(cla):
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.3)
                 if tal_1_2 == True:
-                    tal_2 = False
-                    while tal_2 is False:
-                        menu_result = menu_open(cla)
-                        if menu_result == True:
-                            click_pos_2(880, 260, cla)
-                            tal_2 = True
-                            time.sleep(1)
                     tal_3 = False
                     while tal_3 is False:
                         full_path = "c:\\nightcrow\\imgs\\clean_screen\\moogioutlook.PNG"
@@ -392,6 +382,10 @@ def item_open(cla):
                         if imgs_ is not None and imgs_ != False:
                             talgut_ing_(cla)
                             tal_3 = True
+                        else:
+                            menu_open(cla)
+                            click_pos_2(880, 260, cla)
+                            time.sleep(1)
 
                 bag_open(cla)
                 time.sleep(0.2)
