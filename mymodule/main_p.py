@@ -69,6 +69,8 @@ onMaul = "none"
 
 isgloballoop = False
 
+version = "1.35"
+
 # 기존 오토모드 관련###############################################
 
 
@@ -111,7 +113,7 @@ class MyApp(QDialog):
 
         self.setLayout(vbox)
 
-        self.setWindowTitle('나이트크로우(ver 1.34)')
+        self.setWindowTitle("나이트크로우(ver " + version + ")")
         # 풀버젼
         # pyinstaller --hidden-import PyQt5 --hidden-import requests --hidden-import chardet --add-data="C:\\nightcrow\\imgs;./imgs" --add-data="C:\\nightcrow\\mymodule;./mymodule" --add-data="C:\\nightcrow\\jadong;./jadong" --add-data="C:\\nightcrow\\mysettings;./mysettings" -i="nightcrow.ico" --add-data="nightcrow.ico;./" --icon="nightcrow.ico" --paths "C:\Users\1_S_3\AppData\Local\Programs\Python\Python311\Lib\site-packages\cv2" main.py
         # 업데이트버젼
@@ -2048,7 +2050,7 @@ class Test_check(QThread):
 
 
 
-        print("여긴 테스트 모드(ver 1.34)")
+        print("여긴 테스트 모드(ver " + version + ")")
 
         go_test()
 
@@ -2236,7 +2238,7 @@ class game_Playing(QThread):
 
             while self.isCheck is True:
 
-                print("나이트크로우 실행 모드(ver 1.34)")
+                print("나이트크로우 실행 모드(ver " + version + ")")
 
                 full_path = "c:\\nightcrow\\imgs\\check\\touching.PNG"
                 img_array = np.fromfile(full_path, np.uint8)

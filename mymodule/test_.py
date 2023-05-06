@@ -11,7 +11,7 @@ import variable as v_
 
 def go_test():
     from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2
-    from action import menu_open, dead_die_before, item_open, clean_screen, jaelyo_
+    from action import menu_open, dead_die_before, item_open, clean_screen
     from get_item import get_items, get_upjuk
     from jadong_crow import jadong_play
     from realtime import soojib, moogi_
@@ -29,7 +29,7 @@ def go_test():
         plus = 960
 
     print("여긴 테스트")
-    jaelyo_(cla)
+    maul_potion(cla)
 
 
 

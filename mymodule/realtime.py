@@ -158,89 +158,272 @@ def soojib(cla):
         import pyautogui
         import cv2
 
-        collection_ = False
-
-        col_1 = False
-        while col_1 is False:
-            full_path = "c:\\nightcrow\\imgs\\check\\collection_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(30, 30, 140, 80, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("collection_1", imgs_)
-
-                full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+        if v_.onCollection == True:
+            col_1 = False
+            while col_1 is False:
+                full_path = "c:\\nightcrow\\imgs\\check\\collection_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                imgs_ = imgs_set_(30, 30, 140, 80, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    print("confirm_1 : collection", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    print("collection_1", imgs_)
 
-                full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(20, 70, 480, 130, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    print("point : col_1", imgs_)
-                    click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
-                    time.sleep(0.3)
+                    full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("confirm_1 : collection", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
                     full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(220, 130, 620, 990, cla, img, 0.8)
+                    imgs_ = imgs_set_(20, 70, 480, 130, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        print("point : collection", imgs_)
-                        click_pos_reg(imgs_.x - 20, imgs_.y + 20, cla)
-                        time.sleep(0.5)
-                        click_pos_2(830, 950, cla)
-                        time.sleep(0.5)
-                    full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        print("confirm_1 : collection", imgs_)
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-
-
-                else:
-                    col_2 = False
-                    while col_2 is False:
-                        full_path = "c:\\nightcrow\\imgs\\check\\collection_1.PNG"
+                        print("point : col_1", imgs_)
+                        click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
+                        time.sleep(0.3)
+                        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(30, 30, 140, 80, cla, img, 0.8)
+                        imgs_ = imgs_set_(220, 130, 620, 990, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            print("collection_1", imgs_)
-                            click_pos_2(930, 60, cla)
-                        else:
-                            col_1 = True
-                            col_2 = True
-            else:
-                menu_open(cla)
-                click_pos_2(930, 140, cla)
-            time.sleep(0.5)
+                            print("point : collection", imgs_)
+                            click_pos_reg(imgs_.x - 20, imgs_.y + 20, cla)
+                            time.sleep(0.5)
+                            click_pos_2(830, 950, cla)
+                            time.sleep(0.5)
+                        full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("confirm_1 : collection", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
 
-        if collection_ == True:
-            col_1 = False
-            while col_1 is False:
-                full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(220, 130, 620, 990, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    print("point : collection", imgs_)
-                    click_pos_reg(imgs_.x - 20, imgs_.y + 20, cla)
-                    time.sleep(0.5)
-                    click_pos_2(830, 950, cla)
-                    full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+
+                    else:
+                        col_2 = False
+                        while col_2 is False:
+                            full_path = "c:\\nightcrow\\imgs\\check\\collection_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(30, 30, 140, 80, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("collection_1", imgs_)
+                                click_pos_2(930, 60, cla)
+                            else:
+                                col_1 = True
+                                col_2 = True
+                else:
+                    menu_open(cla)
+                    click_pos_2(930, 140, cla)
+                time.sleep(0.5)
+        else:
+            print("수집 안함")
+
+
+    except Exception as e:
+        print(e)
+
+def jaelyo_(cla):
+    try:
+
+        from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
+        from action import out_check, clean_screen, bag_open
+        import numpy as np
+        import cv2
+        import os
+
+        print("재료 창고에 넣기")
+        # 창고 가기
+
+        in_chango_1 = False
+        in_chango_1_count = 0
+        while in_chango_1 is False:
+            in_chango_1_count += 1
+            if in_chango_1_count > 5:
+                in_chango_1 = True
+            full_path = "c:\\nightcrow\\imgs\\chango\\maul_chango_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 70, 220, 330, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+
+                in_chango_2 = False
+                in_chango_2_count = 0
+                while in_chango_2 is False:
+                    in_chango_2_count += 1
+                    if in_chango_2_count > 5:
+                        in_chango_2_count = 0
+                        in_chango_2 = True
+                    full_path = "c:\\nightcrow\\imgs\\chango\\maul_chango_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                    imgs_ = imgs_set_(50, 80, 110, 110, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        print("confirm_1 : collection", imgs_)
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                        in_chango_3 = False
+                        in_chango_3_count = 0
+                        while in_chango_3 is False:
+                            in_chango_3_count += 1
+                            if in_chango_3_count > 5:
+                                in_chango_3 = True
+                            full_path = "c:\\nightcrow\\imgs\\chango\\maul_chango_3.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(50, 80, 110, 110, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(930, 265, cla)
+
+                                dir_path = "C:\\nightcrow"
+                                file_path = dir_path + "\\items\\chango\\jaelyo.txt"
+                                ###
+                                if os.path.isfile(file_path) == True:
+                                    with open(file_path, "r", encoding='UTF8') as file:
+                                        jaelyo_ready = file.read().splitlines()
+                                        print("jaelyos", jaelyo_ready)
+                                ###
+                                for i in range(len(jaelyo_ready)):
+                                    full_path = "c:\\nightcrow\\imgs\\chango\\" + jaelyo_ready[i] + ".PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("재료 있")
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        time.sleep(0.1)
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        time.sleep(0.1)
+                                        full_path = "c:\\nightcrow\\imgs\\chango\\bogwan.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(500, 400, 600, 500, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                sj_ = False
+                                sj_count = 0
+                                while sj_ is False:
+                                    sj_count += 1
+                                    if sj_count > 5:
+                                        sj_ = True
+                                    full_path = "c:\\nightcrow\\imgs\\chango\\soojib_item.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("수집재료 있")
+                                        click_pos_reg(imgs_.x + 15, imgs_.y + 15, cla)
+                                        time.sleep(0.1)
+                                        click_pos_reg(imgs_.x + 15, imgs_.y + 15, cla)
+                                        time.sleep(0.1)
+                                        full_path = "c:\\nightcrow\\imgs\\chango\\bogwan.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(500, 400, 600, 500, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                                    else:
+                                        full_path = "c:\\nightcrow\\imgs\\chango\\maul_chango_3.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(50, 80, 110, 110, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_2(930, 60, cla)
+                                        else:
+                                            in_chango_1 = True
+                                            in_chango_2 = True
+                                            in_chango_3 = True
+                                            sj_ = True
+                                            print("창고 정리 끝")
+
+                            else:
+                                click_pos_2(20, 200, cla)
+
+                    else:
+                        if in_chango_2_count == 1:
+                            full_path = "c:\\nightcrow\\imgs\\chango\\maul_chango_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 70, 220, 330, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            time.sleep(2)
+
+
+            else:
+                result_out = out_check(cla)
+                if result_out == False:
+                    clean_screen(cla)
+                else:
+                    full_path = "c:\\nightcrow\\imgs\\chango\\chanel.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(160, 80, 220, 120, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(230, 90, cla)
+
+
+
+
+
+
+
+
+    except Exception as e:
+        print(e)
+
+def boonhae_(cla):
+    try:
+        import cv2
+        import numpy as np
+        from function import text_check_get, int_put_, click_pos_2, imgs_set_, click_pos_reg
+        from action import bag_open
+
+
+        bag_open(cla)
+
+        boonhae_ready = False
+        boonhae_ready_count = 0
+        while boonhae_ready is False:
+            boonhae_ready_count += 1
+            if boonhae_ready_count > 5:
+                boonhae_ready = True
+
+            full_path = "c:\\nightcrow\\imgs\\chango\\boonhae_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(480, 80, 540, 160, cla, img, 0.83)
+            if imgs_ is not None and imgs_ != False:
+                print("분해화면")
+                full_path = "c:\\nightcrow\\imgs\\chango\\boonhae_not_check.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(415, 345, 450, 380, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("분해체크하기")
+                    click_pos_2(435, 365, cla)
+                    time.sleep(0.1)
+                    #click_pos_2(510, 365, cla)
+                else:
+                    click_pos_2(580, 450, cla)
+                    time.sleep(0.2)
+                    click_pos_2(475, 425, cla)
+                    boonhae_ready = True
+            else:
+                click_pos_2(770, 930, cla)
+            time.sleep(0.3)
+
+        full_path = "c:\\nightcrow\\imgs\\chango\\boonhae_after.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(420, 450, 500, 500, cla, img, 0.83)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+        print("분해하기 끝")
 
     except Exception as e:
         print(e)

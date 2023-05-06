@@ -667,39 +667,8 @@ def talgut_ing_(cla):
     except Exception as e:
         print(e)
 
-def jaelyo_(cla):
-    try:
-
-        from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
-        import numpy as np
-        import cv2
-        import os
-
-        print("재료 창고에 넣기")
-        # 상자
-        dir_path = "C:\\nightcrow"
-        file_path = dir_path + "\\items\\chango\\jaelyo.txt"
-        ###
-        if os.path.isfile(file_path) == True:
-            with open(file_path, "r", encoding='UTF8') as file:
-                jaelyo_ready = file.read().splitlines()
-                print("jaelyos", jaelyo_ready)
-        ###
-        for i in range(len(jaelyo_ready)):
-            x_reg = 0
-            y_reg = 0
-            full_path = "c:\\nightcrow\\imgs\\chango\\" + jaelyo_ready[i] + ".PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("재료 있")
-            else:
-                print("재료 없")
 
 
-    except Exception as e:
-        print(e)
 
 def bag_open(cla):
     try:

@@ -219,33 +219,49 @@ def maul_potion(cla):
         import numpy as np
         from function import text_check_get, int_put_, click_pos_2, imgs_set_, click_pos_reg
         from action import out_check, clean_screen, bag_open
-        from realtime import soojib, moogi_
+        from realtime import soojib, moogi_, jaelyo_, boonhae_
         from schedule import myQuest_play_add
-        full_path = "c:\\nightcrow\\imgs\\check\\maul_move_1.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(250, 960, 400, 1030, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("maul_move_1", imgs_)
-            click_pos_reg(imgs_.x, imgs_.y, cla)
-        else:
-            bag_open(cla)
-            time.sleep(1)
+
+        jab_ready = False
+        jab_ready_count = 0
+        while jab_ready is False:
+            jab_ready_count += 1
+            if jab_ready_count > 3:
+                jab_ready = True
             full_path = "c:\\nightcrow\\imgs\\check\\maul_move_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(680, 100, 920, 900, cla, img, 0.8)
+            imgs_ = imgs_set_(250, 960, 400, 1030, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
-                click_pos_2(710, 935, cla)
-                time.sleep(0.5)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.5)
-                click_pos_2(290, 1000, cla)
-                time.sleep(0.5)
-                clean_screen(cla)
+                print("maul_move_1", imgs_)
+                jab_ready = True
+                full_path = "c:\\nightcrow\\imgs\\potion\\janhwa_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("janhwa_1", imgs_)
+                else:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                bag_open(cla)
+                time.sleep(1)
+                full_path = "c:\\nightcrow\\imgs\\check\\maul_move_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(680, 100, 920, 900, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(710, 935, cla)
+                    time.sleep(0.5)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.5)
+                    click_pos_2(290, 1000, cla)
+                    time.sleep(0.5)
+                    clean_screen(cla)
 
-            time.sleep(1)
-            click_pos_2(290, 1000, cla)
+                time.sleep(1)
+                click_pos_2(290, 1000, cla)
+
 
         time.sleep(2)
         jab_1_count = 0
@@ -257,7 +273,7 @@ def maul_potion(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(0, 90, 220, 350, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
-                print("janhwa_1", imgs_)
+                print("janhwa_1^_^", imgs_)
                 jab_1 = True
                 click_pos_reg(imgs_.x, imgs_.y, cla)
             else:
@@ -438,6 +454,7 @@ def maul_potion(cla):
                 click_pos_2(930, 60, cla)
         soojib(cla)
         moogi_(cla)
+        boonhae_(cla)
         jaelyo_(cla)
     except Exception as e:
         print(e)
