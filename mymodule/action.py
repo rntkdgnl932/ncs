@@ -163,6 +163,7 @@ def item_open(cla):
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
         from action import bag_open, clean_screen, menu_open
 
+        import os
         import numpy as np
         import cv2
 
@@ -459,66 +460,74 @@ def item_open(cla):
             else:
                 print("음식 없")
             # 상자
-            x_reg = 0
-            y_reg = 0
-            full_path = "c:\\nightcrow\\imgs\\item_1\\sub_box_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("상자 있")
-                tal_1 = False
-                while tal_1 is False:
-                    item_count += 1
-                    print("item_count3", item_count)
-                    if item_count > 20:
-                        item_count = 0
-                        tal_1 = True
-                    full_path = "c:\\nightcrow\\imgs\\item_1\\max.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(500, 500, 700, 700, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        print("max.PNG")
-                        time.sleep(0.2)
-                        click_pos_2(585, 460, cla)
-                        time.sleep(0.1)
-                        click_pos_2(585, 460, cla)
-
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        time.sleep(0.1)
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        time.sleep(0.3)
-                        full_path = "c:\\nightcrow\\imgs\\item_1\\confirm_1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(480, 480, 630, 710, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
+            dir_path = "C:\\nightcrow"
+            file_path = dir_path + "\\items\\item_open\\bag_item.txt"
+            ###
+            if os.path.isfile(file_path) == True:
+                with open(file_path, "r", encoding='UTF8') as file:
+                    box_ = file.read().splitlines()
+                    print("box_", box_)
+            ###
+            for i in range(len(box_)):
+                x_reg = 0
+                y_reg = 0
+                full_path = "c:\\nightcrow\\imgs\\item_1\\" + box_[i] + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("상자 있")
+                    tal_1 = False
+                    while tal_1 is False:
+                        item_count += 1
+                        print("item_count3", item_count)
+                        if item_count > 20:
+                            item_count = 0
                             tal_1 = True
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.2)
-                            click_pos_2(935, 265, cla)
-                    else:
-                        full_path = "c:\\nightcrow\\imgs\\item_1\\sub_box_1.PNG"
+                        full_path = "c:\\nightcrow\\imgs\\item_1\\max.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
+                        imgs_ = imgs_set_(500, 500, 700, 700, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            print("상자 있")
-                            x_reg = imgs_.x
-                            y_reg = imgs_.y
+                            print("max.PNG")
+                            time.sleep(0.2)
+                            click_pos_2(585, 460, cla)
+                            time.sleep(0.1)
+                            click_pos_2(585, 460, cla)
+
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             time.sleep(0.1)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.3)
+                            full_path = "c:\\nightcrow\\imgs\\item_1\\confirm_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(480, 480, 630, 710, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                tal_1 = True
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.2)
+                                click_pos_2(935, 265, cla)
                         else:
-                            if x_reg != 0:
-                                click_pos_reg(x_reg, y_reg, cla)
+                            full_path = "c:\\nightcrow\\imgs\\item_1\\sub_box_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("상자 있")
+                                x_reg = imgs_.x
+                                y_reg = imgs_.y
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.1)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+                                if x_reg != 0:
+                                    click_pos_reg(x_reg, y_reg, cla)
 
+                        time.sleep(0.3)
+                else:
+                    print("상자 없")
 
-
-                    time.sleep(0.3)
-            else:
-                print("상자 없")
             # 골드상자
             x_reg = 0
             y_reg = 0
@@ -653,6 +662,40 @@ def talgut_ing_(cla):
                 click_pos_2(870, 1010, cla)
                 time.sleep(0.3)
                 click_pos_2(930, 60, cla)
+
+
+    except Exception as e:
+        print(e)
+
+def jaelyo_(cla):
+    try:
+
+        from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
+        import numpy as np
+        import cv2
+        import os
+
+        print("재료 창고에 넣기")
+        # 상자
+        dir_path = "C:\\nightcrow"
+        file_path = dir_path + "\\items\\chango\\jaelyo.txt"
+        ###
+        if os.path.isfile(file_path) == True:
+            with open(file_path, "r", encoding='UTF8') as file:
+                jaelyo_ready = file.read().splitlines()
+                print("jaelyos", jaelyo_ready)
+        ###
+        for i in range(len(jaelyo_ready)):
+            x_reg = 0
+            y_reg = 0
+            full_path = "c:\\nightcrow\\imgs\\chango\\" + jaelyo_ready[i] + ".PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("재료 있")
+            else:
+                print("재료 없")
 
 
     except Exception as e:

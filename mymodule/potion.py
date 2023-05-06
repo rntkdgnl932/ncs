@@ -438,5 +438,6 @@ def maul_potion(cla):
                 click_pos_2(930, 60, cla)
         soojib(cla)
         moogi_(cla)
+        jaelyo_(cla)
     except Exception as e:
         print(e)
