@@ -111,7 +111,7 @@ class MyApp(QDialog):
 
         self.setLayout(vbox)
 
-        self.setWindowTitle('나이트크로우(ver 1.33)')
+        self.setWindowTitle('나이트크로우(ver 1.34)')
         # 풀버젼
         # pyinstaller --hidden-import PyQt5 --hidden-import requests --hidden-import chardet --add-data="C:\\nightcrow\\imgs;./imgs" --add-data="C:\\nightcrow\\mymodule;./mymodule" --add-data="C:\\nightcrow\\jadong;./jadong" --add-data="C:\\nightcrow\\mysettings;./mysettings" -i="nightcrow.ico" --add-data="nightcrow.ico;./" --icon="nightcrow.ico" --paths "C:\Users\1_S_3\AppData\Local\Programs\Python\Python311\Lib\site-packages\cv2" main.py
         # 업데이트버젼
@@ -2048,7 +2048,7 @@ class Test_check(QThread):
 
 
 
-        print("여긴 테스트 모드(ver 1.33)")
+        print("여긴 테스트 모드(ver 1.34)")
 
         go_test()
 
@@ -2236,7 +2236,7 @@ class game_Playing(QThread):
 
             while self.isCheck is True:
 
-                print("나이트크로우 실행 모드(ver 1.33)")
+                print("나이트크로우 실행 모드(ver 1.34)")
 
                 full_path = "c:\\nightcrow\\imgs\\check\\touching.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -2309,19 +2309,19 @@ def my_exception_hook(exctype, value, traceback):
     # sys.exit(1)
 
 
-if __name__ == '__main__':
-    try:
-        app = QApplication(sys.argv)
-        ex = MyApp()
-
-        # Back up the reference to the exceptionhook
-        sys._excepthook = sys.excepthook
-
-        # Set the exception hook to our wrapping function
-        sys.excepthook = my_exception_hook
-
-        sys.exit(app.exec_())
-    except Exception as e:
-        print(e)
-        print("프로그램 꺼지기전 정지")
-        os.system("pause")
+# if __name__ == '__main__':
+#     try:
+#         app = QApplication(sys.argv)
+#         ex = MyApp()
+#
+#         # Back up the reference to the exceptionhook
+#         sys._excepthook = sys.excepthook
+#
+#         # Set the exception hook to our wrapping function
+#         sys.excepthook = my_exception_hook
+#
+#         sys.exit(app.exec_())
+#     except Exception as e:
+#         print(e)
+#         print("프로그램 꺼지기전 정지")
+#         os.system("pause")

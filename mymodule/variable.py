@@ -43,3 +43,5 @@ skill_checked_ = False
 now_ing_schedule = "none"
 #강제로 돈벌기
 force_sub_quest = False
+
+onCollection = False
