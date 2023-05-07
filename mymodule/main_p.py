@@ -590,7 +590,7 @@ class FirstTab(QWidget):
                 for i in range(len(jadong_list)):
                     result = jadong_list[i].split("/")
                     jadong_list_.append(result[0])
-            print(".......................................", jadong_list_)
+            # print(".......................................", jadong_list_)
         else:
             jadong_list = ["자동리스트 없당"]
 
