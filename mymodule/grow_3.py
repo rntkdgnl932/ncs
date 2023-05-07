@@ -169,6 +169,7 @@ def quest_get(cla):
                             imgs_ = imgs_set_(780, 970, 910, 1030, cla, img, 0.83)
                             if imgs_ is not None and imgs_ != False:
                                 print("move_", imgs_)
+                                sub_quest = True
                                 in_quest_3 = True
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                             else:
@@ -186,7 +187,6 @@ def quest_get(cla):
                             imgs_ = imgs_set_(480, 620, 620, 660, cla, img, 0.83)
                             if imgs_ is not None and imgs_ != False:
                                 print("confirm_1", imgs_)
-                                sub_quest = True
                                 in_quest_4 = True
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                             else:
@@ -212,6 +212,7 @@ def quest_get(cla):
                                 imgs_ = imgs_set_(780, 970, 910, 1030, cla, img, 0.83)
                                 if imgs_ is not None and imgs_ != False:
                                     print("move_", imgs_)
+                                    sub_quest = True
                                     in_quest_3 = True
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
                                 else:
@@ -229,7 +230,7 @@ def quest_get(cla):
                                 imgs_ = imgs_set_(480, 620, 620, 660, cla, img, 0.83)
                                 if imgs_ is not None and imgs_ != False:
                                     print("confirm_1", imgs_)
-                                    sub_quest = True
+
                                     in_quest_4 = True
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
                                 else:
