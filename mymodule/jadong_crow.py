@@ -239,6 +239,7 @@ def in_spot(cla, result_schedule_):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y - 50, cla)
                     in_worldmap = False
+                    in_worldmap_count = 0
                     while in_worldmap is False:
                         full_path = "c:\\nightcrow\\imgs\\jadong\\world_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -282,6 +283,9 @@ def in_spot(cla, result_schedule_):
                                 line_to_me(cla, "나크 자동사냥 자료 없다.")
 
                         else:
+                            in_worldmap_count += 1
+                            if in_worldmap_count > 20
+                                in_worldmap = True
                             print("다시 월드맵 진입중")
                         time.sleep(0.3)
 
