@@ -7,6 +7,7 @@ import variable as v_
 
 fly_ = 0
 sub_quest = False
+sub_quest_count = 0
 
 def sub_quest_grow(cla):
     try:
@@ -348,9 +349,9 @@ def talgut_ing_(cla):
 
 def talgut_board_(cla):
     try:
-
+        global sub_quest_count
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
-        from action import menu_open, clean_screen
+        from action import menu_open, clean_screen, go_quest_ing_, go_auto_ing_
         import numpy as np
         import cv2
         import pyautogui
@@ -363,6 +364,7 @@ def talgut_board_(cla):
         imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             go_ = True
+            sub_quest_count = 0
             click_pos_reg(imgs_.x, imgs_.y, cla)
         else:
             full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\talgut_2.PNG"
@@ -371,6 +373,7 @@ def talgut_board_(cla):
             imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 go_ = True
+                sub_quest_count = 0
                 click_pos_reg(imgs_.x, imgs_.y, cla)
             else:
                 full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\talgut_3.PNG"
@@ -379,6 +382,7 @@ def talgut_board_(cla):
                 imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     go_ = True
+                    sub_quest_count = 0
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                 else:
                     full_path = "c:\\nightcrow\\imgs\\quest\\talgut_4.PNG"
@@ -387,6 +391,7 @@ def talgut_board_(cla):
                     imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         go_ = True
+                        sub_quest_count = 0
                         click_pos_reg(imgs_.x, imgs_.y, cla)
         sojin_ = False
         for i in range(10):
@@ -506,9 +511,17 @@ def talgut_board_(cla):
         #
 
         if go_ == False:
-            quest_get(cla)
-            clean_screen(cla)
-            click_pos_2(700, 155, cla)
+            print("sub_quest_count", sub_quest_count)
+            sub_quest_count += 1
+            if sub_quest_count > 50:
+                result_ = go_quest_ing_(cla)
+                if result_ == False:
+
+                    result_auto = go_auto_ing_(cla)
+                    if result_auto == True:
+                        quest_get(cla)
+            else:
+                click_pos_2(700, 155, cla)
         # 확인 버튼
         time.sleep(1)
         full_path = "c:\\nightcrow\\imgs\\clean_screen\\confirm_1.PNG"
