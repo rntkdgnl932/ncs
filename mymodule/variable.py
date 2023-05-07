@@ -42,6 +42,9 @@ now_dungeon_ing = False
 skill_checked_ = False
 now_ing_schedule = "none"
 #강제로 돈벌기
+forcee_not_sub = False
 force_sub_quest = False
 onForceGold = 5000000
+onForceGoldSpot = "none"
 onCollection = False
+

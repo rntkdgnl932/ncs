@@ -69,7 +69,7 @@ onMaul = "none"
 
 isgloballoop = False
 
-version = "1.36"
+version = "1.37"
 
 # 기존 오토모드 관련###############################################
 
@@ -557,6 +557,8 @@ class FirstTab(QWidget):
         dir_path = "C:\\nightcrow"
         file_path = dir_path + "\\mysettings\\myschedule\\schedule.txt"
         file_path3 = dir_path + "\\mysettings\\myschedule\\schedule2.txt"
+        file_path5 = dir_path + "\\jadong\\jadong_force_list.txt"
+
         if os.path.isfile(file_path) == True:
             # 파일 읽기
             with open(file_path, "r", encoding='UTF8') as file:
@@ -580,6 +582,17 @@ class FirstTab(QWidget):
                         file.write(str(shcedule))
                         with open(file_path, "r", encoding='UTF8') as file:
                             lines = file.read().splitlines()
+        if os.path.isfile(file_path5) == True:
+            # 파일 읽기
+            with open(file_path5, "r", encoding='UTF8') as file:
+                jadong_list = file.read().splitlines()
+                jadong_list_ = ["사냥터"]
+                for i in range(len(jadong_list)):
+                    result = jadong_list[i].split("/")
+                    jadong_list_.append(result[0])
+            print(".......................................", jadong_list_)
+        else:
+            jadong_list = ["자동리스트 없당"]
 
         self.tableWidget = QTableWidget()
         self.tableWidget.setRowCount(len(lines))
@@ -625,19 +638,30 @@ class FirstTab(QWidget):
         self.force_sub = QGroupBox('강제 서브퀘스트')
 
         self.my_limit_gold = QLabel("골드 : " + str(v_.onForceGold) + " 이하 강제노역 ㄱㄱ")
+        self.my_limit_gold_spot = QLabel("사냥터 : " + str(v_.onForceGoldSpot))
 
         sub_q = QComboBox()
         limit_gold = ['얼마이하', '50만', '100만', '200만']
         sub_q.addItems(limit_gold)
 
+        sub_h = QComboBox()
+        gold_spot = jadong_list_
+        sub_h.addItems(gold_spot)
+
         gold33 = QHBoxLayout()
         gold33.addWidget(self.my_limit_gold)
+        gold33.addWidget(self.my_limit_gold_spot)
 
         sub_box = QVBoxLayout()
         sub_box.addLayout(gold33)
         sub_box.addWidget(sub_q)
+        sub_box.addWidget(sub_h)
+
         slelect_gold = QPushButton('골드 선택')
         slelect_gold.clicked.connect(self.onActivated_slelect_gold)
+        slelect_spot = QPushButton('장소 선택')
+        slelect_spot.clicked.connect(self.onActivated_slelect_spot)
+
         self.force_sub.setLayout(sub_box)
 
         # 콜렉션 온오프(수집 온오프)
@@ -853,6 +877,7 @@ class FirstTab(QWidget):
 
         ###
 
+        sub_h.activated[str].connect(self.onActivated_slelect_spot)  # 요건 함수
         sub_q.activated[str].connect(self.onActivated_slelect_gold)  # 요건 함수
         cb3.activated[str].connect(self.onActivated_character)  # 요건 함수
         cb33.activated[str].connect(self.onActivated_time)  # 요건 함수
@@ -975,6 +1000,49 @@ class FirstTab(QWidget):
         # self.BackGroundPotion_.potion_back_ = True
         # self.BackGroundPotion_.start()
         # time.sleep(1)
+    def onActivated_slelect_spot_read(self):
+        dir_path = "C:\\nightcrow"
+        dir_spot = "C:\\nightcrow\\mysettings\\gold_force"
+        file_path = dir_path + "\\mysettings\\gold_force\\limit_gold_spot.txt"
+
+        islimitgold = False
+        while islimitgold is False:
+            if os.path.isfile(file_path) == True:
+                with open(file_path, "r", encoding='UTF8') as file:
+                    v_.onForceGoldSpot = file.read()
+                    islimitgold = True
+            else:
+                if os.path.isdir(dir_spot) == False:
+                    print('강제노역 장소 디렉토리 존재하지 않음')
+                    os.makedirs(dir_spot)
+                with open(file_path, "w", encoding='UTF8') as file:
+                    file.write("콜리아삼거리")
+        return v_.onForceGold
+
+    def onActivated_slelect_spot(self, e):
+        if e != 0 and e != '사냥터':
+            v_.onForceGoldSpot = e
+            print('onForceGoldSpot : ', v_.onForceGoldSpot)
+            dir_path = "C:\\nightcrow"
+            dir_spot = "C:\\nightcrow\\mysettings\\gold_force"
+            file_path = dir_path + "\\mysettings\\gold_force\\limit_gold_spot.txt"
+
+            islimitgold = False
+            while islimitgold is False:
+                if os.path.isfile(file_path) == True:
+                    with open(file_path, "w", encoding='UTF8') as file:
+                        file.write(e)
+                        islimitgold = True
+                else:
+                    if os.path.isdir(dir_spot) == False:
+                        print('강제노역 장소 디렉토리 존재하지 않음')
+                        os.makedirs(dir_spot)
+                    with open(file_path, "w", encoding='UTF8') as file:
+                        file.write(e)
+        else:
+            print("사냥터를 선택해 주세요.")
+        self.my_limit_gold_spot.setText("사냥터 : " + str(v_.onForceGoldSpot))
+
     def onActivated_slelect_gold_read(self):
         dir_path = "C:\\nightcrow"
         dir_gold = "C:\\nightcrow\\mysettings\\gold_force"
@@ -2249,15 +2317,49 @@ class game_Playing(QThread):
                 else:
                     print("없")
 
+                    result_schedule = myQuest_play_check(v_.now_cla, "check")
+                    print("result_schedule", result_schedule)
+                    result_schedule_ = result_schedule[0][2]
+
                     if v_.force_sub_quest == True:
                         # 죽었을때 돈 50만 골드 이하일때 강제노역 보내기
-                        sub_quest_grow(v_.now_cla)
-                        # 자체에 스케쥴 완료 있음
-                    else:
 
-                        result_schedule = myQuest_play_check(v_.now_cla, "check")
-                        print("result_schedule", result_schedule)
-                        result_schedule_ = result_schedule[0][2]
+                        dir_path = "C:\\nightcrow"
+                        file_path5 = dir_path + "\\jadong\\jadong_force_list.txt"
+                        abilius = dir_path + "\\jadong\\abilius.txt"
+                        bastium = dir_path + "\\jadong\\bastium.txt"
+                        chalano = dir_path + "\\jadong\\chalano.txt"
+
+                        if os.path.isfile(file_path5) == True:
+                            # 파일 읽기
+                            with open(file_path5, "r", encoding='UTF8') as file:
+                                jadong_list = file.read()
+                            with open(abilius, "r", encoding='UTF8') as file:
+                                abilius_list = file.read()
+                                abilius_list_ = abilius_list.split(":")
+                                abilius_list_result = abilius_list_[1].split("/")
+                                for i in range(len(abilius_list_result)):
+                                    if jadong_list == abilius_list_result[i]:
+                                        spot_ = "사냥_아빌리우스_" + jadong_list
+                            with open(abilius, "r", encoding='UTF8') as file:
+                                bastium_list = file.read()
+                                bastium_list_ = bastium_list.split(":")
+                                bastium_list_result = bastium_list_[1].split("/")
+                                for i in range(len(abilius_list_result)):
+                                    if jadong_list == abilius_list_result[i]:
+                                        spot_ = "사냥_바스티움_" + jadong_list
+                            with open(abilius, "r", encoding='UTF8') as file:
+                                chalano_list = file.read()
+                                chalano_list_ = chalano_list.split(":")
+                                chalano_list_result = chalano_list_[1].split("/")
+                                for i in range(len(abilius_list_result)):
+                                    if jadong_list == abilius_list_result[i]:
+                                        spot_ = "사냥_첼라노_" + jadong_list
+
+
+                        jadong_play(v_.now_cla, spot_)
+                        # 자체에 스케쥴 완료 없음 돈 벌어야 빠져나옴
+                    else:
 
                         v_.now_ing_schedule = result_schedule_
 

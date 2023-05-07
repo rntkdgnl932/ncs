@@ -123,6 +123,8 @@ def quest_get(cla):
         print("서브퀘스트 받기")
         sub_quest = True
 
+        clear_sub_quest = False
+
         sub_count_1 = 0
 
         in_quest_1 = False
@@ -143,10 +145,11 @@ def quest_get(cla):
                     full_path = "c:\\nightcrow\\imgs\\quest\\sub_not_checked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(510, 990, 540, 1020, cla, img, 0.83)
+                    imgs_ = imgs_set_(510, 990, 540, 1020, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.5)
+
 
                     full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
@@ -267,8 +270,22 @@ def quest_get(cla):
                             #
                             sub_quest = False
                             print("서브퀘스트 끝")
-                            myQuest_play_add(cla, "서브퀘스트")
+                            clear_sub_quest = True
                             #
+                    # 퀘스트 끝 체크
+                    full_path = "c:\\nightcrow\\imgs\\quest\\sub_clear_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(250, 450, 350, 580, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        clear_sub_quest = True
+
+                    full_path = "c:\\nightcrow\\imgs\\quest\\sub_clear_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(300, 580, 400, 620, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        clear_sub_quest = True
 
                 else:
                     click_pos_2(220, 110, cla)
@@ -277,6 +294,9 @@ def quest_get(cla):
                 click_pos_2(745, 195, cla)
 
             time.sleep(0.3)
+
+        if clear_sub_quest == True:
+            myQuest_play_add(cla, "서브퀘스트")
 
     except Exception as e:
         print(e)
