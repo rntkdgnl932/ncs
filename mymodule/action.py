@@ -35,18 +35,18 @@ def dead_die(cla):
                 line_to_me(cla, "나크 5번째 죽었다.")
                 die_count = 0
 
-        time.sleep(1)
+            time.sleep(1)
 
-        out_ = False
-        while out_ is False:
-            out_ = out_check(cla)
-            if out_ == False:
-                print("dead_clean")
-                clean_screen(cla)
-                line_to_me(cla, "죽은것 같은데 원인 파악하러 빨리 구경와라!!")
-            else:
-                dead_die_before(cla)
-            time.sleep(0.5)
+            out_ = False
+            while out_ is False:
+                out_ = out_check(cla)
+                if out_ == False:
+                    print("dead_clean")
+                    clean_screen(cla)
+                    line_to_me(cla, "죽은것 같은데 원인 파악하러 빨리 구경와라!!")
+                else:
+                    dead_die_before(cla)
+                time.sleep(0.5)
 
 
 
@@ -76,76 +76,28 @@ def dead_die_before(cla):
             bag_open(cla)
 
 
-        if v_.force_sub_quest == False:
-            die_x = imgs_.x
-            die_y = imgs_.y
-            click_pos_reg(imgs_.x, imgs_.y, cla)
-            dead_die_ = False
-            while dead_die_ is False:
-                die_count += 1
-                if die_count > 5:
-                    dead_die_ = True
-                    die_count = 0
-                full_path = "c:\\nightcrow\\imgs\\dead_die\\exp_.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(50, 80, 150, 115, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    full_path = "c:\\nightcrow\\imgs\\dead_die\\exp_1.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(55, 120, 120, 180, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_2(170, 940, cla)
-
-                        full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            dead_die_ = True
-                            v_.force_sub_quest = True
-                        else:
-                            full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                dead_die_ = True
-                                v_.force_sub_quest = True
-                    else:
+            if v_.force_sub_quest == False:
+                die_x = imgs_.x
+                die_y = imgs_.y
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                dead_die_ = False
+                while dead_die_ is False:
+                    die_count += 1
+                    if die_count > 5:
                         dead_die_ = True
                         die_count = 0
-                        click_pos_2(30, 205, cla)
-                else:
-                    click_pos_reg(die_x, die_y, cla)
-                time.sleep(0.5)
-            dead_die_ = False
-            while dead_die_ is False:
-                die_count += 1
-                if die_count > 5:
-                    dead_die_ = True
-                    die_count = 0
-                full_path = "c:\\nightcrow\\imgs\\dead_die\\jangbi_.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(50, 80, 150, 115, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    full_path = "c:\\nightcrow\\imgs\\dead_die\\jangbi_1.PNG"
+                    full_path = "c:\\nightcrow\\imgs\\dead_die\\exp_.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(55, 120, 120, 180, cla, img, 0.8)
+                    imgs_ = imgs_set_(50, 80, 150, 115, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_2(170, 940, cla)
-
-                        full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
+                        full_path = "c:\\nightcrow\\imgs\\dead_die\\exp_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
+                        imgs_ = imgs_set_(55, 120, 120, 180, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            dead_die_ = True
-                            v_.force_sub_quest = True
-                        else:
+                            click_pos_2(170, 940, cla)
+
                             full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -153,14 +105,62 @@ def dead_die_before(cla):
                             if imgs_ is not None and imgs_ != False:
                                 dead_die_ = True
                                 v_.force_sub_quest = True
-
-
+                            else:
+                                full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    dead_die_ = True
+                                    v_.force_sub_quest = True
+                        else:
+                            dead_die_ = True
+                            die_count = 0
+                            click_pos_2(30, 205, cla)
                     else:
-                        click_pos_2(25, 100, cla)
+                        click_pos_reg(die_x, die_y, cla)
+                    time.sleep(0.5)
+                dead_die_ = False
+                while dead_die_ is False:
+                    die_count += 1
+                    if die_count > 5:
                         dead_die_ = True
-                else:
-                    click_pos_2(30, 250, cla)
-                time.sleep(0.5)
+                        die_count = 0
+                    full_path = "c:\\nightcrow\\imgs\\dead_die\\jangbi_.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(50, 80, 150, 115, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        full_path = "c:\\nightcrow\\imgs\\dead_die\\jangbi_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(55, 120, 120, 180, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(170, 940, cla)
+
+                            full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                dead_die_ = True
+                                v_.force_sub_quest = True
+                            else:
+                                full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    dead_die_ = True
+                                    v_.force_sub_quest = True
+
+
+                        else:
+                            click_pos_2(25, 100, cla)
+                            dead_die_ = True
+                    else:
+                        click_pos_2(30, 250, cla)
+                    time.sleep(0.5)
 
         full_path = "c:\\nightcrow\\imgs\\clean_screen\\exit_3.PNG"
         img_array = np.fromfile(full_path, np.uint8)
