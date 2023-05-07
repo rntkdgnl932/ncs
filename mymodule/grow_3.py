@@ -268,6 +268,7 @@ def quest_get(cla):
                                 time.sleep(0.3)
                         else:
                             #
+                            in_quest_1 = True
                             sub_quest = False
                             print("서브퀘스트 끝")
                             clear_sub_quest = True
@@ -279,6 +280,7 @@ def quest_get(cla):
                     imgs_ = imgs_set_(250, 450, 350, 580, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         clear_sub_quest = True
+                        in_quest_1 = True
 
                     full_path = "c:\\nightcrow\\imgs\\quest\\sub_clear_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
@@ -286,6 +288,7 @@ def quest_get(cla):
                     imgs_ = imgs_set_(300, 580, 400, 620, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         clear_sub_quest = True
+                        in_quest_1 = True
 
                 else:
                     click_pos_2(220, 110, cla)
