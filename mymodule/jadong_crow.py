@@ -284,7 +284,7 @@ def in_spot(cla, result_schedule_):
 
                         else:
                             in_worldmap_count += 1
-                            if in_worldmap_count > 20
+                            if in_worldmap_count > 20:
                                 in_worldmap = True
                             print("다시 월드맵 진입중")
                         time.sleep(0.3)

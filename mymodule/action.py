@@ -75,26 +75,7 @@ def dead_die_before(cla):
             #골드 파악후 50만 미만이면 강제로 서브퀘스트 실행
             bag_open(cla)
 
-            my_gold_bloon = False
-            my_gold_count = 0
-            while my_gold_bloon is False:
-                my_gold_count += 1
-                if my_gold_count > 3:
-                    my_gold_bloon = True
-                my_money = text_check_get(830, 880, 892, 900, cla)
 
-                print("내 골드?", my_money)
-                my_money = int_put_(my_money)
-                money_bool = my_money.isdigit()
-                if money_bool == True:
-                    my_money = int(my_money)
-                    if my_money > 0:
-                        my_gold_bloon = True
-                        if my_money < 500000:
-                            print("강제로 서브퀘스트 수행하기")
-                            v_.force_sub_quest = True
-                            line_to_me(cla, "거지다ㅜ")
-                time.sleep(2)
 
             die_x = imgs_.x
             die_y = imgs_.y
@@ -687,6 +668,32 @@ def bag_open(cla):
                     click_pos_2(840, 60, cla)
                     go_ = True
                     time.sleep(0.5)
+
+                    #골드 파악 후 강제노역 시키기
+                    my_gold_bloon = False
+                    my_gold_count = 0
+                    while my_gold_bloon is False:
+                        my_gold_count += 1
+                        if my_gold_count > 3:
+                            my_gold_bloon = True
+                        my_money = text_check_get(830, 880, 892, 900, cla)
+
+                        print("내 골드?", my_money)
+                        my_money = int_put_(my_money)
+                        money_bool = my_money.isdigit()
+                        if money_bool == True:
+                            my_money = int(my_money)
+                            if my_money > 0:
+                                my_gold_bloon = True
+                                if my_money < v_.onForceGold:
+                                    print("강제로 서브퀘스트 수행하기, 기준골드 : ", v_.onForceGold)
+                                    v_.force_sub_quest = True
+                                    line_to_me(cla, "거지다ㅜ")
+                                else:
+                                    print("기준골드보다 돈 많다 강제노역 해제하기, 기준골드 : ", v_.onForceGold)
+                                    v_.force_sub_quest = False
+                        time.sleep(1)
+
                 else:
                     print("bag open clean_screen")
                     clean_screen(cla)
