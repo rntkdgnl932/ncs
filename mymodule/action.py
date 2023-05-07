@@ -83,7 +83,7 @@ def dead_die_before(cla):
             dead_die_ = False
             while dead_die_ is False:
                 die_count += 1
-                if die_count > 20:
+                if die_count > 5:
                     dead_die_ = True
                     die_count = 0
                 full_path = "c:\\nightcrow\\imgs\\dead_die\\exp_.PNG"
@@ -107,7 +107,7 @@ def dead_die_before(cla):
             dead_die_ = False
             while dead_die_ is False:
                 die_count += 1
-                if die_count > 20:
+                if die_count > 5:
                     dead_die_ = True
                     die_count = 0
                 full_path = "c:\\nightcrow\\imgs\\dead_die\\jangbi_.PNG"

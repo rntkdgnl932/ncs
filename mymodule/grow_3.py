@@ -196,11 +196,53 @@ def quest_get(cla):
                                     sub_count_1 = 0
                             time.sleep(0.3)
                     else:
-                        #
-                        sub_quest = False
-                        print("서브퀘스트 끝")
-                        myQuest_play_add(cla, "서브퀘스트")
-                        #
+                        full_path = "c:\\nightcrow\\imgs\\grow\\grow_3\\move_.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(780, 970, 910, 1030, cla, img, 0.83)
+                        if imgs_ is not None and imgs_ != False:
+                            print("move_", imgs_)
+
+                            # 서브퀘가 있었을 경우
+                            in_quest_3 = False
+                            while in_quest_3 is False:
+                                full_path = "c:\\nightcrow\\imgs\\grow\\grow_3\\move_.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(780, 970, 910, 1030, cla, img, 0.83)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("move_", imgs_)
+                                    in_quest_3 = True
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                else:
+                                    sub_count_1 += 1
+                                    if sub_count_1 > 10:
+                                        in_quest_3 = True
+                                        sub_count_1 = 0
+                                time.sleep(0.3)
+                            # 서브퀘가 있었을 경우
+                            in_quest_4 = False
+                            while in_quest_4 is False:
+                                full_path = "c:\\nightcrow\\imgs\\grow\\grow_3\\confirm_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(480, 620, 620, 660, cla, img, 0.83)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("confirm_1", imgs_)
+                                    in_quest_4 = True
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                else:
+                                    sub_count_1 += 1
+                                    if sub_count_1 > 10:
+                                        in_quest_4 = True
+                                        sub_count_1 = 0
+                                time.sleep(0.3)
+                        else:
+                            #
+                            sub_quest = False
+                            print("서브퀘스트 끝")
+                            myQuest_play_add(cla, "서브퀘스트")
+                            #
 
                 else:
                     click_pos_2(220, 110, cla)
