@@ -43,6 +43,7 @@ def dead_die(cla):
             if out_ == False:
                 print("dead_clean")
                 clean_screen(cla)
+                line_to_me(cla, "죽은것 같은데 원인 파악하러 빨리 구경와라!!")
             else:
                 dead_die_before(cla)
             time.sleep(0.5)
@@ -92,6 +93,7 @@ def dead_die_before(cla):
                         if my_money < 500000:
                             print("강제로 서브퀘스트 수행하기")
                             v_.force_sub_quest = True
+                            line_to_me(cla, "거지다ㅜ")
                 time.sleep(2)
 
             die_x = imgs_.x
@@ -688,6 +690,7 @@ def bag_open(cla):
                 else:
                     print("bag open clean_screen")
                     clean_screen(cla)
+                time.sleep(0.2)
 
         return go_
     except Exception as e:
