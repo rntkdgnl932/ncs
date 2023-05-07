@@ -2341,14 +2341,14 @@ class game_Playing(QThread):
                                 for i in range(len(abilius_list_result)):
                                     if jadong_list == abilius_list_result[i]:
                                         spot_ = "사냥_아빌리우스_" + jadong_list
-                            with open(abilius, "r", encoding='UTF8') as file:
+                            with open(bastium, "r", encoding='UTF8') as file:
                                 bastium_list = file.read()
                                 bastium_list_ = bastium_list.split(":")
                                 bastium_list_result = bastium_list_[1].split("/")
                                 for i in range(len(abilius_list_result)):
                                     if jadong_list == abilius_list_result[i]:
                                         spot_ = "사냥_바스티움_" + jadong_list
-                            with open(abilius, "r", encoding='UTF8') as file:
+                            with open(chalano, "r", encoding='UTF8') as file:
                                 chalano_list = file.read()
                                 chalano_list_ = chalano_list.split(":")
                                 chalano_list_result = chalano_list_[1].split("/")

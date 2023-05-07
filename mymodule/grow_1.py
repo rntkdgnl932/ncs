@@ -336,7 +336,13 @@ def talgut_board_(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(500, 580, 600, 630, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                result_knight_of_death_alrim = knight_of_death_alrim(cla)
+                                if result_knight_of_death_alrim == True:
+                                    print("죽음의기사 퀘스트")
+                                    line_to_me(cla, "죽음의기사 퀘스트 대기중")
+                                    myQuest_play_add(cla, "튜토육성")
+                                else:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
                     else:
                         click_pos_2(345, 105, cla)
                 else:
