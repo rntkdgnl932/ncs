@@ -76,7 +76,7 @@ def dead_die_before(cla):
             bag_open(cla)
 
 
-
+        if v_.force_sub_quest == False:
             die_x = imgs_.x
             die_y = imgs_.y
             click_pos_reg(imgs_.x, imgs_.y, cla)
