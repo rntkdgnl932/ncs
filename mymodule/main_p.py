@@ -635,6 +635,7 @@ class FirstTab(QWidget):
 
         # 강제 노역(서브퀘스트 강제수행)
         self.onActivated_slelect_gold_read()
+        self.onActivated_slelect_spot_read()
         self.force_sub = QGroupBox('강제 서브퀘스트')
 
         self.my_limit_gold = QLabel("골드 : " + str(v_.onForceGold) + " 이하 강제노역 ㄱㄱ")
@@ -1017,7 +1018,7 @@ class FirstTab(QWidget):
                     os.makedirs(dir_spot)
                 with open(file_path, "w", encoding='UTF8') as file:
                     file.write("콜리아삼거리")
-        return v_.onForceGold
+        return v_.onForceGoldSpot
 
     def onActivated_slelect_spot(self, e):
         if e != 0 and e != '사냥터':
