@@ -328,9 +328,13 @@ def quest_check(cla):
             print("quest_complete_2", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
             talgut_board_(cla)
-
-
-
+        # 붕붕 날아다니자
+        full_path = "c:\\nightcrow\\imgs\\jadong\\fly_.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(770, 970, 960, 1030, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
 
 
     except Exception as e:

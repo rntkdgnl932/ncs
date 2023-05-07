@@ -303,7 +303,11 @@ def go_to_spot(cla):
         print("사냥터 이동중")
 
         bihangjang = False
+        bihangjang_count = 0
         while bihangjang is False:
+            bihangjang_count += 1
+            if bihangjang_count > 25:
+                bihangjang = True
             full_path = "c:\\nightcrow\\imgs\\jadong\\bihangjang.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -315,7 +319,11 @@ def go_to_spot(cla):
             time.sleep(0.2)
 
         flying = False
+        flying_count = 0
         while flying is False:
+            flying_count += 1
+            if flying_count > 25:
+                flying = True
             full_path = "c:\\nightcrow\\imgs\\jadong\\flying_.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
