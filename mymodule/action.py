@@ -652,6 +652,7 @@ def bag_open(cla):
         import cv2
         import numpy as np
         from function import text_check_get, int_put_, click_pos_2, imgs_set_
+        from massenger import line_to_me
 
         go_ = False
 
@@ -685,7 +686,7 @@ def bag_open(cla):
                             my_money = int(my_money)
                             if my_money > 0:
                                 my_gold_bloon = True
-                                if my_money < v_.onForceGold:
+                                if my_money < int(v_.onForceGold):
                                     print("강제로 서브퀘스트 수행하기, 기준골드 : ", v_.onForceGold)
                                     v_.force_sub_quest = True
                                     line_to_me(cla, "거지다ㅜ")
