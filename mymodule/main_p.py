@@ -2334,28 +2334,31 @@ class game_Playing(QThread):
                         if os.path.isfile(file_path5) == True:
                             # 파일 읽기
                             with open(file_path5, "r", encoding='UTF8') as file:
-                                jadong_list = file.read()
+                                jadong_list = file.read().split("/")
                             with open(abilius, "r", encoding='UTF8') as file:
                                 abilius_list = file.read()
                                 abilius_list_ = abilius_list.split(":")
                                 abilius_list_result = abilius_list_[1].split("/")
                                 for i in range(len(abilius_list_result)):
-                                    if jadong_list == abilius_list_result[i]:
+                                    if jadong_list[0] == abilius_list_result[i]:
                                         spot_ = "사냥_아빌리우스_" + jadong_list
+                                        print("spot_1", spot_)
                             with open(bastium, "r", encoding='UTF8') as file:
                                 bastium_list = file.read()
                                 bastium_list_ = bastium_list.split(":")
                                 bastium_list_result = bastium_list_[1].split("/")
                                 for i in range(len(bastium_list_result)):
-                                    if jadong_list == bastium_list_result[i]:
+                                    if jadong_list[0] == bastium_list_result[i]:
                                         spot_ = "사냥_바스티움_" + jadong_list
+                                        print("spot_2", spot_)
                             with open(chalano, "r", encoding='UTF8') as file:
                                 chalano_list = file.read()
                                 chalano_list_ = chalano_list.split(":")
                                 chalano_list_result = chalano_list_[1].split("/")
                                 for i in range(len(chalano_list_result)):
-                                    if jadong_list == chalano_list_result[i]:
+                                    if jadong_list[0] == chalano_list_result[i]:
                                         spot_ = "사냥_첼라노_" + jadong_list
+                                        print("spot_3", spot_)
 
 
                         jadong_play(v_.now_cla, spot_)
