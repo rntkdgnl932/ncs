@@ -592,7 +592,7 @@ def in_spot_to_walking(cla):
             full_path = "c:\\nightcrow\\imgs\\jadong\\in_spot_walking.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
+            imgs_ = imgs_set_(300, 500, 600, 700, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 print("in_spot_walking~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
                 click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -600,7 +600,7 @@ def in_spot_to_walking(cla):
                 full_path = "c:\\nightcrow\\imgs\\jadong\\in_spot_walking.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
+                imgs_ = imgs_set_(400, 60, 600, 700, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("in_spot_walking...")
                     click_pos_reg(imgs_.x, imgs_.y, cla)
