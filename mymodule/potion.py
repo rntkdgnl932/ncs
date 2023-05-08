@@ -242,7 +242,12 @@ def maul_potion(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("janhwa_1", imgs_)
                 else:
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    full_path = "c:\\nightcrow\\imgs\\check\\maul_move_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(250, 960, 400, 1030, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
             else:
                 bag_open(cla)
                 time.sleep(1)
