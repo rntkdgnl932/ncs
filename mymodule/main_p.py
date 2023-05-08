@@ -1439,12 +1439,17 @@ class FirstTab(QWidget):
         while isRefresh is False:
             if os.path.isfile(file_path13) == True:
                 with open(file_path13, "r", encoding='UTF8') as file:
-                    isRefresh = True
                     refresh_time = file.read()
-                    print("refresh_time", refresh_time)
+                    refresh_time_bool = refresh_time.isdigit()
+                    if refresh_time_bool == True:
+                        isRefresh = True
+                        print("refresh_time", refresh_time)
+                    else:
+                        with open(file_path13, "w", encoding='UTF8') as file:
+                            file.write(str(4))
             else:
                 with open(file_path13, "w", encoding='UTF8') as file:
-                    file.write(str(6))
+                    file.write(str(4))
 
         if os.path.isfile(file_path2) == True:
             # 파일 읽기
@@ -1938,12 +1943,17 @@ class FirstTab(QWidget):
             while isRefresh is False:
                 if os.path.isfile(file_path13) == True:
                     with open(file_path13, "r", encoding='UTF8') as file:
-                        isRefresh = True
                         refresh_time = file.read()
-                        print("refresh_time", refresh_time)
+                        refresh_time_bool = refresh_time.isdigit()
+                        if refresh_time_bool == True:
+                            isRefresh = True
+                            print("refresh_time", refresh_time)
+                        else:
+                            with open(file_path13, "w", encoding='UTF8') as file:
+                                file.write(str(4))
                 else:
                     with open(file_path13, "w", encoding='UTF8') as file:
-                        file.write(str(6))
+                        file.write(str(4))
 
             with open(file_path3, "r", encoding='UTF8') as file:
                 lines = file.read()
