@@ -484,6 +484,19 @@ def item_open(cla):
                         if item_count > 20:
                             item_count = 0
                             tal_1 = True
+
+                        full_path = "c:\\nightcrow\\imgs\\item_1\\ganghwa.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(30, 30, 140, 80, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("ganghwa.PNG 111111111111111111111111111111111111111111111111", box_[i])
+                            tal_1 = True
+                            bag_open(cla)
+                            time.sleep(0.2)
+                            click_pos_2(935, 265, cla)
+                            time.sleep(0.2)
+
                         full_path = "c:\\nightcrow\\imgs\\item_1\\max.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
