@@ -29,26 +29,9 @@ def go_test():
         plus = 960
 
     print("여긴 테스트")
-    last_move = False
-    last_move_count = 0
-    while last_move is False:
-        if last_move_count > 10:
-            last_move = True
-        full_path = "c:\\nightcrow\\imgs\\jadong\\in_spot_walking_2.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(480, 880, 500, 900, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            last_move_count = 0
-            print("in_spot_walking_2 보여", last_move_count)
-        else:
-            last_move_count += 1
-            print("in_spot_walking_2 안 보여", last_move_count)
-        time.sleep(0.5)
+    my_money = text_check_get(830, 880, 892, 900, cla)
 
-
-    if last_move == True:
-        print("도착!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    print("내 골드?", my_money)
 
 
 
