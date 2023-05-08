@@ -2346,15 +2346,15 @@ class game_Playing(QThread):
                                 bastium_list = file.read()
                                 bastium_list_ = bastium_list.split(":")
                                 bastium_list_result = bastium_list_[1].split("/")
-                                for i in range(len(abilius_list_result)):
-                                    if jadong_list == abilius_list_result[i]:
+                                for i in range(len(bastium_list_result)):
+                                    if jadong_list == bastium_list_result[i]:
                                         spot_ = "사냥_바스티움_" + jadong_list
                             with open(chalano, "r", encoding='UTF8') as file:
                                 chalano_list = file.read()
                                 chalano_list_ = chalano_list.split(":")
                                 chalano_list_result = chalano_list_[1].split("/")
-                                for i in range(len(abilius_list_result)):
-                                    if jadong_list == abilius_list_result[i]:
+                                for i in range(len(chalano_list_result)):
+                                    if jadong_list == chalano_list_result[i]:
                                         spot_ = "사냥_첼라노_" + jadong_list
 
 
