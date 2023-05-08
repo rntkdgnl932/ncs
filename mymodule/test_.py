@@ -29,7 +29,7 @@ def go_test():
         plus = 960
 
     print("여긴 테스트")
-    bag_open(cla)
+    item_open(cla)
 
 
 

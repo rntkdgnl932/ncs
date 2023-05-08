@@ -230,6 +230,23 @@ def item_open(cla):
                     time.sleep(0.1)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
 
+                    time.sleep(0.5)
+                    full_path = "c:\\nightcrow\\imgs\\item_1\\max.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(500, 500, 700, 700, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("max.PNG")
+                        time.sleep(0.2)
+                        click_pos_2(585, 460, cla)
+                        time.sleep(0.1)
+                        click_pos_2(585, 460, cla)
+
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.1)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.3)
+
                     tal_1 = False
                     tal_1_2 = False
                     while tal_1 is False:
@@ -308,6 +325,23 @@ def item_open(cla):
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.1)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    time.sleep(0.5)
+                    full_path = "c:\\nightcrow\\imgs\\item_1\\max.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(500, 500, 700, 700, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("max.PNG")
+                        time.sleep(0.2)
+                        click_pos_2(585, 460, cla)
+                        time.sleep(0.1)
+                        click_pos_2(585, 460, cla)
+
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.1)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.3)
 
                     tal_1 = False
                     tal_1_2 = False
@@ -425,6 +459,7 @@ def item_open(cla):
             else:
                 print("음식 없")
             # 상자
+
             dir_path = "C:\\nightcrow"
             file_path = dir_path + "\\items\\item_open\\bag_item.txt"
             ###
@@ -662,7 +697,7 @@ def bag_open(cla):
                     print("bag open clean_screen")
                     clean_screen(cla)
                 time.sleep(0.2)
-                
+
         if go_ == True:
             # 골드 파악 후 강제노역 시키기
             my_gold_bloon = False
