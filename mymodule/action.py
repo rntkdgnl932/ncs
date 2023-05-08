@@ -726,7 +726,8 @@ def bag_open(cla):
                                 if my_money < onFG:
                                     print("강제로 서브퀘스트 수행하기, 기준골드 : ", v_.onForceGold)
                                     v_.force_sub_quest = True
-                                    line_to_me(cla, "거지다ㅜ")
+                                    mg_ = str(my_money) + "골드 있다. 거지다. ㅠㅠ"
+                                    line_to_me(cla, mg_)
                                 else:
                                     print("기준골드보다 돈 많다 강제노역 해제하기, 기준골드 : ", v_.onForceGold)
                                     v_.force_sub_quest = False
