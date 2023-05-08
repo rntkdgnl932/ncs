@@ -35,18 +35,18 @@ def dead_die(cla):
                 line_to_me(cla, "나크 5번째 죽었다.")
                 die_count = 0
 
-            time.sleep(1)
+                time.sleep(1)
 
-            out_ = False
-            while out_ is False:
-                out_ = out_check(cla)
-                if out_ == False:
-                    print("dead_clean")
-                    clean_screen(cla)
-                    line_to_me(cla, "죽은것 같은데 원인 파악하러 빨리 구경와라!!")
-                else:
-                    dead_die_before(cla)
-                time.sleep(0.5)
+                out_ = False
+                while out_ is False:
+                    out_ = out_check(cla)
+                    if out_ == False:
+                        print("dead_clean")
+                        clean_screen(cla)
+                        line_to_me(cla, "죽은것 같은데 원인 파악하러 빨리 구경와라!!")
+                    else:
+                        dead_die_before(cla)
+                    time.sleep(0.5)
 
 
 
@@ -72,11 +72,14 @@ def dead_die_before(cla):
         if imgs_ is not None and imgs_ != False:
             print("dead_die_2", imgs_)
 
-            #골드 파악후 50만 미만이면 강제로 서브퀘스트 실행
-            bag_open(cla)
+
 
 
             if v_.force_sub_quest == False:
+
+                # 골드 파악후 50만 미만이면 강제로 서브퀘스트 실행
+                bag_open(cla)
+
                 die_x = imgs_.x
                 die_y = imgs_.y
                 click_pos_reg(imgs_.x, imgs_.y, cla)
