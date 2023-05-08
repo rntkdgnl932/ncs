@@ -1018,6 +1018,39 @@ class FirstTab(QWidget):
                     os.makedirs(dir_spot)
                 with open(file_path, "w", encoding='UTF8') as file:
                     file.write("콜리아삼거리")
+
+        abilius = dir_path + "\\jadong\\abilius.txt"
+        bastium = dir_path + "\\jadong\\bastium.txt"
+        chalano = dir_path + "\\jadong\\chalano.txt"
+
+        jadong_list = v_.onForceGoldSpot
+        with open(abilius, "r", encoding='UTF8') as file:
+            abilius_list = file.read()
+            abilius_list_ = abilius_list.split(":")
+            abilius_list_result = abilius_list_[1].split("/")
+            for i in range(len(abilius_list_result)):
+                if jadong_list[0] == abilius_list_result[i]:
+                    spot_ = "사냥_아빌리우스_" + jadong_list[0]
+                    print("spot_1", spot_)
+        with open(bastium, "r", encoding='UTF8') as file:
+            bastium_list = file.read()
+            bastium_list_ = bastium_list.split(":")
+            bastium_list_result = bastium_list_[1].split("/")
+            for i in range(len(bastium_list_result)):
+                if jadong_list[0] == bastium_list_result[i]:
+                    spot_ = "사냥_바스티움_" + jadong_list[0]
+                    print("spot_2", spot_)
+        with open(chalano, "r", encoding='UTF8') as file:
+            chalano_list = file.read()
+            chalano_list_ = chalano_list.split(":")
+            chalano_list_result = chalano_list_[1].split("/")
+            for i in range(len(chalano_list_result)):
+                if jadong_list[0] == chalano_list_result[i]:
+                    spot_ = "사냥_첼라노_" + jadong_list[0]
+                    print("spot_3", spot_)
+
+        v_.onForceGoldSpot_go = spot_
+
         return v_.onForceGoldSpot
 
     def onActivated_slelect_spot(self, e):
@@ -1043,6 +1076,7 @@ class FirstTab(QWidget):
         else:
             print("사냥터를 선택해 주세요.")
         self.my_limit_gold_spot.setText("사냥터 : " + str(v_.onForceGoldSpot))
+        self.onActivated_slelect_spot_read()
 
     def onActivated_slelect_gold_read(self):
         dir_path = "C:\\nightcrow"
@@ -1061,6 +1095,7 @@ class FirstTab(QWidget):
                     os.makedirs(dir_gold)
                 with open(file_path, "w", encoding='UTF8') as file:
                     file.write("50만")
+
         return v_.onForceGold
 
     def onActivated_slelect_gold(self, e):
@@ -1086,6 +1121,7 @@ class FirstTab(QWidget):
         else:
             print("금액을 선택해 주세요.")
         self.my_limit_gold.setText("골드 : " + str(e) + " 이하 강제노역 ㄱㄱ\n")
+        self.onActivated_slelect_gold_read()
 
     def onActivated_slelect_collection_toggle_read(self):
         print('onCollection read', v_.onCollection)
@@ -2325,43 +2361,7 @@ class game_Playing(QThread):
                     if v_.force_sub_quest == True:
                         # 죽었을때 돈 50만 골드 이하일때 강제노역 보내기
 
-                        dir_path = "C:\\nightcrow"
-                        file_path5 = dir_path + "\\jadong\\jadong_force_list.txt"
-                        abilius = dir_path + "\\jadong\\abilius.txt"
-                        bastium = dir_path + "\\jadong\\bastium.txt"
-                        chalano = dir_path + "\\jadong\\chalano.txt"
-
-                        if os.path.isfile(file_path5) == True:
-                            # 파일 읽기
-                            with open(file_path5, "r", encoding='UTF8') as file:
-                                jadong_list = file.read().split("/")
-                            with open(abilius, "r", encoding='UTF8') as file:
-                                abilius_list = file.read()
-                                abilius_list_ = abilius_list.split(":")
-                                abilius_list_result = abilius_list_[1].split("/")
-                                for i in range(len(abilius_list_result)):
-                                    if jadong_list[0] == abilius_list_result[i]:
-                                        spot_ = "사냥_아빌리우스_" + jadong_list[0]
-                                        print("spot_1", spot_)
-                            with open(bastium, "r", encoding='UTF8') as file:
-                                bastium_list = file.read()
-                                bastium_list_ = bastium_list.split(":")
-                                bastium_list_result = bastium_list_[1].split("/")
-                                for i in range(len(bastium_list_result)):
-                                    if jadong_list[0] == bastium_list_result[i]:
-                                        spot_ = "사냥_바스티움_" + jadong_list[0]
-                                        print("spot_2", spot_)
-                            with open(chalano, "r", encoding='UTF8') as file:
-                                chalano_list = file.read()
-                                chalano_list_ = chalano_list.split(":")
-                                chalano_list_result = chalano_list_[1].split("/")
-                                for i in range(len(chalano_list_result)):
-                                    if jadong_list[0] == chalano_list_result[i]:
-                                        spot_ = "사냥_첼라노_" + jadong_list[0]
-                                        print("spot_3", spot_)
-
-
-                        jadong_play(v_.now_cla, spot_)
+                        jadong_play(v_.now_cla, v_.onForceGoldSpot_go)
                         # 자체에 스케쥴 완료 없음 돈 벌어야 빠져나옴
                     else:
 

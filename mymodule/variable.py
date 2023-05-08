@@ -46,5 +46,6 @@ forcee_not_sub = False
 force_sub_quest = False
 onForceGold = 5000000
 onForceGoldSpot = "none"
+onForceGoldSpot_go = "none"
 onCollection = False
 
