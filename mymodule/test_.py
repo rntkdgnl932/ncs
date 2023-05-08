@@ -29,21 +29,34 @@ def go_test():
         plus = 960
 
     print("여긴 테스트")
-    click_pos_2(788, 201, cla)
+    last_move = False
+    last_move_count = 0
+    while last_move is False:
+        last_move_count += 1
+        if last_move_count > 10:
+            last_move = True
+        full_path = "c:\\nightcrow\\imgs\\jadong\\confirm_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(480, 580, 630, 630, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
 
-    full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("not_enough_gold")
-    else:
         full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            print("not_enough_gold2")
+            print("not_enough_gold")
+            last_move = True
+        else:
+            full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("not_enough_gold2")
+                last_move = True
 
 
 
