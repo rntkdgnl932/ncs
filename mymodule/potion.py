@@ -260,12 +260,36 @@ def maul_potion(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("janhwa_1", imgs_)
                 else:
-                    full_path = "c:\\nightcrow\\imgs\\check\\maul_move_1.PNG"
+                    full_path = "c:\\nightcrow\\imgs\\jadong\\maul_a.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(250, 960, 400, 1030, cla, img, 0.8)
+                    imgs_ = imgs_set_(50, 70, 160, 110, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        print("maul_a")
+                        click_pos_2(230, 90, cla)
+                    else:
+                        full_path = "c:\\nightcrow\\imgs\\jadong\\maul_b.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(50, 70, 160, 110, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("maul_b")
+                            click_pos_2(230, 90, cla)
+                        else:
+                            full_path = "c:\\nightcrow\\imgs\\jadong\\maul_c.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(50, 70, 160, 110, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("maul_c")
+                                click_pos_2(230, 90, cla)
+                            else:
+                                full_path = "c:\\nightcrow\\imgs\\check\\maul_move_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(250, 960, 400, 1030, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
             else:
                 bag_open(cla)
                 time.sleep(1)
