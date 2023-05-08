@@ -48,7 +48,7 @@ from dungeon import dungeon_play
 from jadong_crow import jadong_play
 from get_item import get_items
 from potion import maul_potion
-from action import maul_check
+from action import maul_check, bag_open
 
 import variable as v_
 
@@ -2390,6 +2390,8 @@ class game_Playing(QThread):
                                 if result_maul == True:
                                     click_pos_2(230, 90, v_.now_cla)
                                     maul_potion(v_.now_cla)
+                                else:
+                                    bag_open(v_.now_cla)
 
                     if v_.force_sub_quest == True:
                         # 죽었을때 돈 50만 골드 이하일때 강제노역 보내기
