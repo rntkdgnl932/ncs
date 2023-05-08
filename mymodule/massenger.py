@@ -238,7 +238,7 @@ def line_monitor(game, cla):
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set(0, 0, 960, 1030, cla, img)
-            if imgs_ is not None:
+            if imgs_ is None:
                 ms_ = str(game) + str(" 꺼진것 같다")
                 line_to_me(cla, ms_)
 
