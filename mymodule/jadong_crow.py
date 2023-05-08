@@ -582,7 +582,7 @@ def in_spot_to_walking(cla):
         from function import text_check_get, int_put_, click_pos_reg, click_pos_2, imgs_set_, drag_pos
         from massenger import line_to_me
         from action import out_check, clean_screen
-        print("뛰어가자!")
+        print("뛰어가자!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         # 뛰어가기
         spot_walking = False
         spot_walking_count = 0
@@ -643,7 +643,7 @@ def in_spot_to_walking(cla):
                     #     click_pos_2(110, 160, cla)
 
             else:
-                print("뛰어가?", spot_walking_count)
+                print("뛰어가????????????????????????????????????????????????????????????????????", spot_walking_count)
                 click_pos_2(400, 610, cla)
             time.sleep(0.3)
     except Exception as e:
