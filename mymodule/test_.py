@@ -29,9 +29,21 @@ def go_test():
         plus = 960
 
     print("여긴 테스트")
-    item_open(cla)
+    click_pos_2(788, 201, cla)
 
-
+    full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("not_enough_gold")
+    else:
+        full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("not_enough_gold2")
 
 
 

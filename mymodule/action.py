@@ -109,7 +109,7 @@ def dead_die_before(cla):
                                 dead_die_ = True
                                 v_.force_sub_quest = True
                             else:
-                                full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
+                                full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
