@@ -243,6 +243,7 @@ def quest_get(cla):
                                 if imgs_ is not None and imgs_ != False:
                                     print("move_", imgs_)
                                     in_quest_3 = True
+                                    in_quest_1 = True
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
                                 else:
                                     sub_count_1 += 1
