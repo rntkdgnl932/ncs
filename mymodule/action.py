@@ -658,40 +658,41 @@ def bag_open(cla):
                     go_ = True
                     time.sleep(0.5)
 
-                    #골드 파악 후 강제노역 시키기
-                    my_gold_bloon = False
-                    my_gold_count = 0
-                    while my_gold_bloon is False:
-                        my_gold_count += 1
-                        if my_gold_count > 3:
-                            my_gold_bloon = True
-                        my_money = text_check_get(830, 880, 892, 900, cla)
-
-                        print("내 골드?", my_money)
-                        my_money = int_put_(my_money)
-                        money_bool = my_money.isdigit()
-                        if money_bool == True:
-                            my_money = int(my_money)
-                            if my_money > 0:
-                                my_gold_bloon = True
-
-                                onFG_ = int_put_(v_.onForceGold)
-                                onFG = int(onFG_) * 10000
-                                if my_money < onFG:
-                                    print("강제로 서브퀘스트 수행하기, 기준골드 : ", v_.onForceGold)
-                                    if v_.force_sub_quest != True:
-                                        v_.force_sub_quest = True
-                                        mg_ = str(my_money) + "골드 있다. 거지다. ㅠㅠ"
-                                        line_to_me(cla, mg_)
-                                else:
-                                    print("기준골드보다 돈 많다 강제노역 해제하기, 기준골드 : ", v_.onForceGold)
-                                    v_.force_sub_quest = False
-                        time.sleep(1)
-
                 else:
                     print("bag open clean_screen")
                     clean_screen(cla)
                 time.sleep(0.2)
+                
+        if go_ == True:
+            # 골드 파악 후 강제노역 시키기
+            my_gold_bloon = False
+            my_gold_count = 0
+            while my_gold_bloon is False:
+                my_gold_count += 1
+                if my_gold_count > 3:
+                    my_gold_bloon = True
+                my_money = text_check_get(830, 880, 892, 900, cla)
+
+                print("내 골드?", my_money)
+                my_money = int_put_(my_money)
+                money_bool = my_money.isdigit()
+                if money_bool == True:
+                    my_money = int(my_money)
+                    if my_money > 0:
+                        my_gold_bloon = True
+
+                        onFG_ = int_put_(v_.onForceGold)
+                        onFG = int(onFG_) * 10000
+                        if my_money < onFG:
+                            print("강제로 서브퀘스트 수행하기, 기준골드 : ", v_.onForceGold)
+                            if v_.force_sub_quest != True:
+                                v_.force_sub_quest = True
+                                mg_ = str(my_money) + "골드 있다. 거지다. ㅠㅠ"
+                                line_to_me(cla, mg_)
+                        else:
+                            print("기준골드보다 돈 많다 강제노역 해제하기, 기준골드 : ", v_.onForceGold)
+                            v_.force_sub_quest = False
+                time.sleep(1)
 
         return go_
     except Exception as e:
