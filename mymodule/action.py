@@ -1063,6 +1063,20 @@ def go_auto_ing_(cla):
         if imgs_ is not None and imgs_ != False:
             print("auto_1", imgs_)
             go_ = True
+        full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\auto_2.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(900, 820, 945, 860, cla, img, 0.83)
+        if imgs_ is not None and imgs_ != False:
+            print("auto_1", imgs_)
+            go_ = True
+        full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\auto_3.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(900, 820, 945, 860, cla, img, 0.83)
+        if imgs_ is not None and imgs_ != False:
+            print("auto_1", imgs_)
+            go_ = True
 
         return go_
 
