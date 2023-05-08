@@ -121,7 +121,14 @@ def dead_die_before(cla):
                             die_count = 0
                             click_pos_2(30, 205, cla)
                     else:
-                        click_pos_reg(die_x, die_y, cla)
+                        full_path = "c:\\nightcrow\\imgs\\dead_die\\jangbi_.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(50, 80, 150, 115, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            dead_die_ = True
+                        else:
+                            click_pos_reg(die_x, die_y, cla)
                     time.sleep(0.5)
                 dead_die_ = False
                 while dead_die_ is False:

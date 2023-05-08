@@ -130,6 +130,32 @@ def dungeon_play(cla, result_schedule_):
 
                             if dungeon_clear == False:
                                 click_pos_2(200, 200, cla)
+                        full_path = "c:\\nightcrow\\imgs\\dungeon\\already_in.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(420, 80, 500, 120, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("already_in!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", imgs_)
+                            click_pos_2(930, 60, cla)
+                        full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            v_.force_sub_quest = True
+                            in_dungeon_title = True
+                            click_pos_2(930, 60, cla)
+                            print("not_enough_gold")
+                        else:
+                            full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                v_.force_sub_quest = True
+                                in_dungeon_title = True
+                                click_pos_2(930, 60, cla)
+                                print("not_enough_gold2")
                     else:
                         menu_open(cla)
                         click_pos_2(840, 200, cla)
@@ -159,6 +185,23 @@ def dungeon_play(cla, result_schedule_):
                     if imgs_ is not None and imgs_ != False:
                         print("already_in!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", imgs_)
                         click_pos_2(930, 60, cla)
+                    full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        v_.force_sub_quest = True
+                        click_pos_2(930, 60, cla)
+                        print("not_enough_gold")
+                    else:
+                        full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            v_.force_sub_quest = True
+                            click_pos_2(930, 60, cla)
+                            print("not_enough_gold2")
 
                     # click_pos_2(550, 620, cla)
                     # time.sleep(0.3)
@@ -213,6 +256,23 @@ def dungeon_play(cla, result_schedule_):
                     if imgs_ is not None and imgs_ != False:
                         print("already_in!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", imgs_)
                         click_pos_2(930, 60, cla)
+                    full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        v_.force_sub_quest = True
+                        click_pos_2(930, 60, cla)
+                        print("not_enough_gold")
+                    else:
+                        full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            v_.force_sub_quest = True
+                            click_pos_2(930, 60, cla)
+                            print("not_enough_gold2")
 
 
                     time.sleep(1)
