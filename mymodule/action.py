@@ -210,206 +210,160 @@ def item_open(cla):
                 click_pos_reg(imgs_.x, imgs_.y, cla)
 
             # 탈것_1
+            dir_path = "C:\\nightcrow"
+            file_path = dir_path + "\\items\\item_open\\talgut.txt"
+            ###
+            if os.path.isfile(file_path) == True:
+                with open(file_path, "r", encoding='UTF8') as file:
+                    box_ = file.read().splitlines()
+                    print("box_", box_)
+            ###
             print("탈것 시작")
-            full_path = "c:\\nightcrow\\imgs\\item_1\\talgut_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("탈것_1", imgs_)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.1)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
+            for i in range(len(box_)):
+                full_path = "c:\\nightcrow\\imgs\\item_1\\" + box_[i] + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("탈것_1", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.1)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
-                tal_1 = False
-                tal_1_2 = False
-                while tal_1 is False:
-                    item_count += 1
-                    print("item_count", item_count)
-                    if item_count > 20:
-                        item_count = 0
-                        tal_1 = True
-                    full_path = "c:\\nightcrow\\imgs\\item_1\\exit_1.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(400, 900, 570, 1030, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        tal_last = False
-                        while tal_last is False:
-                            full_path = "c:\\nightcrow\\imgs\\item_1\\exit_1.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 900, 570, 1030, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                            else:
-                                tal_1 = True
-                                tal_1_2 = True
-                                tal_last = True
-                    else:
-                        full_path = "c:\\nightcrow\\imgs\\item_1\\y_1.PNG"
+                    tal_1 = False
+                    tal_1_2 = False
+                    while tal_1 is False:
+                        item_count += 1
+                        print("item_count", item_count)
+                        if item_count > 20:
+                            item_count = 0
+                            tal_1 = True
+                        full_path = "c:\\nightcrow\\imgs\\item_1\\exit_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(400, 900, 570, 1030, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(0.3)
-                if tal_1_2 == True:
-
-                    tal_3 = False
-                    while tal_3 is False:
-                        full_path = "c:\\nightcrow\\imgs\\clean_screen\\talgut.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(50, 40, 140, 75, cla, img, 0.83)
-                        if imgs_ is not None and imgs_ != False:
-                            talgut_ing_(cla)
-                            tal_3 = True
+                            tal_last = False
+                            while tal_last is False:
+                                full_path = "c:\\nightcrow\\imgs\\item_1\\exit_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 900, 570, 1030, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                else:
+                                    tal_1 = True
+                                    tal_1_2 = True
+                                    tal_last = True
                         else:
-                            menu_open(cla)
-                            time.sleep(0.1)
-                            click_pos_2(795, 260, cla)
-                            time.sleep(1)
-
-                bag_open(cla)
-                time.sleep(0.2)
-                click_pos_2(935, 265, cla)
-                time.sleep(0.2)
-            else:
-                print("탈것_1 없")
-            # 탈것_2
-            full_path = "c:\\nightcrow\\imgs\\item_1\\talgut_2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("탈것_2", imgs_)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.1)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-
-                tal_1 = False
-                tal_1_2 = False
-                while tal_1 is False:
-                    item_count += 1
-                    print("item_count2", item_count)
-                    if item_count > 20:
-                        item_count = 0
-                        tal_1 = True
-                    full_path = "c:\\nightcrow\\imgs\\item_1\\exit_1.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(400, 900, 570, 1030, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        tal_last = False
-                        while tal_last is False:
-                            full_path = "c:\\nightcrow\\imgs\\item_1\\exit_1.PNG"
+                            full_path = "c:\\nightcrow\\imgs\\item_1\\y_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(400, 900, 570, 1030, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.3)
+                    if tal_1_2 == True:
+
+                        tal_3 = False
+                        while tal_3 is False:
+                            full_path = "c:\\nightcrow\\imgs\\clean_screen\\talgut.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(50, 40, 140, 75, cla, img, 0.83)
+                            if imgs_ is not None and imgs_ != False:
+                                talgut_ing_(cla)
+                                tal_3 = True
                             else:
-                                tal_1 = True
-                                tal_1_2 = True
-                                tal_last = True
-                    else:
-                        full_path = "c:\\nightcrow\\imgs\\item_1\\y_1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(400, 900, 570, 1030, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(0.3)
-                if tal_1_2 == True:
-                    tal_3 = False
-                    while tal_3 is False:
-                        full_path = "c:\\nightcrow\\imgs\\clean_screen\\talgut.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(50, 40, 140, 75, cla, img, 0.83)
-                        if imgs_ is not None and imgs_ != False:
-                            talgut_ing_(cla)
-                            tal_3 = True
-                        else:
-                            menu_open(cla)
-                            time.sleep(0.1)
-                            click_pos_2(795, 260, cla)
-                            time.sleep(1)
-                bag_open(cla)
-                time.sleep(0.2)
-                click_pos_2(935, 265, cla)
-                time.sleep(0.2)
-            else:
-                print("탈것_2 없")
+                                menu_open(cla)
+                                time.sleep(0.1)
+                                click_pos_2(795, 260, cla)
+                                time.sleep(1)
+
+                    bag_open(cla)
+                    time.sleep(0.2)
+                    click_pos_2(935, 265, cla)
+                    time.sleep(0.2)
+                else:
+                    print("탈것 없 => ", box_[i])
+
             # 무기_2
-            full_path = "c:\\nightcrow\\imgs\\item_1\\moogi_2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("무기_2", imgs_)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.1)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
+            dir_path = "C:\\nightcrow"
+            file_path = dir_path + "\\items\\item_open\\moogi.txt"
+            ###
+            if os.path.isfile(file_path) == True:
+                with open(file_path, "r", encoding='UTF8') as file:
+                    box_ = file.read().splitlines()
+                    print("box_", box_)
+            ###
+            print("무기 시작")
+            for i in range(len(box_)):
+                full_path = "c:\\nightcrow\\imgs\\item_1\\" + box_[i] + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("무기_2", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.1)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
-                tal_1 = False
-                tal_1_2 = False
-                while tal_1 is False:
-                    item_count += 1
-                    print("item_count3", item_count)
-                    if item_count > 20:
-                        item_count = 0
-                        tal_1 = True
-                    full_path = "c:\\nightcrow\\imgs\\item_1\\exit_1.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(400, 900, 570, 1030, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        tal_last = False
-                        while tal_last is False:
-                            full_path = "c:\\nightcrow\\imgs\\item_1\\exit_1.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 900, 570, 1030, cla, img, 0.8)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                            else:
-                                tal_1 = True
-                                tal_1_2 = True
-                                tal_last = True
-                    else:
-                        full_path = "c:\\nightcrow\\imgs\\item_1\\y_1.PNG"
+                    tal_1 = False
+                    tal_1_2 = False
+                    while tal_1 is False:
+                        item_count += 1
+                        print("item_count3", item_count)
+                        if item_count > 20:
+                            item_count = 0
+                            tal_1 = True
+                        full_path = "c:\\nightcrow\\imgs\\item_1\\exit_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(400, 900, 570, 1030, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(0.3)
-                if tal_1_2 == True:
-                    tal_3 = False
-                    while tal_3 is False:
-                        full_path = "c:\\nightcrow\\imgs\\clean_screen\\moogioutlook.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(50, 40, 140, 75, cla, img, 0.83)
-                        if imgs_ is not None and imgs_ != False:
-                            talgut_ing_(cla)
-                            tal_3 = True
+                            tal_last = False
+                            while tal_last is False:
+                                full_path = "c:\\nightcrow\\imgs\\item_1\\exit_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 900, 570, 1030, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                else:
+                                    tal_1 = True
+                                    tal_1_2 = True
+                                    tal_last = True
                         else:
-                            menu_open(cla)
-                            click_pos_2(880, 260, cla)
-                            time.sleep(1)
+                            full_path = "c:\\nightcrow\\imgs\\item_1\\y_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 900, 570, 1030, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.3)
+                    if tal_1_2 == True:
+                        tal_3 = False
+                        while tal_3 is False:
+                            full_path = "c:\\nightcrow\\imgs\\clean_screen\\moogioutlook.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(50, 40, 140, 75, cla, img, 0.83)
+                            if imgs_ is not None and imgs_ != False:
+                                talgut_ing_(cla)
+                                tal_3 = True
+                            else:
+                                menu_open(cla)
+                                click_pos_2(880, 260, cla)
+                                time.sleep(1)
 
-                bag_open(cla)
-                time.sleep(0.2)
-                click_pos_2(935, 265, cla)
-                time.sleep(0.2)
-            else:
-                print("무기_2 없")
+                    bag_open(cla)
+                    time.sleep(0.2)
+                    click_pos_2(935, 265, cla)
+                    time.sleep(0.2)
+                else:
+                    print("무기_ 없 => ", box_[i])
             # 음식
             x_reg = 0
             y_reg = 0
@@ -520,7 +474,7 @@ def item_open(cla):
                                 time.sleep(0.2)
                                 click_pos_2(935, 265, cla)
                         else:
-                            full_path = "c:\\nightcrow\\imgs\\item_1\\sub_box_1.PNG"
+                            full_path = "c:\\nightcrow\\imgs\\item_1\\" + box_[i] + ".PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
