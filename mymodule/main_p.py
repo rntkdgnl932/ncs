@@ -47,6 +47,7 @@ from grow_3 import sub_quest_grow
 from dungeon import dungeon_play
 from jadong_crow import jadong_play
 from get_item import get_items
+from potion import maul_potion
 
 import variable as v_
 
@@ -2355,6 +2356,16 @@ class game_Playing(QThread):
             while self.isCheck is True:
 
                 print("나이트크로우 실행 모드(ver " + version + ")")
+
+                if v_.just_one == False:
+                    v_.just_one = True
+                    full_path = "c:\\nightcrow\\imgs\\potion\\janhwa_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("마을이면 물약 ㄱㄱ", imgs_)
+                        maul_potion(v_.now_cla)
 
                 full_path = "c:\\nightcrow\\imgs\\check\\touching.PNG"
                 img_array = np.fromfile(full_path, np.uint8)

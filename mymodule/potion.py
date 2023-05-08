@@ -235,6 +235,11 @@ def maul_potion(cla):
         from realtime import soojib, moogi_, jaelyo_, boonhae_
         from schedule import myQuest_play_add
 
+        soojib(cla)
+        moogi_(cla)
+        boonhae_(cla)
+
+
         jab_ready = False
         jab_ready_count = 0
         while jab_ready is False:
@@ -482,9 +487,8 @@ def maul_potion(cla):
                 jab_3 = True
             else:
                 click_pos_2(930, 60, cla)
-        soojib(cla)
-        moogi_(cla)
-        boonhae_(cla)
+
         jaelyo_(cla)
+
     except Exception as e:
         print(e)

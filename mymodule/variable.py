@@ -49,3 +49,5 @@ onForceGoldSpot = "none"
 onForceGoldSpot_go = "none"
 onCollection = False
 
+just_one = False
+
