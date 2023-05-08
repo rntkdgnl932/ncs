@@ -132,6 +132,34 @@ def in_world(cla):
                     time.sleep(0.1)
 
             else:
+                # dead_die_before 끄기
+                full_path = "c:\\nightcrow\\imgs\\dead_die\\exp_.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(50, 80, 150, 115, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\nightcrow\\imgs\\clean_screen\\exit_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 0, 200, 600, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("exp_ exit_22", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(1)
+                full_path = "c:\\nightcrow\\imgs\\dead_die\\jangbi_.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(50, 80, 150, 115, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\nightcrow\\imgs\\clean_screen\\exit_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 0, 200, 600, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("jangbi_ exit_22", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(1)
+
                 maul_ = False
                 full_path = "c:\\nightcrow\\imgs\\jadong\\world_ready_3.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
