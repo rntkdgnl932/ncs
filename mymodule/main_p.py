@@ -730,7 +730,7 @@ class FirstTab(QWidget):
                 with open(file_path13, "r", encoding='UTF8') as file:
                     isRefresh = True
                     refresh_time = file.read()
-                    print("refresh_time", refresh_time)
+                    print("refresh_time => ", refresh_time)
             else:
                 with open(file_path13, "w", encoding='UTF8') as file:
                     file.write(str(6))
