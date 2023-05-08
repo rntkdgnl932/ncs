@@ -651,10 +651,10 @@ class FirstTab(QWidget):
 
         gold33 = QHBoxLayout()
         gold33.addWidget(self.my_limit_gold)
-        gold33.addWidget(self.my_limit_gold_spot)
 
         sub_box = QVBoxLayout()
         sub_box.addLayout(gold33)
+        sub_box.addWidget(self.my_limit_gold_spot)
         sub_box.addWidget(sub_q)
         sub_box.addWidget(sub_h)
 
