@@ -567,9 +567,11 @@ def talgut_board_(cla):
             sub_quest_count += 1
             if sub_quest_count > 50:
                 result_ = go_quest_ing_(cla)
+                print("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj", result_)
                 if result_ == False:
 
                     result_auto = go_auto_ing_(cla)
+                    print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", result_auto)
                     if result_auto == True:
                         sub_quest_count = 0
                         quest_get(cla)
