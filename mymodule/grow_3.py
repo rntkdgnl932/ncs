@@ -43,9 +43,11 @@ def sub_quest_grow(cla):
         print("내 물약 갯수? ", result_potion)
 
         result_ = go_quest_ing_(cla)
+        result("go_quest_ing_go_quest_ing_go_quest_ing_go_quest_ing_go_quest_ing_go_quest_ing_go_quest_ing_go_quest_ing_go_quest_ing_go_quest_ing_", result_)
         if result_ == False:
 
             result_auto = go_auto_ing_(cla)
+            result("go_auto_ing_go_auto_ing_go_auto_ing_go_auto_ing_go_auto_ing_go_auto_ing_go_auto_ing_v", result_)
             if result_auto == True:
                 talgut_board_(cla)
 
@@ -569,6 +571,7 @@ def talgut_board_(cla):
 
                     result_auto = go_auto_ing_(cla)
                     if result_auto == True:
+                        sub_quest_count = 0
                         quest_get(cla)
             else:
                 click_pos_2(700, 155, cla)
