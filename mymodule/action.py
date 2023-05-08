@@ -225,7 +225,7 @@ def item_open(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    print("탈것_1", imgs_)
+                    print("탈것 있", box_[i])
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.1)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -321,7 +321,7 @@ def item_open(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    print("무기_2", imgs_)
+                    print("무기 있", box_[i])
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.1)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -474,9 +474,9 @@ def item_open(cla):
                 full_path = "c:\\nightcrow\\imgs\\item_1\\" + box_[i] + ".PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
+                imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    print("상자 있")
+                    print("상자 있", box_[i])
                     tal_1 = False
                     while tal_1 is False:
                         item_count += 1
