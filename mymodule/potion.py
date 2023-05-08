@@ -199,11 +199,24 @@ def potion_check(cla):
                     v_.potion_count = 0
                     maul_potion(cla)
         else:
-            v_.potion_count += 1
-            print("not have potoin?", v_.potion_count)
-            if v_.potion_count > 5:
-                v_.potion_count = 0
-                maul_potion(cla)
+            full_path = "c:\\nightcrow\\imgs\\potion\\out_potion_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(700, 950, 760, 1030, cla, img, 0.75)
+            if imgs_ is not None and imgs_ != False:
+                print("화면에 물약 존재한다", imgs_)
+            else:
+                full_path = "c:\\nightcrow\\imgs\\potion\\out_potion_3.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(700, 950, 760, 1030, cla, img, 0.75)
+                if imgs_ is not None and imgs_ != False:
+                    print("화면에 물약 존재한다", imgs_)
+                    v_.potion_count += 1
+                    print("not have potoin?", v_.potion_count)
+                    if v_.potion_count > 2:
+                        v_.potion_count = 0
+                        maul_potion(cla)
         dead_die_before(cla)
 
 
