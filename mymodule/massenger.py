@@ -139,8 +139,8 @@ def line_to_me(cla, why):
     try:
         print("cla", cla)
         print("why", why)
-        dir_path = "C:\\coobcco"
-        file_path = dir_path + "\\odin_schedule\\line\\line.txt"
+        dir_path = "C:\\nightcrow"
+        file_path = dir_path + "\\mysettings\\line\\line.txt"
 
         isLine = False
         while isLine is False:
