@@ -774,6 +774,42 @@ def bag_open(cla):
     except Exception as e:
         print(e)
 
+def maul_check(cla):
+    try:
+        import cv2
+        import numpy as np
+        from function import text_check_get, int_put_, click_pos_2, imgs_set_
+
+        go_ = False
+
+        full_path = "c:\\nightcrow\\imgs\\jadong\\maul_a.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(50, 70, 160, 110, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("maul_a")
+            go_ = True
+        else:
+            full_path = "c:\\nightcrow\\imgs\\jadong\\maul_b.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(50, 70, 160, 110, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("maul_b")
+                go_ = True
+            else:
+                full_path = "c:\\nightcrow\\imgs\\jadong\\maul_c.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(50, 70, 160, 110, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("maul_c")
+                    go_ = True
+
+        return go_
+    except Exception as e:
+        print(e)
+
 def menu_open(cla):
     try:
         import cv2
