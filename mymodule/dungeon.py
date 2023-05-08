@@ -44,6 +44,7 @@ def dungeon_play(cla, result_schedule_):
             in_dungeon__count += 1
             if in_dungeon__count > 3:
                 in_dungeon__count = 0
+                in_dungeon__ = True
 
             print("던전체크")
             time.sleep(1)
@@ -83,6 +84,7 @@ def dungeon_play(cla, result_schedule_):
                                 onFG_ = int_put_(v_.onForceGold)
                                 onFG = int(onFG_) * 10000
                                 if my_money < onFG:
+                                    in_dungeon__ = True
                                     print("강제로 서브퀘스트 수행하기, 기준골드 : ", v_.onForceGold)
                                     if v_.force_sub_quest != True:
                                         v_.force_sub_quest = True
