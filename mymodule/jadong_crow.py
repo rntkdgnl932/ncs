@@ -453,7 +453,7 @@ def in_spot_to_walking_ready(cla):
             #지도 캡쳐 후 장소 정하기
             file_path2 = dir_path + "\\jadong\\jadong.txt"
             # 아빌리우스 => 몬테노폐허
-            # 바스티움 => 실바인진흙탕
+            # 바스티움 => 콜리아기슭
             # 첼라노 => 알레인고지대
             full_path = "c:\\nightcrow\\imgs\\jadong\\a_list.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -471,7 +471,7 @@ def in_spot_to_walking_ready(cla):
                 imgs_ = imgs_set_(770, 70, 870, 120, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("a_list", imgs_)
-                    gold_spot = "실바인진흙탕"
+                    gold_spot = "콜리아기슭"
                     spot_global = "사냥_바스티움_" + gold_spot
                     v_.onForceGoldSpot_go = spot_global
                 else:
