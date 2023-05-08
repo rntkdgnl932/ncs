@@ -326,21 +326,23 @@ def in_spot(cla, result_schedule_):
                                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                                             imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
                                                             if imgs_ is not None and imgs_ != False:
-                                                                print("not_enough_gold~!")
+                                                                print("not_enough_gold~!!!!!!!!!!!!!!!!!!!!!!!!!!")
                                                                 last_move = True
                                                                 in_spot_start = True
-                                                                in_spot_to_walking_ready(cla)
+                                                                # in_spot_to_walking_ready(cla)
                                                             else:
                                                                 full_path = "c:\\nightcrow\\imgs\\dead_die\\not_enough_gold.PNG"
                                                                 img_array = np.fromfile(full_path, np.uint8)
                                                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                                                 imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
                                                                 if imgs_ is not None and imgs_ != False:
-                                                                    print("not_enough_gold2~!")
+                                                                    print("not_enough_gold2~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                                                                     last_move = True
                                                                     in_spot_start = True
-                                                                    in_spot_to_walking_ready(cla)
-
+                                                                    # in_spot_to_walking_ready(cla)
+                                                            if last_move == True:
+                                                                print("////////////////////////////////////////////////////////////////////")
+                                                                in_spot_to_walking_ready(cla)
 
                                                         else:
                                                             last_move = True
@@ -641,6 +643,7 @@ def in_spot_to_walking(cla):
                     #     click_pos_2(110, 160, cla)
 
             else:
+                print("뛰어가?", spot_walking_count)
                 click_pos_2(400, 610, cla)
             time.sleep(0.3)
     except Exception as e:
