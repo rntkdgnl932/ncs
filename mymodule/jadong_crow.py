@@ -79,6 +79,7 @@ def jadong_play(cla, result_schedule_):
         else:
             print("사냥터 진입하러 가자")
             # 자동사냥 진입
+            clean_screen(cla)
             in_world(cla)
             in_spot(cla, result_schedule_)
             go_to_spot(cla)
