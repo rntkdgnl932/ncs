@@ -281,6 +281,12 @@ def item_open(cla):
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.3)
+                        full_path = "c:\\nightcrow\\imgs\\item_1\\get_clear.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(450, 450, 550, 550, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
                     if tal_1_2 == True:
 
                         tal_3 = False
@@ -377,6 +383,12 @@ def item_open(cla):
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.3)
+                        full_path = "c:\\nightcrow\\imgs\\item_1\\get_clear.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(450, 450, 550, 550, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
                     if tal_1_2 == True:
                         tal_3 = False
                         while tal_3 is False:
@@ -538,6 +550,12 @@ def item_open(cla):
                                     click_pos_reg(x_reg, y_reg, cla)
 
                         time.sleep(0.3)
+                        full_path = "c:\\nightcrow\\imgs\\item_1\\get_clear.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(450, 450, 550, 550, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
                 else:
                     print("상자 없")
 
