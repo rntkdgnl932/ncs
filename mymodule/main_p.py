@@ -2357,15 +2357,7 @@ class game_Playing(QThread):
 
                 print("나이트크로우 실행 모드(ver " + version + ")")
 
-                if v_.just_one == False:
-                    v_.just_one = True
-                    full_path = "c:\\nightcrow\\imgs\\potion\\janhwa_1.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        print("마을이면 물약 ㄱㄱ", imgs_)
-                        maul_potion(v_.now_cla)
+
 
                 full_path = "c:\\nightcrow\\imgs\\check\\touching.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -2389,6 +2381,19 @@ class game_Playing(QThread):
 
                         v_.now_ing_schedule = result_schedule_
 
+                        #최초1회만...
+                        if result_schedule_ != "각종템받기":
+                            if v_.just_one == False:
+                                v_.just_one = True
+                                full_path = "c:\\nightcrow\\imgs\\potion\\janhwa_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("마을이면 물약 ㄱㄱ", imgs_)
+                                    maul_potion(v_.now_cla)
+
+
                         if "_" in result_schedule_:
 
                             dungeon_ = result_schedule_.split("_")
@@ -2407,6 +2412,15 @@ class game_Playing(QThread):
                             if result_schedule_ == "각종템받기":
                                 get_items(v_.now_cla)
                                 # 자체에 스케쥴 완료 있음
+                                if v_.just_one == False:
+                                    v_.just_one = True
+                                    full_path = "c:\\nightcrow\\imgs\\potion\\janhwa_1.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("마을이면 물약 ㄱㄱ", imgs_)
+                                        maul_potion(v_.now_cla)
                             if result_schedule_ == "메인퀘스트":
                                 main_quest_grow(v_.now_cla)
                                 # 자체에 스케쥴 완료 있음
