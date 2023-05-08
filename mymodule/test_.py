@@ -29,7 +29,14 @@ def go_test():
         plus = 960
 
     print("여긴 테스트")
+
+    #가방 골드
     my_money = text_check_get(830, 880, 892, 900, cla)
+
+    print("내 골드?", my_money)
+
+    # 던전 진입 전 골드
+    my_money = text_check_get(495, 40, 570, 60, cla)
 
     print("내 골드?", my_money)
 

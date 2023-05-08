@@ -2391,6 +2391,7 @@ class game_Playing(QThread):
                                     click_pos_2(230, 90, v_.now_cla)
                                     maul_potion(v_.now_cla)
                                 else:
+                                    time.sleep(0.5)
                                     bag_open(v_.now_cla)
 
                     if v_.force_sub_quest == True:
