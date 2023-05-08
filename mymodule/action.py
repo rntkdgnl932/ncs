@@ -277,7 +277,7 @@ def item_open(cla):
                             full_path = "c:\\nightcrow\\imgs\\item_1\\y_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 900, 570, 1030, cla, img, 0.8)
+                            imgs_ = imgs_set_(400, 400, 700, 1030, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.3)
@@ -373,7 +373,7 @@ def item_open(cla):
                             full_path = "c:\\nightcrow\\imgs\\item_1\\y_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(400, 900, 570, 1030, cla, img, 0.8)
+                            imgs_ = imgs_set_(400, 400, 700, 1030, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.3)
