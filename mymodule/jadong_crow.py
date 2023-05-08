@@ -105,15 +105,30 @@ def in_world(cla):
                 in_worldmap = True
 
                 last_in = False
+                last_in_count = 0
                 while last_in is False:
+                    last_in_count += 1
+                    if last_in_count > 20:
+                        full_path = "c:\\nightcrow\\imgs\\jadong\\world_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(450, 990, 510, 1030, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("worldmap~!", imgs_)
+                            last_in_count = 0
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            last_in = True
                     full_path = "c:\\nightcrow\\imgs\\jadong\\world_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(450, 990, 510, 1030, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("진입 대기중")
+
                     else:
                         last_in = True
+                    time.sleep(0.1)
 
             else:
                 maul_ = False
