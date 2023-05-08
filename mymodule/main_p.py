@@ -1049,7 +1049,7 @@ class FirstTab(QWidget):
                     spot_ = "사냥_첼라노_" + jadong_list
                     print("spot_3", spot_)
 
-        
+
         v_.onForceGoldSpot_go = spot_
 
         return v_.onForceGoldSpot
