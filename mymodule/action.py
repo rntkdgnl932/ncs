@@ -731,7 +731,13 @@ def bag_open(cla):
                 out_result = out_check(cla)
                 if out_result == True:
                     click_pos_2(840, 60, cla)
-                    go_ = True
+                    time.sleep(0.5)
+                    full_path = "c:\\nightcrow\\imgs\\check\\bag_check.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(850, 80, 910, 120, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        go_ = True
                     time.sleep(0.5)
 
                 else:
