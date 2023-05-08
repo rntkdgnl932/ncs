@@ -883,13 +883,54 @@ def clean_screen(cla):
             print("exit_1", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
-        full_path = "c:\\nightcrow\\imgs\\clean_screen\\exit_2.PNG"
+
+        # dead_die_before 끄기
+        full_path = "c:\\nightcrow\\imgs\\dead_die\\exp_.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(0, 0, 200, 600, cla, img, 0.83)
+        imgs_ = imgs_set_(50, 80, 150, 115, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            print("exit_22", imgs_)
-            click_pos_reg(imgs_.x, imgs_.y, cla)
+            full_path = "c:\\nightcrow\\imgs\\clean_screen\\exit_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 0, 200, 600, cla, img, 0.83)
+            if imgs_ is not None and imgs_ != False:
+                print("exp_ exit_22", imgs_)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(1)
+        full_path = "c:\\nightcrow\\imgs\\dead_die\\jangbi_.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(50, 80, 150, 115, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            full_path = "c:\\nightcrow\\imgs\\clean_screen\\exit_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 0, 200, 600, cla, img, 0.83)
+            if imgs_ is not None and imgs_ != False:
+                print("jangbi_ exit_22", imgs_)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(1)
+
+
+        dun_ = ["bunyuong_1", "soolyun_1", "sinjun_1", "youjuk_1", "dongool_1"]
+
+        for i in range(len(dun_)):
+            full_path = "c:\\nightcrow\\imgs\\dungeon\\" + dun_[i] + ".PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(50, 75, 150, 110, cla, img, 0.75)
+            if imgs_ is not None and imgs_ != False:
+                print(dun_[i], imgs_)
+                click_pos_2(230, 90, cla)
+                time.sleep(0.5)
+                full_path = "c:\\nightcrow\\imgs\\quest\\y_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(50, 75, 800, 1030, cla, img, 0.75)
+                if imgs_ is not None and imgs_ != False:
+                    print("y_", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
         full_path = "c:\\nightcrow\\imgs\\clean_screen\\exit_2.PNG"
         img_array = np.fromfile(full_path, np.uint8)
