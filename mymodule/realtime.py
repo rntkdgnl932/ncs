@@ -160,7 +160,11 @@ def soojib(cla):
 
         if v_.onCollection == True:
             col_1 = False
+            collect_count = 0
             while col_1 is False:
+                collect_count += 1
+                if collect_count > 15:
+                    col_1 = True
                 full_path = "c:\\nightcrow\\imgs\\check\\collection_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -205,7 +209,11 @@ def soojib(cla):
 
                     else:
                         col_2 = False
+                        collect_count = 0
                         while col_2 is False:
+                            collect_count += 1
+                            if collect_count > 15:
+                                col_2 = True
                             full_path = "c:\\nightcrow\\imgs\\check\\collection_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
