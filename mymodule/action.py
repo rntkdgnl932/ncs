@@ -882,6 +882,15 @@ def clean_screen(cla):
         if imgs_ is not None and imgs_ != False:
             print("exit_1", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
+
+        full_path = "c:\\nightcrow\\imgs\\clean_screen\\exit_2.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(0, 0, 200, 600, cla, img, 0.83)
+        if imgs_ is not None and imgs_ != False:
+            print("exit_22", imgs_)
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
         full_path = "c:\\nightcrow\\imgs\\clean_screen\\exit_2.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
