@@ -2341,7 +2341,7 @@ class game_Playing(QThread):
                                 abilius_list_result = abilius_list_[1].split("/")
                                 for i in range(len(abilius_list_result)):
                                     if jadong_list[0] == abilius_list_result[i]:
-                                        spot_ = "사냥_아빌리우스_" + jadong_list
+                                        spot_ = "사냥_아빌리우스_" + jadong_list[0]
                                         print("spot_1", spot_)
                             with open(bastium, "r", encoding='UTF8') as file:
                                 bastium_list = file.read()
@@ -2349,7 +2349,7 @@ class game_Playing(QThread):
                                 bastium_list_result = bastium_list_[1].split("/")
                                 for i in range(len(bastium_list_result)):
                                     if jadong_list[0] == bastium_list_result[i]:
-                                        spot_ = "사냥_바스티움_" + jadong_list
+                                        spot_ = "사냥_바스티움_" + jadong_list[0]
                                         print("spot_2", spot_)
                             with open(chalano, "r", encoding='UTF8') as file:
                                 chalano_list = file.read()
@@ -2357,7 +2357,7 @@ class game_Playing(QThread):
                                 chalano_list_result = chalano_list_[1].split("/")
                                 for i in range(len(chalano_list_result)):
                                     if jadong_list[0] == chalano_list_result[i]:
-                                        spot_ = "사냥_첼라노_" + jadong_list
+                                        spot_ = "사냥_첼라노_" + jadong_list[0]
                                         print("spot_3", spot_)
 
 
