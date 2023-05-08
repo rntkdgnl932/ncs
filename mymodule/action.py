@@ -496,7 +496,7 @@ def item_open(cla):
                 full_path = "c:\\nightcrow\\imgs\\item_1\\" + box_[i] + ".PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.85)
+                imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.9)
                 if imgs_ is not None and imgs_ != False:
                     print("상자 있", box_[i])
                     tal_1 = False
