@@ -143,6 +143,7 @@ def dungeon_play(cla, result_schedule_):
                         imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             v_.force_sub_quest = True
+                            in_dungeon__ = True
                             in_dungeon_title = True
                             click_pos_2(930, 60, cla)
                             print("not_enough_gold")
@@ -153,6 +154,7 @@ def dungeon_play(cla, result_schedule_):
                             imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 v_.force_sub_quest = True
+                                in_dungeon__ = True
                                 in_dungeon_title = True
                                 click_pos_2(930, 60, cla)
                                 print("not_enough_gold2")
@@ -191,6 +193,7 @@ def dungeon_play(cla, result_schedule_):
                     imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         v_.force_sub_quest = True
+                        in_dungeon__ = True
                         click_pos_2(930, 60, cla)
                         print("not_enough_gold")
                     else:
@@ -200,6 +203,7 @@ def dungeon_play(cla, result_schedule_):
                         imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             v_.force_sub_quest = True
+                            in_dungeon__ = True
                             click_pos_2(930, 60, cla)
                             print("not_enough_gold2")
 
@@ -262,6 +266,7 @@ def dungeon_play(cla, result_schedule_):
                     imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         v_.force_sub_quest = True
+                        in_dungeon__ = True
                         click_pos_2(930, 60, cla)
                         print("not_enough_gold")
                     else:
@@ -271,6 +276,7 @@ def dungeon_play(cla, result_schedule_):
                         imgs_ = imgs_set_(400, 60, 600, 120, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             v_.force_sub_quest = True
+                            in_dungeon__ = True
                             click_pos_2(930, 60, cla)
                             print("not_enough_gold2")
 
