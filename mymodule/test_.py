@@ -32,6 +32,10 @@ def go_test():
 
     potion_ = text_check_get(733, 1004, 758, 1016, cla)
     print("전체4자리 potion_?", potion_)
+    print("potion_[0]", potion_[0])
+    if potion_[0] == "0":
+        potion_ = "1" + potion_
+        print("potion_ = "1" + potion_", potion_)
 
     potion_ = text_check_get(730, 1004, 759, 1016, cla)
     print("전체4자리 potion_2?", potion_)

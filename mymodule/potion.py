@@ -455,6 +455,7 @@ def change_potion(cla, many_potion):
         if "B" in potion_:
             potion_ = potion_.replace('B', '8')
             print("!!!!!!!!![  B  ]!!!!!!!!!!!!!", potion_)
+
         return potion_
     except Exception as e:
         print(e)
