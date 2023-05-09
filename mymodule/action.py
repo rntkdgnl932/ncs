@@ -1065,6 +1065,14 @@ def clean_screen(cla):
                     print("confirm_1", imgs_)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
 
+                full_path = "c:\\nightcrow\\imgs\\quest\\y_1.PNG.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("y_", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
                 full_path = "c:\\nightcrow\\imgs\\clean_screen\\setting_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
