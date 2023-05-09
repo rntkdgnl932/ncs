@@ -18,7 +18,7 @@ def go_test():
     import numpy as np
     import pyautogui
     import cv2
-    from potion import maul_potion
+    from potion import maul_potion, change_potion
     from action import skill_check_
 
     cla = "two"
@@ -32,168 +32,15 @@ def go_test():
 
     potion_ = text_check_get(733, 1004, 758, 1016, cla)
     print("전체4자리 potion_?", potion_)
-    if len(potion_) != 0:
-        if " " in potion_:
-            potion_ = potion_.replace(' ', '')
-            print("!!!!!! ['   '] !!!!!!!", potion_)
-        if ")" in potion_:
-            potion_ = potion_.replace(')', '1')
-            print("!!!!!! [   )   ] !!!!!!!", potion_)
-        if "L" in potion_:
-            potion_ = potion_.replace('L', '1')
-            print("!!!!!! [   L   ] !!!!!!!", potion_)
-        if "|" in potion_:
-            potion_ = potion_.replace('|', '1')
-            print("!!!!!!![   |   ]!!!!!!!!!!!", potion_)
-        if "A" in potion_:
-            potion_ = potion_.replace('A', '8')
-            print("!!!!!!!!![  A  ]!!!!!!!!!!!!!", potion_)
-        if "B" in potion_:
-            potion_ = potion_.replace('B', '8')
-            print("!!!!!!!!![  B  ]!!!!!!!!!!!!!", potion_)
-        potion = int_put_(potion_)
-        potion_bloon = potion.isdigit()
-        if potion_bloon == True:
-            potion = int(potion)
-            print("potion?", potion)
-            if cla == "one":
-                v_.mypotion_1 = potion
-            else:
-                v_.mypotion_2 = potion
 
-            if potion < 9:
-                v_.potion_count += 1
-                if v_.potion_count > 10:
-                    v_.potion_count = 0
-                    print("potion1", v_.potion_count)
-            else:
-                v_.potion_count = 0
-        else:
-            print("potion => 숫자 아님")
-    else:
-        potion_ = text_check_get(730, 1004, 759, 1016, cla)
-        print("전체4자리 potion_2?", potion_)
-        if len(potion_) != 0:
-            if " " in potion_:
-                potion_ = potion_.replace(' ', '')
-                print("!!!!!! ['   '] !!!!!!!", potion_)
-            if ")" in potion_:
-                potion_ = potion_.replace(')', '1')
-                print("!!!!!! [   )   ] !!!!!!!", potion_)
-            if "L" in potion_:
-                potion_ = potion_.replace('L', '1')
-                print("!!!!!! [   L   ] !!!!!!!", potion_)
-            if "|" in potion_:
-                potion_ = potion_.replace('|', '1')
-                print("!!!!!!![   |   ]!!!!!!!!!!!", potion_)
-            if "A" in potion_:
-                potion_ = potion_.replace('A', '8')
-                print("!!!!!!!!![  A  ]!!!!!!!!!!!!!", potion_)
-            if "B" in potion_:
-                potion_ = potion_.replace('B', '8')
-                print("!!!!!!!!![  B  ]!!!!!!!!!!!!!", potion_)
-            potion = int_put_(potion_)
-            potion_bloon = potion.isdigit()
-            if potion_bloon == True:
-                potion = int(potion)
-                print("potion?", potion)
-                if cla == "one":
-                    v_.mypotion_1 = potion
-                else:
-                    v_.mypotion_2 = potion
+    potion_ = text_check_get(730, 1004, 759, 1016, cla)
+    print("전체4자리 potion_2?", potion_)
 
-                if potion < 9:
-                    v_.potion_count += 1
-                    if v_.potion_count > 10:
-                        v_.potion_count = 0
-                        print("potion2", v_.potion_count)
-                else:
-                    v_.potion_count = 0
-            else:
-                print("potion => 숫자 아님")
-        else:
-            potion_ = text_check_get(730, 1004, 752, 1016, cla)
-            print("앞3자리 potion_?", potion_)
-            if len(potion_) != 0:
-                if " " in potion_:
-                    potion_ = potion_.replace(' ', '')
-                    print("!!!!!! ['   '] !!!!!!!", potion_)
-                if ")" in potion_:
-                    potion_ = potion_.replace(')', '1')
-                    print("!!!!!! [   )   ] !!!!!!!", potion_)
-                if "L" in potion_:
-                    potion_ = potion_.replace('L', '1')
-                    print("!!!!!! [   L   ] !!!!!!!", potion_)
-                if "|" in potion_:
-                    potion_ = potion_.replace('|', '1')
-                    print("!!!!!!![   |   ]!!!!!!!!!!!", potion_)
-                if "A" in potion_:
-                    potion_ = potion_.replace('A', '8')
-                    print("!!!!!!!!![  A  ]!!!!!!!!!!!!!", potion_)
-                if "B" in potion_:
-                    potion_ = potion_.replace('B', '8')
-                    print("!!!!!!!!![  B  ]!!!!!!!!!!!!!", potion_)
-                potion = int_put_(potion_)
-                potion_bloon = potion.isdigit()
-                if potion_bloon == True:
-                    potion = int(potion)
-                    print("potion?", potion)
-                    if cla == "one":
-                        v_.mypotion_1 = potion
-                    else:
-                        v_.mypotion_2 = potion
+    potion_ = text_check_get(730, 1004, 752, 1016, cla)
+    print("앞3자리 potion_?", potion_)
 
-                    if potion < 9:
-                        v_.potion_count += 1
-                        if v_.potion_count > 10:
-                            v_.potion_count = 0
-                            print("potion3", v_.potion_count)
-                    else:
-                        v_.potion_count = 0
-                else:
-                    print("potion => 숫자 아님")
-            else:
-                potion_ = text_check_get(738, 1004, 759, 1016, cla)
-                print("뒷3자리 potion_??", potion_)
-                if len(potion_) != 0:
-                    if " " in potion_:
-                        potion_ = potion_.replace(' ', '')
-                        print("!!!!!! ['   '] !!!!!!!", potion_)
-                    if ")" in potion_:
-                        potion_ = potion_.replace(')', '1')
-                        print("!!!!!! [   )   ] !!!!!!!", potion_)
-                    if "L" in potion_:
-                        potion_ = potion_.replace('L', '1')
-                        print("!!!!!! [   L   ] !!!!!!!", potion_)
-                    if "|" in potion_:
-                        potion_ = potion_.replace('|', '1')
-                        print("!!!!!!![   |   ]!!!!!!!!!!!", potion_)
-                    if "A" in potion_:
-                        potion_ = potion_.replace('A', '8')
-                        print("!!!!!!!!![  A  ]!!!!!!!!!!!!!", potion_)
-                    if "B" in potion_:
-                        potion_ = potion_.replace('B', '8')
-                        print("!!!!!!!!![  B  ]!!!!!!!!!!!!!", potion_)
-                    potion = int_put_(potion_)
-                    potion_bloon = potion.isdigit()
-                    if potion_bloon == True:
-                        potion = int(potion)
-                        print("potion?", potion)
-                        if cla == "one":
-                            v_.mypotion_1 = potion
-                        else:
-                            v_.mypotion_2 = potion
-
-                        if potion < 9:
-                            v_.potion_count += 1
-                            if v_.potion_count > 50:
-                                v_.potion_count = 0
-                                print("potion4", v_.potion_count)
-                        else:
-                            v_.potion_count = 0
-
-                    else:
-                        print("potion => 숫자 아님")
+    potion_ = text_check_get(738, 1004, 759, 1016, cla)
+    print("뒷3자리 potion_??", potion_)
 
 
 
