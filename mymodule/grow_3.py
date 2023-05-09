@@ -120,6 +120,7 @@ def quest_get(cla):
         from action import menu_open
         from function import click_pos_2, click_pos_reg, imgs_set_
         from schedule import myQuest_play_add
+        from jadong_crow import go_to_spot
         print("서브퀘스트 받기")
         sub_quest = True
 
@@ -301,6 +302,8 @@ def quest_get(cla):
 
         if clear_sub_quest == True:
             myQuest_play_add(cla, "서브퀘스트")
+        else:
+            go_to_spot(cla)
 
     except Exception as e:
         print(e)
@@ -403,6 +406,7 @@ def talgut_board_(cla):
         global sub_quest_count
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
         from action import menu_open, clean_screen, go_quest_ing_, go_auto_ing_
+        from jadong_crow import go_to_spot
         import numpy as np
         import cv2
         import pyautogui
@@ -593,6 +597,10 @@ def talgut_board_(cla):
         if imgs_ is not None and imgs_ != False:
             print("no_talgut_1", imgs_)
             click_pos_2(880, 110, cla)
+
+        #비행장?
+        go_to_spot(cla)
+
         return go_
     except Exception as e:
         print(e)

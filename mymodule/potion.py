@@ -29,7 +29,8 @@ def potion_check(cla):
         if imgs_ is not None and imgs_ != False:
             print("화면에 물약 존재한다", imgs_)
 
-            potion_ready = text_check_get(733, 1004, 758, 1016, cla)
+
+            potion_ready = text_check_get(730, 1004, 759, 1016, cla)
             print("전체4자리 potion_?", potion_ready)
             if len(potion_ready) != 0:
                 potion_ = change_potion(cla, potion_ready)
@@ -53,7 +54,7 @@ def potion_check(cla):
                 else:
                     print("potion => 숫자 아님")
             else:
-                potion_ready = text_check_get(730, 1004, 759, 1016, cla)
+                potion_ready = text_check_get(733, 1004, 758, 1016, cla)
                 print("전체4자리 potion_2?", potion_)
                 if len(potion_ready) != 0:
                     potion_ = change_potion(cla, potion_ready)
@@ -455,6 +456,10 @@ def change_potion(cla, many_potion):
         if "B" in potion_:
             potion_ = potion_.replace('B', '8')
             print("!!!!!!!!![  B  ]!!!!!!!!!!!!!", potion_)
+
+        if potion_[0] == "0":
+            potion_ = "1" + potion_
+            print("potion_ = '1' + potion_", potion_)
 
         return potion_
     except Exception as e:
