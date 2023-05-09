@@ -62,7 +62,7 @@ def potion_check(cla):
 
                     if potion < 9:
                         v_.potion_count += 1
-                        if v_.potion_count > 4:
+                        if v_.potion_count > 10:
                             v_.potion_count = 0
                             maul_potion(cla)
                     else:
@@ -103,7 +103,7 @@ def potion_check(cla):
 
                         if potion < 9:
                             v_.potion_count += 1
-                            if v_.potion_count > 4:
+                            if v_.potion_count > 10:
                                 v_.potion_count = 0
                                 maul_potion(cla)
                         else:
@@ -144,7 +144,7 @@ def potion_check(cla):
 
                             if potion < 9:
                                 v_.potion_count += 1
-                                if v_.potion_count > 4:
+                                if v_.potion_count > 10:
                                     v_.potion_count = 0
                                     maul_potion(cla)
                             else:
@@ -185,7 +185,7 @@ def potion_check(cla):
 
                                 if potion < 9:
                                     v_.potion_count += 1
-                                    if v_.potion_count > 4:
+                                    if v_.potion_count > 50:
                                         v_.potion_count = 0
                                         maul_potion(cla)
                                 else:
