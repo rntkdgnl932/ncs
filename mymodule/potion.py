@@ -188,7 +188,9 @@ def maul_potion(cla):
         from action import out_check, clean_screen, bag_open, maul_check
         from realtime import soojib, moogi_, jaelyo_, boonhae_
         from schedule import myQuest_play_add
+        from get_item import get_items
 
+        get_items(cla)
         soojib(cla)
         moogi_(cla)
         boonhae_(cla)
