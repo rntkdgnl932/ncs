@@ -55,7 +55,7 @@ def potion_check(cla):
                     print("potion => 숫자 아님")
             else:
                 potion_ready = text_check_get(733, 1004, 758, 1016, cla)
-                print("전체4자리 potion_2?", potion_)
+                print("전체4자리 potion_2?", potion_ready)
                 if len(potion_ready) != 0:
                     potion_ = change_potion(cla, potion_ready)
                     potion = int_put_(potion_)
