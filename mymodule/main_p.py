@@ -48,7 +48,7 @@ from dungeon import dungeon_play
 from jadong_crow import jadong_play
 from get_item import get_items
 from potion import maul_potion
-from action import maul_check, bag_open
+from action import maul_check, bag_open, quest_look
 
 import variable as v_
 
@@ -2358,7 +2358,7 @@ class game_Playing(QThread):
 
                 print("나이트크로우 실행 모드(ver " + version + ")")
 
-
+                quest_look(v_.now_cla)
 
                 full_path = "c:\\nightcrow\\imgs\\check\\touching.PNG"
                 img_array = np.fromfile(full_path, np.uint8)

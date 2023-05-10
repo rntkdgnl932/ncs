@@ -51,6 +51,10 @@ def sub_quest_grow(cla):
 
             talgut_ing_(cla)
 
+            result_maul = in_maul_check(cla)
+            if result_maul == True:
+                maul_potion(cla)
+
             quest_check(cla)
 
             # skip

@@ -13,8 +13,8 @@ def potion_check(cla):
     try:
         import cv2
         import numpy as np
-        from function import text_check_get, int_put_, imgs_set_
-        from action import dead_die_before
+        from function import text_check_get, int_put_, imgs_set_, click_pos_2
+        from action import dead_die_before, bag_open
         from realtime import soojib
 
         if cla == "one":
@@ -145,11 +145,32 @@ def potion_check(cla):
                 imgs_ = imgs_set_(700, 950, 760, 1030, cla, img, 0.75)
                 if imgs_ is not None and imgs_ != False:
                     print("화면에 물약 존재한다", imgs_)
+                else:
+                    print("화면에 물약 존재하지 않는다", v_.potion_count)
                     v_.potion_count += 1
                     print("not have potoin?", v_.potion_count)
-                    if v_.potion_count > 2:
+                    if v_.potion_count > 1:
                         v_.potion_count = 0
-                        maul_potion(cla)
+
+                        bag_open(cla)
+                        time.sleep(0.2)
+
+                        # 물약 찾기
+                        potion_have = False
+                        for i in range(10):
+                            click_pos_2(935, 265, cla)
+                            time.sleep(0.1)
+                            full_path = "c:\\nightcrow\\imgs\\potion\\potion_in_bag.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(670, 110, 900, 900, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                potion_have = True
+                                print("가방에 물약 존재한다", imgs_)
+                                break
+                            time.sleep(0.1)
+                        if potion_have == False:
+                            maul_potion(cla)
         dead_die_before(cla)
 
 
@@ -332,40 +353,43 @@ def maul_potion(cla):
             print("already_in___1", imgs_)
 
             if cla == "one":
-                potion_ = text_check_get(imgs_.x - 10, imgs_.y + 10, imgs_.x + 30, imgs_.y + 30, cla)
+                move_ = text_check_get(imgs_.x - 10, imgs_.y + 10, imgs_.x + 30, imgs_.y + 30, cla)
             if cla == "two":
-                potion_ = text_check_get(imgs_.x - 10 - 960, imgs_.y + 10, imgs_.x + 30 - 960, imgs_.y + 30, cla)
-            print("how many 1?", potion_)
-            print("int_put_(potion_) 1?", int(int_put_(potion_)))
-            random_move = int(int_put_(potion_))
-            if random_move < 100:
-                jab_3 = False
-                click_count = 0
-                while jab_3 is False:
-                    full_path = "c:\\nightcrow\\imgs\\potion\\potion_buy.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
-                    if imgs_ is not None and imgs_ != False:
-                        print("potion_buy", imgs_)
-                        click_pos_2(450, 620, cla)
-                        jab_3 = True
-                        time.sleep(0.5)
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        time.sleep(1.2)
-                    else:
-                        full_path = "c:\\nightcrow\\imgs\\potion\\soongan.PNG"
+                move_ = text_check_get(imgs_.x - 10 - 960, imgs_.y + 10, imgs_.x + 30 - 960, imgs_.y + 30, cla)
+            print("how many 1?", move_)
+
+            move_bool = move_.isdigit()
+            if move_bool == True:
+                print("int_put_(move_) 1?", int(int_put_(move_)))
+                random_move = int(int_put_(move_))
+                if random_move < 100:
+                    jab_3 = False
+                    click_count = 0
+                    while jab_3 is False:
+                        full_path = "c:\\nightcrow\\imgs\\potion\\potion_buy.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(70, 100, 200, 700, cla, img, 0.83)
+                        imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
                         if imgs_ is not None and imgs_ != False:
-                            click_count += 1
-                            if click_count > 4:
-                                print("돈 없다. 강제노역이다~!")
-                                v_.force_sub_quest = True
-                                jab_3 = True
-                            print("soongan????", imgs_)
+                            print("potion_buy", imgs_)
+                            click_pos_2(450, 620, cla)
+                            jab_3 = True
+                            time.sleep(0.5)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(1.2)
+                        else:
+                            full_path = "c:\\nightcrow\\imgs\\potion\\soongan.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(70, 100, 200, 700, cla, img, 0.83)
+                            if imgs_ is not None and imgs_ != False:
+                                click_count += 1
+                                if click_count > 4:
+                                    print("돈 없다. 강제노역이다~!")
+                                    v_.force_sub_quest = True
+                                    jab_3 = True
+                                print("soongan????", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
 
         # 마을이동서
         full_path = "c:\\nightcrow\\imgs\\potion\\maul_move_.PNG"
@@ -376,40 +400,42 @@ def maul_potion(cla):
             print("already_in___2", imgs_)
 
             if cla == "one":
-                potion_ = text_check_get(imgs_.x - 10, imgs_.y + 10, imgs_.x + 30, imgs_.y + 30, cla)
+                move_ = text_check_get(imgs_.x - 10, imgs_.y + 10, imgs_.x + 30, imgs_.y + 30, cla)
             if cla == "two":
-                potion_ = text_check_get(imgs_.x - 10 - 960, imgs_.y + 10, imgs_.x + 30 - 960, imgs_.y + 30, cla)
-            print("how many 2?", potion_)
-            print("int_put_(potion_) 2?", int(int_put_(potion_)))
-            maul_move_ = int(int_put_(potion_))
-            if maul_move_ < 100:
-                jab_3 = False
-                click_count = 0
-                while jab_3 is False:
-                    full_path = "c:\\nightcrow\\imgs\\potion\\potion_buy.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
-                    if imgs_ is not None and imgs_ != False:
-                        print("potion_buy", imgs_)
-                        click_pos_2(450, 620, cla)
-                        jab_3 = True
-                        time.sleep(0.5)
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        time.sleep(1.2)
-                    else:
-                        full_path = "c:\\nightcrow\\imgs\\potion\\gujum.PNG"
+                move_ = text_check_get(imgs_.x - 10 - 960, imgs_.y + 10, imgs_.x + 30 - 960, imgs_.y + 30, cla)
+            print("how many 2?", move_)
+            move_bool = move_.isdigit()
+            if move_bool == True:
+                print("int_put_(move_) 2?", int(int_put_(move_)))
+                maul_move_ = int(int_put_(move_))
+                if maul_move_ < 100:
+                    jab_3 = False
+                    click_count = 0
+                    while jab_3 is False:
+                        full_path = "c:\\nightcrow\\imgs\\potion\\potion_buy.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(70, 100, 200, 700, cla, img, 0.83)
+                        imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
                         if imgs_ is not None and imgs_ != False:
-                            click_count += 1
-                            if click_count > 4:
-                                print("돈 없다. 강제노역이당 흑흑")
-                                v_.force_sub_quest = True
-                                jab_3 = True
-                            print("soongan", imgs_)
+                            print("potion_buy", imgs_)
+                            click_pos_2(450, 620, cla)
+                            jab_3 = True
+                            time.sleep(0.5)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(1.2)
+                        else:
+                            full_path = "c:\\nightcrow\\imgs\\potion\\gujum.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(70, 100, 200, 700, cla, img, 0.83)
+                            if imgs_ is not None and imgs_ != False:
+                                click_count += 1
+                                if click_count > 4:
+                                    print("돈 없다. 강제노역이당 흑흑")
+                                    v_.force_sub_quest = True
+                                    jab_3 = True
+                                print("soongan", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
 
         jab_3 = False
         while jab_3 is False:

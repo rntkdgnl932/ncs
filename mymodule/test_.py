@@ -21,7 +21,7 @@ def go_test():
     from potion import maul_potion, change_potion
     from action import skill_check_
 
-    cla = "two"
+    cla = "one"
 
     if cla == 'one':
         plus = 0
@@ -30,25 +30,25 @@ def go_test():
 
     print("여긴 테스트")
 
-    potion_ = text_check_get(733, 1004, 758, 1016, cla)
-    print("전체4자리 potion_?", potion_)
-    print("potion_[0]", potion_[0])
-    if potion_[0] == "0":
-        potion_ = "1" + potion_
-        print("potion_ = '1' + potion_", potion_)
+    # potion_ = text_check_get(733, 1004, 758, 1016, cla)
+    # print("전체4자리 potion_?", potion_)
+    # potion_bool = potion_.isdigit()
+    # if potion_bool == True:
+    #     print("potion_[0]", potion_[0])
+    #     if potion_[0] == "0":
+    #         potion_ = "1" + potion_
+    #         print("potion_ = '1' + potion_", potion_)
+    #
+    # potion_ = text_check_get(730, 1004, 759, 1016, cla)
+    # print("전체4자리 potion_2?", potion_)
+    #
+    # potion_ = text_check_get(730, 1004, 752, 1016, cla)
+    # print("앞3자리 potion_?", potion_)
+    #
+    # potion_ = text_check_get(738, 1004, 759, 1016, cla)
+    # print("뒷3자리 potion_??", potion_)
 
-    potion_ = text_check_get(730, 1004, 759, 1016, cla)
-    print("전체4자리 potion_2?", potion_)
-
-    potion_ = text_check_get(730, 1004, 752, 1016, cla)
-    print("앞3자리 potion_?", potion_)
-
-    potion_ = text_check_get(738, 1004, 759, 1016, cla)
-    print("뒷3자리 potion_??", potion_)
-
-
-
-
+    clean_screen(cla)
 
 
 

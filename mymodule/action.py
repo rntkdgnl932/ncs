@@ -708,6 +708,40 @@ def talgut_ing_(cla):
     except Exception as e:
         print(e)
 
+def in_maul_check(cla):
+    try:
+
+        from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
+        import numpy as np
+        import cv2
+
+        in_ = False
+
+        maul_list = ["maul_", "maul_a", "maul_b", "maul_c"]
+        for i in range(len(maul_list)):
+            full_path = "c:\\nightcrow\\imgs\\maul\\" + maul_list[i] + ".PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(50, 70, 160, 110, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print(maul_list[i], imgs_)
+                in_ = True
+        if in_ == True:
+            click_pos_2(230, 90, cla)
+
+        time.sleep(0.3)
+        full_path = "c:\\nightcrow\\imgs\\maul\\jabhwa_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(0, 70, 220, 330, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("여긴 마을!!!!!!!!!!!!!")
+            in_ = True
+
+
+        return in_
+    except Exception as e:
+        print(e)
 
 
 
@@ -827,6 +861,28 @@ def maul_check(cla):
                     go_ = True
 
         return go_
+    except Exception as e:
+        print(e)
+
+def quest_look(cla):
+    try:
+        import cv2
+        import numpy as np
+        from function import click_pos_2, imgs_set_
+        full_path = "c:\\nightcrow\\imgs\\check\\quest_check.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(895, 95, 925, 120, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("quest_check", imgs_)
+        else:
+            full_path = "c:\\nightcrow\\imgs\\check\\quest_check2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(895, 80, 960, 140, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("quest_check2", imgs_)
+                click_pos_2(930, 110, cla)
     except Exception as e:
         print(e)
 

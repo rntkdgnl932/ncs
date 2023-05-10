@@ -16,6 +16,7 @@ def jadong_play(cla, result_schedule_):
         from function import text_check_get, int_put_, imgs_set_, click_pos_reg
         from action import out_check, clean_screen
         from massenger import line_to_me
+        from potion import maul_potion
 
         dungeon_ = result_schedule_.split("_")
 
@@ -80,6 +81,9 @@ def jadong_play(cla, result_schedule_):
             print("사냥터 진입하러 가자")
             # 자동사냥 진입
             clean_screen(cla)
+            result_maul = in_maul_check(cla)
+            if result_maul == True:
+                maul_potion(cla)
             in_world(cla)
             in_spot(cla, result_schedule_)
             go_to_spot(cla)
@@ -673,12 +677,29 @@ def go_to_spot(cla):
                 print("비행장 이동중")
             time.sleep(0.2)
 
+        move_ = False
+        move_count = 0
+        while move_ is False:
+            move_count += 1
+            if move_count > 40:
+                move_ = True
+            full_path = "c:\\nightcrow\\imgs\\jadong\\in_spot_walking_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(480, 880, 500, 900, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("in_spot_walking_2 보여")
+                move_ = True
+            time.sleep(0.2)
+
         flying = False
         flying_count = 0
         while flying is False:
             flying_count += 1
             if flying_count > 25:
                 flying = True
+
+
             full_path = "c:\\nightcrow\\imgs\\jadong\\flying_.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -699,8 +720,16 @@ def go_to_spot(cla):
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                     else:
-                        fly_to_the_sky = True
-                        time.sleep(15)
+                        full_path = "c:\\nightcrow\\imgs\\jadong\\in_spot_walking_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(480, 880, 500, 900, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("in_spot_walking_2 보여...이동중")
+                        else:
+                            fly_to_the_sky = True
+                            click_pos_2(930, 850, cla)
+                            #공격
                     time.sleep(3.5)
             else:
                 print("날려고 달리는 중")
@@ -716,11 +745,6 @@ def now_playing(cla):
         from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos
         from potion import potion_check
         from action import clean_screen, out_check, bag_open
-
-        if cla == "one":
-            potion = v_.mypotion_1
-        else:
-            potion = v_.mypotion_2
 
         print("now_jadong_playing")
 
