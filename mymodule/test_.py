@@ -21,7 +21,7 @@ def go_test():
     from potion import maul_potion, change_potion
     from action import skill_check_
 
-    cla = "one"
+    cla = "two"
 
     if cla == 'one':
         plus = 0
@@ -38,7 +38,7 @@ def go_test():
         print("길이가 0 보다 크다", len(potion_))
         for i in range(len(potion_)):
             print(potion_[i])
-            result_num_bool = potion_[i]
+            result_num_bool = potion_[i].isdigit()
             if result_num_bool == True:
                 print("숫자 : ", potion_[i])
                 isNumber = True

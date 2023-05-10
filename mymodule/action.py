@@ -1227,7 +1227,7 @@ def in_number_check(cla, data):
         if len(data) > 0:
             print("길이가 0 보다 크다", len(data))
             for i in range(len(data)):
-                result_num_bool = data[i]
+                result_num_bool = data[i].isdigit()
                 if result_num_bool == True:
                     isNumber = True
         else:
