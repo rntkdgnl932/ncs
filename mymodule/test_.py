@@ -48,7 +48,12 @@ def go_test():
     # potion_ = text_check_get(738, 1004, 759, 1016, cla)
     # print("뒷3자리 potion_??", potion_)
 
-    clean_screen(cla)
+    full_path = "c:\\nightcrow\\imgs\\check\\quest_check.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(895, 95, 925, 120, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("quest_check", imgs_)
 
 
 

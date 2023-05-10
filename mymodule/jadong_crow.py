@@ -658,6 +658,7 @@ def go_to_spot(cla):
         import cv2
         import numpy as np
         from function import text_check_get, int_put_, click_pos_reg, click_pos_2, imgs_set_
+        from action import skip_click, go_quest_ing_
 
         print("사냥터 이동중")
 
@@ -687,9 +688,11 @@ def go_to_spot(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(40, 80, 160, 110, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
+                print("여긴 비행장")
                 bihangjang = True
             else:
                 print("비행장 이동중?")
+                skip_click(cla)
                 full_path = "c:\\nightcrow\\imgs\\jadong\\in_spot_walking_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -727,6 +730,7 @@ def go_to_spot(cla):
                         imgs_ = imgs_set_(770, 970, 960, 1030, cla, img, 0.7)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            print("플라잉 부스터!!!")
                     else:
                         full_path = "c:\\nightcrow\\imgs\\jadong\\in_spot_walking_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -740,12 +744,13 @@ def go_to_spot(cla):
                             #공격
                     time.sleep(3.5)
             else:
-                print("날려고 달리는 중?")
                 full_path = "c:\\nightcrow\\imgs\\jadong\\in_spot_walking_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(480, 880, 500, 900, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
+                    print("날려고 달리는 중??")
+                else:
                     flying = True
             time.sleep(0.2)
 
@@ -766,7 +771,10 @@ def go_to_spot(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(820, 880, 910, 970, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_2(930, 850, cla)
+                    attack_ready = True
+                    result_ = go_quest_ing_(cla)
+                    if result_ == False:
+                        click_pos_2(930, 850, cla)
 
 
     except Exception as e:
@@ -778,7 +786,7 @@ def now_playing(cla):
         import numpy as np
         from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos
         from potion import potion_check
-        from action import clean_screen, out_check, bag_open
+        from action import clean_screen, out_check, bag_open, go_quest_ing_
 
         print("now_jadong_playing")
 
@@ -828,7 +836,9 @@ def now_playing(cla):
             if in_ == False:
                 clean_screen(cla)
                 # 공격하기
-                click_pos_2(930, 850, cla)
+                result_ = go_quest_ing_(cla)
+                if result_ == False:
+                    click_pos_2(930, 850, cla)
 
 
             else:

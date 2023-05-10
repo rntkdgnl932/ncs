@@ -316,6 +316,7 @@ def quest_check(cla):
     try:
 
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
+        from action import go_quest_ing_
         import numpy as np
         import cv2
 
@@ -327,7 +328,9 @@ def quest_check(cla):
         if imgs_ is not None and imgs_ != False:
             print("quest_soolock_2", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
-            talgut_board_(cla)
+            result_ = go_quest_ing_(cla)
+            if result_ == False:
+                talgut_board_(cla)
 
 
         # 퀘스트 완료
@@ -338,7 +341,9 @@ def quest_check(cla):
         if imgs_ is not None and imgs_ != False:
             print("quest_complete_2", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
-            talgut_board_(cla)
+            result_ = go_quest_ing_(cla)
+            if result_ == False:
+                talgut_board_(cla)
         # 붕붕 날아다니자
         full_path = "c:\\nightcrow\\imgs\\jadong\\fly_.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -572,7 +577,7 @@ def talgut_board_(cla):
         if go_ == False:
             print("sub_quest_count", sub_quest_count)
             sub_quest_count += 1
-            if sub_quest_count > 50:
+            if sub_quest_count > 1:
                 result_ = go_quest_ing_(cla)
                 if result_ == False:
 
@@ -604,6 +609,59 @@ def talgut_board_(cla):
 
         #비행장?
         go_to_spot(cla)
+
+        return go_
+    except Exception as e:
+        print(e)
+
+def talgut_board_check(cla):
+    try:
+        global sub_quest_count
+        from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
+        from action import menu_open, clean_screen, go_quest_ing_, go_auto_ing_
+        from jadong_crow import go_to_spot
+        import numpy as np
+        import cv2
+        import pyautogui
+
+        # 탈것
+        go_ = False
+        full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\talgut_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            go_ = True
+            sub_quest_count = 0
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+        else:
+            full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\talgut_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                go_ = True
+                sub_quest_count = 0
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\talgut_3.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    go_ = True
+                    sub_quest_count = 0
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    full_path = "c:\\nightcrow\\imgs\\quest\\talgut_4.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(680, 120, 720, 170, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        go_ = True
+                        sub_quest_count = 0
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
 
         return go_
     except Exception as e:

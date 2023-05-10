@@ -864,6 +864,39 @@ def maul_check(cla):
     except Exception as e:
         print(e)
 
+def skip_click(cla):
+    try:
+        import cv2
+        import numpy as np
+        from function import click_pos_2, imgs_set_, click_pos_reg
+        # skip
+        full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\skip_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(800, 45, 960, 130, cla, img, 0.83)
+        if imgs_ is not None and imgs_ != False:
+            print("skip_1", imgs_)
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+        else:
+            full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\skip_3.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(800, 45, 960, 130, cla, img, 0.83)
+            if imgs_ is not None and imgs_ != False:
+                print("skip_3", imgs_)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+
+        # skip
+        full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\skip_2.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(580, 880, 680, 920, cla, img, 0.83)
+        if imgs_ is not None and imgs_ != False:
+            print("skip_2", imgs_)
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+    except Exception as e:
+        print(e)
+
 def quest_look(cla):
     try:
         import cv2
@@ -882,7 +915,14 @@ def quest_look(cla):
             imgs_ = imgs_set_(895, 80, 960, 140, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 print("quest_check2", imgs_)
-                click_pos_2(930, 110, cla)
+                full_path = "c:\\nightcrow\\imgs\\check\\quest_check.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(895, 95, 925, 120, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("quest_check", imgs_)
+                else:
+                    click_pos_2(930, 110, cla)
     except Exception as e:
         print(e)
 
