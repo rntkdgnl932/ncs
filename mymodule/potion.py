@@ -14,7 +14,7 @@ def potion_check(cla):
         import cv2
         import numpy as np
         from function import text_check_get, int_put_, imgs_set_, click_pos_2
-        from action import dead_die_before, bag_open
+        from action import dead_die_before, bag_open, in_number_check
         from realtime import soojib
 
         if cla == "one":
@@ -32,7 +32,8 @@ def potion_check(cla):
 
             potion_ready = text_check_get(730, 1004, 759, 1016, cla)
             print("전체4자리 potion_?", potion_ready)
-            if len(potion_ready) != 0:
+            result_num_in = in_number_check(cla, potion_ready)
+            if result_num_in == True:
                 potion_ = change_potion(cla, potion_ready)
                 potion = int_put_(potion_)
                 potion_bloon = potion.isdigit()
@@ -56,7 +57,8 @@ def potion_check(cla):
             else:
                 potion_ready = text_check_get(733, 1004, 758, 1016, cla)
                 print("전체4자리 potion_2?", potion_ready)
-                if len(potion_ready) != 0:
+                result_num_in = in_number_check(cla, potion_ready)
+                if result_num_in == True:
                     potion_ = change_potion(cla, potion_ready)
                     potion = int_put_(potion_)
                     potion_bloon = potion.isdigit()
@@ -80,7 +82,8 @@ def potion_check(cla):
                 else:
                     potion_ready = text_check_get(730, 1004, 752, 1016, cla)
                     print("앞3자리 potion_?", potion_ready)
-                    if len(potion_ready) != 0:
+                    result_num_in = in_number_check(cla, potion_ready)
+                    if result_num_in == True:
                         potion_ = change_potion(cla, potion_ready)
                         potion = int_put_(potion_)
                         potion_bloon = potion.isdigit()
@@ -104,7 +107,8 @@ def potion_check(cla):
                     else:
                         potion_ready = text_check_get(738, 1004, 759, 1016, cla)
                         print("뒷3자리 potion_??", potion_ready)
-                        if len(potion_ready) != 0:
+                        result_num_in = in_number_check(cla, potion_ready)
+                        if result_num_in == True:
                             potion_ = change_potion(cla, potion_ready)
                             potion = int_put_(potion_)
                             potion_bloon = potion.isdigit()
