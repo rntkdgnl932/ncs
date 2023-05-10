@@ -14,7 +14,7 @@ def jadong_play(cla, result_schedule_):
         import os
         import numpy as np
         from function import text_check_get, int_put_, imgs_set_, click_pos_reg
-        from action import out_check, clean_screen
+        from action import out_check, clean_screen, in_maul_check
         from massenger import line_to_me
         from potion import maul_potion
 
@@ -661,22 +661,6 @@ def go_to_spot(cla):
 
         print("사냥터 이동중")
 
-        bihangjang = False
-        bihangjang_count = 0
-        while bihangjang is False:
-            bihangjang_count += 1
-            if bihangjang_count > 25:
-                bihangjang = True
-            full_path = "c:\\nightcrow\\imgs\\jadong\\bihangjang.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(40, 80, 160, 110, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                bihangjang = True
-            else:
-                print("비행장 이동중")
-            time.sleep(0.2)
-
         move_ = False
         move_count = 0
         while move_ is False:
@@ -691,6 +675,30 @@ def go_to_spot(cla):
                 print("in_spot_walking_2 보여")
                 move_ = True
             time.sleep(0.2)
+
+        bihangjang = False
+        bihangjang_count = 0
+        while bihangjang is False:
+            bihangjang_count += 1
+            if bihangjang_count > 25:
+                bihangjang = True
+            full_path = "c:\\nightcrow\\imgs\\jadong\\bihangjang.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(40, 80, 160, 110, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                bihangjang = True
+            else:
+                print("비행장 이동중?")
+                full_path = "c:\\nightcrow\\imgs\\jadong\\in_spot_walking_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(480, 880, 500, 900, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    bihangjang = True
+            time.sleep(0.2)
+
+
 
         flying = False
         flying_count = 0
@@ -728,12 +736,38 @@ def go_to_spot(cla):
                             print("in_spot_walking_2 보여...이동중")
                         else:
                             fly_to_the_sky = True
-                            click_pos_2(930, 850, cla)
+
                             #공격
                     time.sleep(3.5)
             else:
-                print("날려고 달리는 중")
+                print("날려고 달리는 중?")
+                full_path = "c:\\nightcrow\\imgs\\jadong\\in_spot_walking_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(480, 880, 500, 900, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    flying = True
             time.sleep(0.2)
+
+        attack_ready = False
+        attack_ready_count = 0
+        while attack_ready is False:
+            full_path = "c:\\nightcrow\\imgs\\jadong\\in_spot_walking_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(480, 880, 500, 900, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                attack_ready_count += 1
+                if attack_ready_count < 2:
+                    print("열심히 이동중")
+            else:
+                full_path = "c:\\nightcrow\\imgs\\jadong\\attack_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(820, 880, 910, 970, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(930, 850, cla)
+
 
     except Exception as e:
         print(e)
