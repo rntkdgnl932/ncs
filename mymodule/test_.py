@@ -35,18 +35,22 @@ def go_test():
     print("전체4자리 potion_?", potion_)
     print("len potion", len(potion_))
     if len(potion_) > 0:
-        print("길이가 0 보다 크다",len(potion_))
+        print("길이가 0 보다 크다", len(potion_))
         for i in range(len(potion_)):
+            print(potion_[i])
             result_num_bool = potion_[i]
             if result_num_bool == True:
+                print("숫자 : ", potion_[i])
                 isNumber = True
+            else:
+                print("문자 : ", potion_[i])
         if isNumber == True:
             print("potion_[0]", potion_[0])
             if potion_[0] == "0":
                 potion_ = "1" + potion_
                 print("potion_ = '1' + potion_", potion_)
     else:
-        print("길이다 없다")
+        print("길이가 없다")
 
 
     # potion_ = text_check_get(733, 1004, 758, 1016, cla)

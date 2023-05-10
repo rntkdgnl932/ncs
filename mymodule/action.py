@@ -1215,6 +1215,29 @@ def clean_screen(cla):
     except Exception as e:
         print(e)
 
+def in_number_check(cla, data):
+    try:
+        import cv2
+        import numpy as np
+        from function import text_check_get, int_put_
+
+        isNumber = False
+        print("들어온 데이타?", data)
+        print("len potion", len(data))
+        if len(data) > 0:
+            print("길이가 0 보다 크다", len(data))
+            for i in range(len(data)):
+                result_num_bool = data[i]
+                if result_num_bool == True:
+                    isNumber = True
+        else:
+            print("데이터가 길이가 없고 비어있다")
+
+        return isNumber
+    except Exception as e:
+        print(e)
+
+
 def out_check(cla):
     try:
         import cv2
