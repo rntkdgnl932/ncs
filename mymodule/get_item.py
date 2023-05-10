@@ -26,7 +26,7 @@ def get_items(cla):
 
 
         print("아이템 받기 시작")
-
+        clean_screen(cla)
         # 시즌패스 받기
         get_season_pass(cla)
         # 이벤트 받기

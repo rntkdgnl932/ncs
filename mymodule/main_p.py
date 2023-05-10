@@ -71,7 +71,7 @@ onMaul = "none"
 
 isgloballoop = False
 
-version = "1.37"
+version = "1.38"
 
 # 기존 오토모드 관련##############################################
 
