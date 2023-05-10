@@ -2374,7 +2374,7 @@ class game_Playing(QThread):
                     result_schedule_ = result_schedule[0][2]
 
                     # 최초1회만...
-                    if result_schedule_ != "각종템받기":
+                    if result_schedule_ != "각종템받기" and result_schedule_ != "튜토육성":
                         print("최초 1회 : 마을일 경우 물약 ㄱㄱ", v_.just_one)
                         if v_.just_one == False:
                             v_.just_one = True
@@ -2394,7 +2394,7 @@ class game_Playing(QThread):
                                     time.sleep(0.5)
                                     bag_open(v_.now_cla)
 
-                    if v_.force_sub_quest == True:
+                    if v_.force_sub_quest == True and result_schedule_ != "튜토육성":
                         # 죽었을때 돈 50만 골드 이하일때 강제노역 보내기
 
                         jadong_play(v_.now_cla, v_.onForceGoldSpot_go)
