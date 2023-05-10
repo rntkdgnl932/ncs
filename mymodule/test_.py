@@ -30,6 +30,25 @@ def go_test():
 
     print("여긴 테스트")
 
+    isNumber = False
+    potion_ = text_check_get(733, 1004, 758, 1016, cla)
+    print("전체4자리 potion_?", potion_)
+    print("len potion", len(potion_))
+    if len(potion_) > 0:
+        print("길이가 0 보다 크다",len(potion_))
+        for i in range(len(potion_)):
+            result_num_bool = potion_[i]
+            if result_num_bool == True:
+                isNumber = True
+        if isNumber == True:
+            print("potion_[0]", potion_[0])
+            if potion_[0] == "0":
+                potion_ = "1" + potion_
+                print("potion_ = '1' + potion_", potion_)
+    else:
+        print("길이다 없다")
+
+
     # potion_ = text_check_get(733, 1004, 758, 1016, cla)
     # print("전체4자리 potion_?", potion_)
     # potion_bool = potion_.isdigit()
@@ -48,12 +67,6 @@ def go_test():
     # potion_ = text_check_get(738, 1004, 759, 1016, cla)
     # print("뒷3자리 potion_??", potion_)
 
-    full_path = "c:\\nightcrow\\imgs\\check\\quest_check.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(895, 95, 925, 120, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("quest_check", imgs_)
 
 
 
