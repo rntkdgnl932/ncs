@@ -59,7 +59,8 @@ def myQuest_play_check(cla, data):
             if day_[0] == nowDay:
                 print("nowDay ing good")
             else:
-
+                v_.just_one = False
+                v_.force_sub_quest = False
 
                 if datetime.today().weekday() == 0:
 
@@ -495,7 +496,8 @@ def myQuest_play_add(cla, data):
             else:
                 print("아직 미션 진행중")
         else:
-
+            v_.just_one = False
+            v_.force_sub_quest = False
 
             if datetime.today().weekday() == 0:
 

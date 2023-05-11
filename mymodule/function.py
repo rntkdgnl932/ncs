@@ -75,6 +75,28 @@ def int_put_(data):
     except ValueError:
         return False
 
+def in_number_check(cla, data):
+    try:
+        import cv2
+        import numpy as np
+        from function import text_check_get, int_put_
+
+        isNumber = False
+        print("들어온 데이타?", data)
+        print("len potion", len(data))
+        if len(data) > 0:
+            print("길이가 0 보다 크다", len(data))
+            for i in range(len(data)):
+                result_num_bool = data[i].isdigit()
+                if result_num_bool == True:
+                    isNumber = True
+        else:
+            print("데이터가 길이가 없고 비어있다")
+
+        return isNumber
+    except Exception as e:
+        print(e)
+
 def imgs_set(a, b, c, d, cla, img):
     try:
         import pyautogui

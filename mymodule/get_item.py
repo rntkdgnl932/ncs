@@ -33,6 +33,8 @@ def get_items(cla):
         get_event(cla)
         # 업적 받기
         get_upjuk(cla)
+        #신념전승
+
         # 우편 받기
         get_post(cla)
         # 가방 아이템 정리
@@ -559,6 +561,103 @@ def get_upjuk(cla):
                     click_pos_2(790, 190, cla)
                 else:
                     get_upjuk_ = True
+                time.sleep(0.5)
+
+
+    except Exception as e:
+        print(e)
+
+def sinnyum_junseong(cla):
+    try:
+        import cv2
+        import numpy as np
+        from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos
+        from action import clean_screen, menu_open
+
+        get_trust = False
+        while get_trust is False:
+            full_path = "c:\\nightcrow\\imgs\\get_item\\sinnyum_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(500, 340, 550, 380, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                full_path = "c:\\nightcrow\\imgs\\get_item\\sinnyum_zero.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(460, 380, 495, 415, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    get_trust = True
+                else:
+                    right_ = False
+                    right_count = 0
+                    while right_ is False:
+                        right_count += 1
+                        if right_count > 10:
+                            right_ = True
+                        full_path = "c:\\nightcrow\\imgs\\get_item\\sinnyum_right.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(380, 530, 430, 590, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("sinnyum_right", imgs_)
+                            right_ = True
+
+                            last_sinnyum = False
+                            last_sinnyum_count = 0
+                            while last_sinnyum is False:
+                                last_sinnyum_count += 1
+                                if last_sinnyum_count > 10:
+                                    last_sinnyum = True
+                                full_path = "c:\\nightcrow\\imgs\\get_item\\sinnyum_zero.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(460, 380, 495, 415, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_2(520, 700, cla)
+                                    full_path = "c:\\nightcrow\\imgs\\quest\\y_1.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(200, 300, 800, 800, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    full_path = "c:\\nightcrow\\imgs\\get_item\\sinnyum_title.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(500, 340, 550, 380, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_2(930, 60, cla)
+                                    else:
+                                        last_sinnyum = True
+
+                                else:
+                                    full_path = "c:\\nightcrow\\imgs\\get_item\\sinnyum_right.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(380, 530, 430, 590, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                        else:
+                            # 활쟁이
+                            click_pos_2(365, 565, cla)
+                            time.sleep(0.5)
+
+
+
+
+
+            else:
+                menu_open(cla)
+
+                full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(875, 160, 910, 195, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(885, 190, cla)
+                    time.sleep(1.5)
+                else:
+                    get_trust = True
 
 
 

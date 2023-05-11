@@ -13,8 +13,8 @@ def potion_check(cla):
     try:
         import cv2
         import numpy as np
-        from function import text_check_get, int_put_, imgs_set_, click_pos_2
-        from action import dead_die_before, bag_open, in_number_check
+        from function import text_check_get, int_put_, imgs_set_, click_pos_2, in_number_check
+        from action import dead_die_before, bag_open
         from realtime import soojib
 
         if cla == "one":
@@ -188,7 +188,7 @@ def maul_potion(cla):
     try:
         import cv2
         import numpy as np
-        from function import text_check_get, int_put_, click_pos_2, imgs_set_, click_pos_reg
+        from function import text_check_get, int_put_, click_pos_2, imgs_set_, click_pos_reg, in_number_check
         from action import out_check, clean_screen, bag_open, maul_check
         from realtime import soojib, moogi_, jaelyo_, boonhae_
         from schedule import myQuest_play_add
@@ -333,6 +333,8 @@ def maul_potion(cla):
                 jab_3 = True
                 time.sleep(0.5)
                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.2)
+                click_pos_2(410, 745, cla)
                 time.sleep(1.2)
             else:
                 jab_1_count += 1
@@ -364,7 +366,7 @@ def maul_potion(cla):
                 move_ = text_check_get(imgs_.x - 10 - 960, imgs_.y + 10, imgs_.x + 30 - 960, imgs_.y + 30, cla)
             print("how many 1?", move_)
 
-            move_bool = move_.isdigit()
+            move_bool = in_number_check(cla, move_)
             if move_bool == True:
                 print("int_put_(move_) 1?", int(int_put_(move_)))
                 random_move = int(int_put_(move_))
@@ -382,6 +384,8 @@ def maul_potion(cla):
                             jab_3 = True
                             time.sleep(0.5)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.2)
+                            click_pos_2(410, 745, cla)
                             time.sleep(1.2)
                         else:
                             full_path = "c:\\nightcrow\\imgs\\potion\\soongan.PNG"
@@ -410,7 +414,7 @@ def maul_potion(cla):
             if cla == "two":
                 move_ = text_check_get(imgs_.x - 10 - 960, imgs_.y + 10, imgs_.x + 30 - 960, imgs_.y + 30, cla)
             print("how many 2?", move_)
-            move_bool = move_.isdigit()
+            move_bool = in_number_check(cla, move_)
             if move_bool == True:
                 print("int_put_(move_) 2?", int(int_put_(move_)))
                 maul_move_ = int(int_put_(move_))
@@ -428,6 +432,8 @@ def maul_potion(cla):
                             jab_3 = True
                             time.sleep(0.5)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.2)
+                            click_pos_2(410, 745, cla)
                             time.sleep(1.2)
                         else:
                             full_path = "c:\\nightcrow\\imgs\\potion\\gujum.PNG"
@@ -444,6 +450,7 @@ def maul_potion(cla):
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
 
         jab_3 = False
+        print("potion_jab_3")
         while jab_3 is False:
             out_result = out_check(cla)
             if out_result == True:
@@ -455,7 +462,7 @@ def maul_potion(cla):
                     click_pos_2(930, 60, cla)
                 jab_3 = True
             else:
-                click_pos_2(930, 60, cla)
+                clean_screen(cla)
 
         jaelyo_(cla)
 

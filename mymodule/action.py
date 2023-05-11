@@ -311,7 +311,7 @@ def item_open(cla):
                             else:
                                 menu_open(cla)
                                 time.sleep(0.1)
-                                click_pos_2(795, 260, cla)
+                                click_pos_2(845, 260, cla)
                                 time.sleep(1)
 
                     bag_open(cla)
@@ -411,7 +411,7 @@ def item_open(cla):
                                 tal_3 = True
                             else:
                                 menu_open(cla)
-                                click_pos_2(880, 260, cla)
+                                click_pos_2(930, 260, cla)
                                 time.sleep(1)
 
                     bag_open(cla)
@@ -433,7 +433,7 @@ def item_open(cla):
                 while tal_1 is False:
                     item_count += 1
                     print("item_count3", item_count)
-                    if item_count > 20:
+                    if item_count > 7:
                         item_count = 0
                         tal_1 = True
                     full_path = "c:\\nightcrow\\imgs\\item_1\\umsik_2.PNG"
@@ -475,6 +475,7 @@ def item_open(cla):
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                         else:
                             if x_reg != 0:
+                                tal_1 = True
                                 click_pos_reg(x_reg, y_reg, cla)
 
                     time.sleep(0.3)
@@ -503,7 +504,7 @@ def item_open(cla):
                     while tal_1 is False:
                         item_count += 1
                         print("item_count3", item_count)
-                        if item_count > 20:
+                        if item_count > 7:
                             item_count = 0
                             tal_1 = True
 
@@ -549,15 +550,45 @@ def item_open(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                print("상자 있")
+                                print("상자 있...", box_[i])
                                 x_reg = imgs_.x
                                 y_reg = imgs_.y
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                                full_path = "c:\\nightcrow\\imgs\\item_1\\umsik_2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(330, 400, 630, 550, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.3)
+
+
+                                click_pos_reg(x_reg, y_reg, cla)
                                 time.sleep(0.1)
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                click_pos_reg(x_reg, y_reg, cla)
+                                time.sleep(0.3)
+                                full_path = "c:\\nightcrow\\imgs\\item_1\\confirm_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(480, 480, 630, 710, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    tal_1 = True
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.2)
+                                    click_pos_2(935, 265, cla)
                             else:
                                 if x_reg != 0:
                                     click_pos_reg(x_reg, y_reg, cla)
+                                    time.sleep(0.3)
+                                    full_path = "c:\\nightcrow\\imgs\\item_1\\confirm_1.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(480, 480, 630, 710, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        tal_1 = True
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        time.sleep(0.2)
+                                        click_pos_2(935, 265, cla)
 
                         time.sleep(0.3)
                         full_path = "c:\\nightcrow\\imgs\\item_1\\get_clear.PNG"

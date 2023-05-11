@@ -188,6 +188,7 @@ def dungeon_play(cla, result_schedule_):
                         menu_open(cla)
                         click_pos_2(840, 200, cla)
                         print("진입중")
+                        time.sleep(1)
                     time.sleep(0.2)
                     full_path = "c:\\nightcrow\\imgs\\dungeon\\y_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
