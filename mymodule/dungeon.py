@@ -466,6 +466,19 @@ def now_playing(cla, dun_):
                                 time.sleep(0.2)
                         time.sleep(0.3)
 
+                if dun_ == "번영":
+                    dungeon_name = "bunyuong_1"
+                elif dun_ == "수련":
+                    dungeon_name = "soolyun_1"
+                elif dun_ == "신전":
+                    dungeon_name = "sinjun_1"
+                elif dun_ == "유적":
+                    dungeon_name = "youjuk_1"
+                elif dun_ == "동굴":
+                    dungeon_name = "dongool_1"
+
+
+
                 full_path = "c:\\nightcrow\\imgs\\check\\random_move_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -474,8 +487,29 @@ def now_playing(cla, dun_):
                     print("random_move_1", imgs_)
                     in_ = True
                     click_pos_2(345, 995, cla)
-                    time.sleep(2)
+
+                    in_dungeon__ = False
+
+                    in_dungeon__count = 0
+                    while in_dungeon__ is False:
+                        in_dungeon__count += 1
+                        if in_dungeon__count > 10:
+                            in_dungeon__count = 0
+                            in_dungeon__ = True
+
+                        print("랜덤 이동 후 던전 진입 여부 체크")
+                        time.sleep(1)
+
+                        full_path = "c:\\nightcrow\\imgs\\dungeon\\" + dungeon_name + ".PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(50, 75, 150, 110, cla, img, 0.75)
+                        if imgs_ is not None and imgs_ != False:
+                            print(dun_, imgs_)
+
+                            in_dungeon__ = True
                     click_pos_2(930, 850, cla)
+                    time.sleep(1)
                 else:
                     bag_open(cla)
                     time.sleep(1)
@@ -491,8 +525,30 @@ def now_playing(cla, dun_):
                         click_pos_2(345, 1000, cla)
                         time.sleep(0.5)
                         clean_screen(cla)
-                        time.sleep(2)
+
+                        in_dungeon__ = False
+
+                        in_dungeon__count = 0
+                        while in_dungeon__ is False:
+                            in_dungeon__count += 1
+                            if in_dungeon__count > 10:
+                                in_dungeon__count = 0
+                                in_dungeon__ = True
+
+                            print("랜덤 이동 후 던전 진입 여부 체크2")
+                            time.sleep(1)
+
+                            full_path = "c:\\nightcrow\\imgs\\dungeon\\" + dungeon_name + ".PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(50, 75, 150, 110, cla, img, 0.75)
+                            if imgs_ is not None and imgs_ != False:
+                                print(dun_, imgs_)
+
+                                in_dungeon__ = True
+
                         click_pos_2(930, 850, cla)
+                        time.sleep(1)
                     else:
                         print("랜덤이동서가 없다. 마을 포션 구매하러 가자")
                         maul_potion(cla)
