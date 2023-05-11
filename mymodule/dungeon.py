@@ -339,7 +339,7 @@ def now_playing(cla, dun_):
         import numpy as np
         from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos
         from potion import potion_check, maul_potion
-        from action import clean_screen, out_check, bag_open, skill_check_
+        from action import clean_screen, out_check, bag_open, skill_check_, in_maul_check
 
 
         print("now_dungeon_playing")
@@ -518,6 +518,7 @@ def now_playing(cla, dun_):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(680, 100, 920, 900, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
+                        in_ = True
                         click_pos_2(710, 935, cla)
                         time.sleep(0.5)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -551,7 +552,34 @@ def now_playing(cla, dun_):
                         time.sleep(1)
                     else:
                         print("랜덤이동서가 없다. 마을 포션 구매하러 가자")
-                        maul_potion(cla)
+
+                        maul_che_ = False
+                        maul_che_count = 0
+                        while maul_che_ is False:
+                            maul_che_count += 1
+                            if maul_che_count > 8:
+                                maul_che_ = True
+                            result_in_maul = in_maul_check(cla)
+                            if result_in_maul == True:
+                                maul_che_ = True
+                                in_ = True
+                                maul_potion(cla)
+                            else:
+                                full_path = "c:\\nightcrow\\imgs\\dungeon\\" + dungeon_name + ".PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(50, 75, 150, 110, cla, img, 0.75)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("마을로 가주앗 dun_", dun_)
+                                    full_path = "c:\\nightcrow\\imgs\\check\\maul_move_1.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(250, 960, 400, 1030, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(1)
+
+
 
             else:
                 v_.skill_checked_ = True
