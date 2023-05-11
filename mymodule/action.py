@@ -776,7 +776,7 @@ def in_maul_check(cla):
 
 
 
-ㅡ_open(cla):
+def bag_open(cla):
     try:
         import cv2
         import numpy as np
