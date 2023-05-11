@@ -30,21 +30,7 @@ def go_test():
 
     print("여긴 테스트")
 
-    jab_3 = False
-    print("potion_jab_3")
-    while jab_3 is False:
-        out_result = out_check(cla)
-        if out_result == True:
-            full_path = "c:\\nightcrow\\imgs\\check\\pvp_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(900, 275, 960, 365, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_2(930, 60, cla)
-            jab_3 = True
-        else:
-            clean_screen(cla)
-        time.sleep(1)
+    bag_open(cla)
 
 
     # potion_ = text_check_get(733, 1004, 758, 1016, cla)
