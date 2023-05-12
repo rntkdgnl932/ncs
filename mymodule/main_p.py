@@ -2393,6 +2393,13 @@ class game_Playing(QThread):
                                 else:
                                     time.sleep(0.5)
                                     bag_open(v_.now_cla)
+                                    time.sleep(0.2)
+                                    full_path = "c:\\nightcrow\\imgs\\clean_screen\\gabang_title.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(820, 80, 910, 120, v_.now_cla, img, 0.83)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_2(935, 100, v_.now_cla)
 
                     if v_.force_sub_quest == True and result_schedule_ != "튜토육성":
                         # 죽었을때 돈 50만 골드 이하일때 강제노역 보내기

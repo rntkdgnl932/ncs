@@ -42,6 +42,13 @@ def sub_quest_grow(cla):
         result_potion = potion_check(cla)
         print("내 물약 갯수? ", result_potion)
 
+        full_path = "c:\\nightcrow\\imgs\\clean_screen\\gabang_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_2(935, 100, cla)
+
         result_ = go_quest_ing_(cla)
         if result_ == False:
 
@@ -121,7 +128,7 @@ def quest_get(cla):
         global sub_quest
         import numpy as np
         import cv2
-        from action import menu_open
+        from action import menu_open, clean_screen
         from function import click_pos_2, click_pos_reg, imgs_set_
         from schedule import myQuest_play_add
         from jadong_crow import go_to_spot
@@ -306,6 +313,7 @@ def quest_get(cla):
 
         if clear_sub_quest == True:
             myQuest_play_add(cla, "서브퀘스트")
+            clean_screen(cla)
         else:
             go_to_spot(cla)
 

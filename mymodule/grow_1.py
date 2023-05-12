@@ -164,6 +164,8 @@ def quest_check(cla):
                 click_pos_reg(imgs_.x, imgs_.y, cla)
                 talgut_board_(cla)
 
+
+
         # 퀘스트 완료
         full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\quest_complete_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)

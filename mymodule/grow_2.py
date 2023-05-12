@@ -29,6 +29,13 @@ def main_quest_grow(cla):
         result_potion = potion_check(cla)
         print("내 물약 갯수? ", result_potion)
 
+        full_path = "c:\\nightcrow\\imgs\\clean_screen\\gabang_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_2(935, 100, cla)
+
         result_ = go_quest_ing_(cla)
         if result_ == False:
 
@@ -117,15 +124,28 @@ def quest_check(cla):
             click_pos_reg(imgs_.x, imgs_.y, cla)
             talgut_board_(cla)
         else:
-            full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\quest_soolock_2.PNG"
+            full_path = "c:\\nightcrow\\imgs\\jadong\\in_spot_walking_2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(800, 90, 960, 300, cla, img, 0.83)
+            imgs_ = imgs_set_(480, 880, 500, 900, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
-                print("quest_soolock_2", imgs_)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                talgut_board_(cla)
-
+                print("메인퀘하러 가는 중")
+            else:
+                full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\quest_soolock_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 90, 960, 300, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("quest_soolock_2", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    talgut_board_(cla)
+        # 붕붕 날아다니자
+        full_path = "c:\\nightcrow\\imgs\\jadong\\fly_.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(770, 970, 960, 1030, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
         # 퀘스트 완료
         full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\quest_complete_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)

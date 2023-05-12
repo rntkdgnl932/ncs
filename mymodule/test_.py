@@ -11,7 +11,7 @@ import variable as v_
 
 def go_test():
     from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2
-    from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check
+    from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_
     from get_item import get_items, get_upjuk
     from jadong_crow import jadong_play
     from realtime import soojib, moogi_
@@ -21,7 +21,7 @@ def go_test():
     from potion import maul_potion, change_potion
     from action import skill_check_
 
-    cla = "two"
+    cla = "one"
 
     if cla == 'one':
         plus = 0
@@ -30,8 +30,11 @@ def go_test():
 
     print("여긴 테스트")
 
-    bag_open(cla)
+    hp_ = text_check_get(79, 980, 165, 1030, cla)
+    print("내 체력?", hp_)
 
+    result_ = go_quest_ing_(cla)
+    print("quest", result_)
 
     # potion_ = text_check_get(733, 1004, 758, 1016, cla)
     # print("전체4자리 potion_?", potion_)
