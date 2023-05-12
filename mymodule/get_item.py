@@ -309,7 +309,9 @@ def get_season_pass(cla):
 
     except Exception as e:
         print(e)
-# 해보면 알게됨
+
+
+
 def get_event(cla):
     try:
         import cv2

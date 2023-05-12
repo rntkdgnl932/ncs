@@ -30,11 +30,13 @@ def go_test():
 
     print("여긴 테스트")
 
-    hp_ = text_check_get(79, 980, 165, 1030, cla)
-    print("내 체력?", hp_)
+    # hp_ = text_check_get(79, 980, 165, 1030, cla)
+    # print("내 체력?", hp_)
+    #
+    # result_ = go_quest_ing_(cla)
+    # print("quest", result_)
 
-    result_ = go_quest_ing_(cla)
-    print("quest", result_)
+    menu_open(cla)
 
     # potion_ = text_check_get(733, 1004, 758, 1016, cla)
     # print("전체4자리 potion_?", potion_)

@@ -209,7 +209,7 @@ def maul_potion(cla):
             full_path = "c:\\nightcrow\\imgs\\check\\maul_move_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(250, 960, 400, 1030, cla, img, 0.8)
+            imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 print("maul_move_1", imgs_)
                 jab_ready = True
@@ -227,7 +227,7 @@ def maul_potion(cla):
                         full_path = "c:\\nightcrow\\imgs\\check\\maul_move_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(250, 960, 400, 1030, cla, img, 0.8)
+                        imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
             else:
@@ -283,7 +283,7 @@ def maul_potion(cla):
                         full_path = "c:\\nightcrow\\imgs\\check\\maul_move_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(250, 960, 400, 1030, cla, img, 0.8)
+                        imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             print("maul_move__1", imgs_)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -477,24 +477,30 @@ def change_potion(cla, many_potion):
         if " " in potion_:
             potion_ = potion_.replace(' ', '')
             print("!!!!!! ['   '] !!!!!!!", potion_)
+        if " " in potion_:
+            potion_ = potion_.replace('고', '2')
+            print("!!!!!! [' 고 => 2 '] !!!!!!!", potion_)
         if ")" in potion_:
             potion_ = potion_.replace(')', '1')
-            print("!!!!!! [   )   ] !!!!!!!", potion_)
+            print("!!!!!! [   ) => 1   ] !!!!!!!", potion_)
+        if ")" in potion_:
+            potion_ = potion_.replace('‘', '1')
+            print("!!!!!! [   ‘ => 1   ] !!!!!!!", potion_)
         if "?" in potion_:
             potion_ = potion_.replace('?', '2')
-            print("!!!!!! [   ?   ] !!!!!!!", potion_)
+            print("!!!!!! [   ? => 2  ] !!!!!!!", potion_)
         if "L" in potion_:
             potion_ = potion_.replace('L', '1')
-            print("!!!!!! [   L   ] !!!!!!!", potion_)
+            print("!!!!!! [   L => 1  ] !!!!!!!", potion_)
         if "|" in potion_:
             potion_ = potion_.replace('|', '1')
-            print("!!!!!!![   |   ]!!!!!!!!!!!", potion_)
+            print("!!!!!!![   | => 1  ]!!!!!!!!!!!", potion_)
         if "A" in potion_:
             potion_ = potion_.replace('A', '8')
-            print("!!!!!!!!![  A  ]!!!!!!!!!!!!!", potion_)
+            print("!!!!!!!!![  A = 8 ]!!!!!!!!!!!!!", potion_)
         if "B" in potion_:
             potion_ = potion_.replace('B', '8')
-            print("!!!!!!!!![  B  ]!!!!!!!!!!!!!", potion_)
+            print("!!!!!!!!![  B => 8  ]!!!!!!!!!!!!!", potion_)
 
         if potion_[0] == "0":
             potion_ = "1" + potion_

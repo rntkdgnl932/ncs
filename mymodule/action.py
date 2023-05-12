@@ -11,6 +11,7 @@ import variable as v_
 die_count = 0
 item_count = 0
 
+
 def dead_die(cla):
     try:
         global die_count
@@ -504,8 +505,17 @@ def item_open(cla):
                     while tal_1 is False:
                         item_count += 1
                         print("item_count3", item_count)
-                        if item_count > 7:
+                        if item_count > 3:
                             item_count = 0
+                            tal_1 = True
+
+                        time.sleep(0.3)
+                        full_path = "c:\\nightcrow\\imgs\\item_1\\get_clear.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(450, 450, 550, 550, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
                             tal_1 = True
 
                         full_path = "c:\\nightcrow\\imgs\\item_1\\ganghwa.PNG"
@@ -577,8 +587,9 @@ def item_open(cla):
                                     time.sleep(0.2)
                                     click_pos_2(935, 265, cla)
                             else:
+                                click_pos_2(935, 265, cla)
                                 if x_reg != 0:
-                                    click_pos_reg(x_reg, y_reg, cla)
+                                    # click_pos_reg(x_reg, y_reg, cla)
                                     time.sleep(0.3)
                                     full_path = "c:\\nightcrow\\imgs\\item_1\\confirm_1.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
@@ -597,6 +608,7 @@ def item_open(cla):
                         imgs_ = imgs_set_(450, 450, 550, 550, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            tal_1 = True
                 else:
                     print("상자 없")
 
@@ -975,10 +987,12 @@ def menu_open(cla):
         import cv2
         import numpy as np
         from function import text_check_get, int_put_, click_pos_2, imgs_set_
+        from get_item import get_items
 
         go_ = False
 
-        while go_ is False:
+        menu_ready_ = False
+        while menu_ready_ is False:
             out_result = out_check(cla)
             if out_result == True:
 
@@ -990,11 +1004,43 @@ def menu_open(cla):
                     print("pvp_1", imgs_)
                 else:
                     click_pos_2(930, 60, cla)
-                go_ = True
+                menu_ready_ = True
                 time.sleep(0.5)
             else:
                 print("menu open clean_screen")
                 clean_screen(cla)
+
+        get_ready_ = False
+
+        # 시즌패스 있나 보기
+        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(150, 0, 220, 100, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            get_ready_ = True
+        # 이벤트 있나 보기
+        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(770, 0, 830, 100, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            get_ready_ = True
+        # 우편 있나 보기
+        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(720, 970, 780, 1030, cla, img, 0.75)
+        if imgs_ is not None and imgs_ != False:
+            get_ready_ = True
+
+        if get_ready_ == True:
+            get_items(cla)
+            menu_open(cla)
+        else:
+            print("우편에 빨강점이 안보여욥!!!!!!!!!!! 메뉴오픈 완료!!!!")
+            go_ = True
+
 
         return go_
     except Exception as e:

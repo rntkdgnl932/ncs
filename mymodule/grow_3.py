@@ -1,6 +1,8 @@
 import sys
 import time
 
+import pyautogui
+
 sys.path.append('C:/nightcrow/mymodule')
 
 import variable as v_
@@ -317,6 +319,14 @@ def quest_get(cla):
         else:
             go_to_spot(cla)
 
+        full_path = "c:\\nightcrow\\imgs\\clean_screen\\quest_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(80, 40, 160, 80, cla, img, 0.83)
+        if imgs_ is not None and imgs_ != False:
+            print("quest_title", imgs_)
+            click_pos_2(930, 60, cla)
+
     except Exception as e:
         print(e)
 
@@ -352,6 +362,7 @@ def quest_check(cla):
             result_ = go_quest_ing_(cla)
             if result_ == False:
                 talgut_board_(cla)
+
         # 붕붕 날아다니자
         full_path = "c:\\nightcrow\\imgs\\jadong\\fly_.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -359,6 +370,15 @@ def quest_check(cla):
         imgs_ = imgs_set_(770, 970, 960, 1030, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
+
+            full_path = "c:\\nightcrow\\imgs\\grow\\grow_3\\gyunway_bawigil.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(80, 80, 200, 110, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                pyautogui.press('a')
+
+
 
 
     except Exception as e:

@@ -297,6 +297,8 @@ def myQuest_play_add(cla, data):
         import os.path
         from datetime import datetime
         from datetime import date, timedelta
+        from function import click_pos_2
+
         newCharacter = True
         add = True
         # cla는 몇번째 클라우드인지...
@@ -614,6 +616,7 @@ def myQuest_play_add(cla, data):
 
             myQuest_play_add(cla, data)
 
+
             # 새로 갱신이니 1번 캐릭 선택으로...and 스케쥴 초기화
             # 스케쥴 초기화 후 다시 진행
             v_.one_cla_count = 0
@@ -625,9 +628,6 @@ def myQuest_play_add(cla, data):
             # myQuest_number_check(cla, "new")
             # change_ = 1
             # characterChange(change_, cla)
-
-
-
 
         add_result = 'check'
         return add_result
