@@ -35,8 +35,12 @@ def go_test():
     #
     # result_ = go_quest_ing_(cla)
     # print("quest", result_)
-
-    menu_open(cla)
+    for i in range(5):
+        pyautogui.keyDown('a')
+        time.sleep(0.1)
+        pyautogui.keyUp('a')
+        print("aaaaaaaaaaaaaaaa")
+        time.sleep(1)
 
     # potion_ = text_check_get(733, 1004, 758, 1016, cla)
     # print("전체4자리 potion_?", potion_)
