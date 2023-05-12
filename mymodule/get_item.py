@@ -25,19 +25,25 @@ def get_items(cla):
 
 
 
-        print("아이템 받기 시작")
+        print("<< 아이템 받기 시작 >>")
         clean_screen(cla)
         # 시즌패스 받기
+        print("시즌패스 받기")
         get_season_pass(cla)
         # 이벤트 받기
+        print("이벤트 받기")
         get_event(cla)
         # 업적 받기
+        print("업적 받기")
         get_upjuk(cla)
-        #신념전승
+        # 신념전승
+        print("신념전승")
         sinnyum_junseong(cla)
         # 우편 받기
+        print("우편 받기")
         get_post(cla)
         # 가방 아이템 정리
+        print("가방 아이템 정리")
         item_open(cla)
 
         myQuest_play_add(cla, "각종템받기")
