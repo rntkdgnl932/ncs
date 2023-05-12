@@ -13,7 +13,7 @@ def dungeon_play(cla, result_schedule_):
     try:
         import cv2
         import numpy as np
-        from function import text_check_get, int_put_, imgs_set_, click_pos_2, click_pos_reg
+        from function import text_check_get, int_put_, imgs_set_, click_pos_2, click_pos_reg, drag_pos
         from action import menu_open, clean_screen
         from massenger import line_to_me
 
@@ -66,6 +66,8 @@ def dungeon_play(cla, result_schedule_):
                     print("dongool_2", imgs_)
                     # 동굴 진입해서 사냥중
                     juljun_attack(cla, dungeon_[1])
+                else:
+                    drag_pos(360, 550, 600, 550, cla)
 
             else:
                 full_path = "c:\\nightcrow\\imgs\\dungeon\\" + dungeon_name + ".PNG"
@@ -428,6 +430,7 @@ def now_playing(cla, dun_):
                 imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("now_playing...", imgs_)
+                    in_ = True
 
 
             if in_ == False:
