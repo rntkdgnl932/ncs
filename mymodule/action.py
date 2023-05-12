@@ -1005,41 +1005,15 @@ def menu_open(cla):
                 else:
                     click_pos_2(930, 60, cla)
                 menu_ready_ = True
+
+                go_ = True
+
                 time.sleep(0.5)
             else:
                 print("menu open clean_screen")
                 clean_screen(cla)
 
-        get_ready_ = False
 
-        # 시즌패스 있나 보기
-        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(150, 0, 220, 100, cla, img, 0.85)
-        if imgs_ is not None and imgs_ != False:
-            get_ready_ = True
-        # 이벤트 있나 보기
-        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(770, 0, 830, 100, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            get_ready_ = True
-        # 우편 있나 보기
-        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(720, 970, 780, 1030, cla, img, 0.75)
-        if imgs_ is not None and imgs_ != False:
-            get_ready_ = True
-
-        if get_ready_ == True:
-            get_items(cla)
-            menu_open(cla)
-        else:
-            print("우편에 빨강점이 안보여욥!!!!!!!!!!! 메뉴오픈 완료!!!!")
-            go_ = True
 
 
         return go_
