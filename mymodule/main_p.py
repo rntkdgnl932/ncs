@@ -2375,8 +2375,8 @@ class game_Playing(QThread):
 
                     # 최초1회만...
                     if result_schedule_ != "각종템받기" and result_schedule_ != "튜토육성":
-                        print("최초 1회 : 마을일 경우 물약 ㄱㄱ", v_.just_one)
                         if v_.just_one == False:
+                            print("최초 1회 : 마을일 경우 물약 ㄱㄱ", v_.just_one)
                             v_.just_one = True
                             full_path = "c:\\nightcrow\\imgs\\potion\\janhwa_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)

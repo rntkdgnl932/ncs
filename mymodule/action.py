@@ -933,13 +933,26 @@ def quest_look(cla):
         import cv2
         import numpy as np
         from function import click_pos_2, imgs_set_
+
+        lq_ = False
+
         full_path = "c:\\nightcrow\\imgs\\check\\quest_check.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(895, 95, 925, 120, cla, img, 0.8)
+        imgs_ = imgs_set_(895, 95, 925, 120, cla, img, 0.75)
         if imgs_ is not None and imgs_ != False:
             print("quest_check", imgs_)
-        else:
+            lq_ = True
+
+        full_path = "c:\\nightcrow\\imgs\\check\\quest_check_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(895, 95, 925, 120, cla, img, 0.75)
+        if imgs_ is not None and imgs_ != False:
+            print("quest_check_1", imgs_)
+            lq_ = True
+
+        if lq_ == False:
             full_path = "c:\\nightcrow\\imgs\\check\\quest_check2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -949,7 +962,7 @@ def quest_look(cla):
                 full_path = "c:\\nightcrow\\imgs\\check\\quest_check.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(895, 95, 925, 120, cla, img, 0.8)
+                imgs_ = imgs_set_(895, 95, 925, 120, cla, img, 0.75)
                 if imgs_ is not None and imgs_ != False:
                     print("quest_check", imgs_)
                 else:
