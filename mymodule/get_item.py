@@ -34,7 +34,7 @@ def get_items(cla):
         # 업적 받기
         get_upjuk(cla)
         #신념전승
-
+        sinnyum_junseong(cla)
         # 우편 받기
         get_post(cla)
         # 가방 아이템 정리
@@ -614,12 +614,8 @@ def sinnyum_junseong(cla):
                                 imgs_ = imgs_set_(460, 380, 495, 415, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_2(520, 700, cla)
-                                    full_path = "c:\\nightcrow\\imgs\\quest\\y_1.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(200, 300, 800, 800, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.1)
+                                    click_pos_2(520, 700, cla)
                                     full_path = "c:\\nightcrow\\imgs\\get_item\\sinnyum_title.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
