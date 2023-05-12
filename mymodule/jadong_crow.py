@@ -86,7 +86,7 @@ def jadong_play(cla, result_schedule_):
                 maul_potion(cla)
             in_world(cla)
             in_spot(cla, result_schedule_)
-            go_to_spot(cla)
+            go_to_spot(cla, "jadong")
 
         return complete_
     except Exception as e:
@@ -653,12 +653,13 @@ def in_spot_to_walking(cla):
         print(e)
 
 
-def go_to_spot(cla):
+def go_to_spot(cla, data):
     try:
         import cv2
         import numpy as np
         from function import text_check_get, int_put_, click_pos_reg, click_pos_2, imgs_set_
-        from action import skip_click, go_quest_ing_
+        from action import skip_click, go_quest_ing_, clean_screen
+        from schedule import myQuest_play_add
         import pyautogui
 
         print("사냥터 이동중")
@@ -778,6 +779,17 @@ def go_to_spot(cla):
                 attack_ready_count += 1
                 if attack_ready_count < 2:
                     print("열심히 이동중")
+                elif attack_ready_count > 200:
+                    attack_ready_count = 0
+                    full_path = "c:\\nightcrow\\imgs\\check\\random_move_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        if data == "sub":
+                            myQuest_play_add(cla, "서브퀘스트")
+                            clean_screen(cla)
             else:
                 full_path = "c:\\nightcrow\\imgs\\jadong\\attack_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -787,7 +799,11 @@ def go_to_spot(cla):
                     attack_ready = True
                     result_ = go_quest_ing_(cla)
                     if result_ == False:
-                        click_pos_2(930, 850, cla)
+                        if data == "jadong":
+                            click_pos_2(930, 850, cla)
+                        if data == "sub":
+                            click_pos_2(800, 150, cla)
+            time.sleep(0.3)
 
 
     except Exception as e:

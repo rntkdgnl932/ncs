@@ -317,7 +317,7 @@ def quest_get(cla):
             myQuest_play_add(cla, "서브퀘스트")
             clean_screen(cla)
         else:
-            go_to_spot(cla)
+            go_to_spot(cla, "sub")
 
         full_path = "c:\\nightcrow\\imgs\\clean_screen\\quest_title.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -638,7 +638,7 @@ def talgut_board_(cla):
             click_pos_2(880, 110, cla)
 
         #비행장?
-        go_to_spot(cla)
+        go_to_spot(cla, "sub")
 
         return go_
     except Exception as e:
@@ -649,7 +649,6 @@ def talgut_board_check(cla):
         global sub_quest_count
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
         from action import menu_open, clean_screen, go_quest_ing_, go_auto_ing_
-        from jadong_crow import go_to_spot
         import numpy as np
         import cv2
         import pyautogui
