@@ -51,3 +51,5 @@ onCollection = False
 
 just_one = False
 
+# 얼음 동굴
+who_attack_ = False

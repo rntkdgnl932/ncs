@@ -47,7 +47,7 @@ def potion_check(cla):
 
                     if potion < 10:
                         v_.potion_count += 1
-                        if v_.potion_count > 2:
+                        if v_.potion_count > 3:
                             v_.potion_count = 0
                             maul_potion(cla)
                     else:
@@ -97,7 +97,7 @@ def potion_check(cla):
 
                             if potion < 10:
                                 v_.potion_count += 1
-                                if v_.potion_count > 2:
+                                if v_.potion_count > 3:
                                     v_.potion_count = 0
                                     maul_potion(cla)
                             else:
@@ -122,7 +122,7 @@ def potion_check(cla):
 
                                 if potion < 100:
                                     v_.potion_count += 1
-                                    if v_.potion_count > 2:
+                                    if v_.potion_count > 3:
                                         v_.potion_count = 0
                                         maul_potion(cla)
                                 else:
@@ -153,7 +153,7 @@ def potion_check(cla):
                     print("화면에 물약 존재하지 않는다", v_.potion_count)
                     v_.potion_count += 1
                     print("not have potoin?", v_.potion_count)
-                    if v_.potion_count > 1:
+                    if v_.potion_count > 2:
                         v_.potion_count = 0
 
                         bag_open(cla)

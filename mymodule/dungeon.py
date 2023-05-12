@@ -8,6 +8,7 @@ sys.path.append('C:/nightcrow/mymodule')
 
 import variable as v_
 
+
 def dungeon_play(cla, result_schedule_):
     try:
         import cv2
@@ -17,6 +18,8 @@ def dungeon_play(cla, result_schedule_):
         from massenger import line_to_me
 
         print("dungeon")
+
+
 
         complete_ = False
 
@@ -52,13 +55,13 @@ def dungeon_play(cla, result_schedule_):
             full_path = "c:\\nightcrow\\imgs\\dungeon\juljun_mode.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(485, 120, 565, 160, cla, img, 0.8)
+            imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 print("juljun_dungeon", imgs_)
                 full_path = "c:\\nightcrow\\imgs\\dungeon\dongool_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(70, 50, 180, 80, cla, img, 0.8)
+                imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("dongool_2", imgs_)
                     # 동굴 진입해서 사냥중
@@ -68,7 +71,7 @@ def dungeon_play(cla, result_schedule_):
                 full_path = "c:\\nightcrow\\imgs\\dungeon\\" + dungeon_name + ".PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(50, 75, 150, 110, cla, img, 0.75)
+                imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
                 if imgs_ is not None and imgs_ != False:
                     print(dungeon_[1], imgs_)
 
@@ -414,6 +417,18 @@ def now_playing(cla, dun_):
                 print("hunting_3", imgs_)
                 in_ = True
 
+            full_path = "c:\\nightcrow\\imgs\\dungeon\juljun_mode.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                full_path = "c:\\nightcrow\\imgs\\dungeon\dongool_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(40, 40, 200, 80, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("now_playing...", imgs_)
+
 
             if in_ == False:
                 clean_screen(cla)
@@ -521,7 +536,7 @@ def now_playing(cla, dun_):
                         full_path = "c:\\nightcrow\\imgs\\dungeon\\" + dungeon_name + ".PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(50, 75, 150, 110, cla, img, 0.75)
+                        imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
                         if imgs_ is not None and imgs_ != False:
                             print(dun_, imgs_)
 
@@ -560,7 +575,7 @@ def now_playing(cla, dun_):
                             full_path = "c:\\nightcrow\\imgs\\dungeon\\" + dungeon_name + ".PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(50, 75, 150, 110, cla, img, 0.75)
+                            imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
                             if imgs_ is not None and imgs_ != False:
                                 print(dun_, imgs_)
 
@@ -586,7 +601,7 @@ def now_playing(cla, dun_):
                                 full_path = "c:\\nightcrow\\imgs\\dungeon\\" + dungeon_name + ".PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(50, 75, 150, 110, cla, img, 0.75)
+                                imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
                                 if imgs_ is not None and imgs_ != False:
                                     print("마을로 가주앗 dun_", dun_)
                                     full_path = "c:\\nightcrow\\imgs\\check\\maul_move_1.PNG"
@@ -601,10 +616,23 @@ def now_playing(cla, dun_):
 
             else:
                 v_.skill_checked_ = True
-                print("정상적으로 사냥중...총 10초 딜레이중")
-                potion_check(cla)
-                time.sleep(10)
-                play_ = True
+
+                full_path = "c:\\nightcrow\\imgs\\dungeon\\dongool_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(50, 75, 150, 110, cla, img, 0.75)
+                if imgs_ is not None and imgs_ != False:
+                    if v_.who_attack_ == False:
+                        click_pos_2(25, 970, cla)
+                        v_.who_attack_ = True
+                    else:
+                        juljun_attack(cla, dun_)
+                        v_.who_attack_ = False
+                else:
+                    print("정상적으로 사냥중...총 10초 딜레이중")
+                    potion_check(cla)
+                    time.sleep(10)
+                    play_ = True
 
         return play_
     except Exception as e:
@@ -619,6 +647,8 @@ def juljun_attack(cla, dun_):
         from massenger import line_to_me
         from potion import change_potion
         from action import in_number_check, bag_open
+
+
 
         if dun_ == "번영":
             dungeon_name = "bunyuong_1"
@@ -635,7 +665,7 @@ def juljun_attack(cla, dun_):
         full_path = "c:\\nightcrow\\imgs\\dungeon\juljun_mode.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(485, 120, 565, 160, cla, img, 0.8)
+        imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             print("juljun_potion", imgs_)
 
@@ -643,11 +673,11 @@ def juljun_attack(cla, dun_):
             full_path = "c:\\nightcrow\\imgs\\dungeon\juljun_potion.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(480, 960, 565, 1030, cla, img, 0.8)
+            imgs_ = imgs_set_(440, 960, 510, 1030, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 print("juljun_potion 일딴 물약 있다", imgs_)
 
-                potion_ready = text_check_get(515, 1007, 542, 1022, cla)
+                potion_ready = text_check_get(476, 1007, 505, 1022, cla)
                 print("전체4자리 potion_?", potion_ready)
                 result_num_in = in_number_check(cla, potion_ready)
                 if result_num_in == True:
@@ -664,7 +694,7 @@ def juljun_attack(cla, dun_):
 
                         if potion < 50:
                             v_.potion_count += 1
-                            if v_.potion_count > 2:
+                            if v_.potion_count > 3:
                                 v_.potion_count = 0
                                 # maul_potion(cla)
                                 drag_maul_potion_(cla, dun_)
@@ -674,7 +704,7 @@ def juljun_attack(cla, dun_):
                     else:
                         print("potion => 숫자 아님")
                 else:
-                    potion_ready = text_check_get(515, 1007, 536, 1022, cla)
+                    potion_ready = text_check_get(475, 1007, 497, 1022, cla)
                     print("앞3자리 potion_2?", potion_ready)
                     result_num_in = in_number_check(cla, potion_ready)
                     if result_num_in == True:
@@ -700,7 +730,7 @@ def juljun_attack(cla, dun_):
                         else:
                             print("potion => 숫자 아님")
                     else:
-                        potion_ready = text_check_get(520, 1007, 542, 1022, cla)
+                        potion_ready = text_check_get(482, 1007, 505, 1022, cla)
                         print("뒷3자리 potion_3 =>", potion_ready)
                         result_num_in = in_number_check(cla, potion_ready)
                         if result_num_in == True:
@@ -731,22 +761,25 @@ def juljun_attack(cla, dun_):
                 full_path = "c:\\nightcrow\\imgs\\potion\\out_potion_2.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(480, 960, 565, 1030, cla, img, 0.8)
+                imgs_ = imgs_set_(440, 960, 510, 1030, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("화면에 물약 존재한다", imgs_)
                 else:
                     full_path = "c:\\nightcrow\\imgs\\potion\\out_potion_3.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(480, 960, 565, 1030, cla, img, 0.8)
+                    imgs_ = imgs_set_(440, 960, 510, 1030, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("화면에 물약 존재한다", imgs_)
                     else:
                         print("화면에 물약 존재하지 않는다", v_.potion_count)
                         v_.potion_count += 1
                         print("not have potoin?", v_.potion_count)
-                        if v_.potion_count > 1:
+                        if v_.potion_count > 3:
                             v_.potion_count = 0
+
+                            drag_pos(360, 550, 600, 550, cla)
+                            time.sleep(1)
 
                             bag_open(cla)
                             time.sleep(0.2)
@@ -785,7 +818,7 @@ def juljun_attack(cla, dun_):
                 full_path = "c:\\nightcrow\\imgs\\dungeon\juljun_mode.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(485, 120, 565, 160, cla, img, 0.8)
+                imgs_ = imgs_set_(400, 120, 600, 160, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("juljun_potion_re", imgs_)
                     in_dungeon__ = True
@@ -808,7 +841,7 @@ def juljun_attack(cla, dun_):
                             full_path = "c:\\nightcrow\\imgs\\dungeon\\" + dungeon_name + ".PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(50, 75, 150, 110, cla, img, 0.75)
+                            imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
                             if imgs_ is not None and imgs_ != False:
                                 print("동굴 절전모드에서 진행중")
                                 print(dun_, imgs_)
@@ -841,10 +874,10 @@ def juljun_attack(cla, dun_):
                                     click_pos_2(930, 850, cla)
                                     time.sleep(1)
                                     # 절전모드로 다시 진입하기
-                                    click_pos_2(65, 970, cla)
+                                    click_pos_2(25, 970, cla)
                                 else:
                                     # 절전모드로 다시 진입하기
-                                    click_pos_2(65, 970, cla)
+                                    click_pos_2(25, 970, cla)
 
 
 
@@ -893,14 +926,14 @@ def drag_maul_potion_(cla, dun_):
             full_path = "c:\\nightcrow\\imgs\\dungeon\\" + dungeon_name + ".PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(50, 75, 150, 110, cla, img, 0.75)
+            imgs_ = imgs_set_(30, 75, 200, 110, cla, img, 0.75)
             if imgs_ is not None and imgs_ != False:
                 print("동굴 절전모드 포션 구하러 가는 길")
                 print(dun_, imgs_)
                 maul_potion(cla)
 
             else:
-                drag_pos(400, 550, 650, 550, cla)
+                drag_pos(360, 550, 600, 550, cla)
 
     except Exception as e:
         print(e)

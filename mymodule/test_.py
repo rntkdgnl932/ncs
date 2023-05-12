@@ -35,12 +35,12 @@ def go_test():
     #
     # result_ = go_quest_ing_(cla)
     # print("quest", result_)
-    for i in range(5):
-        pyautogui.keyDown('a')
-        time.sleep(0.1)
-        pyautogui.keyUp('a')
-        print("aaaaaaaaaaaaaaaa")
-        time.sleep(1)
+    # for i in range(5):
+    #     pyautogui.keyDown('a')
+    #     time.sleep(0.1)
+    #     pyautogui.keyUp('a')
+    #     print("aaaaaaaaaaaaaaaa")
+    #     time.sleep(1)
 
     # potion_ = text_check_get(733, 1004, 758, 1016, cla)
     # print("전체4자리 potion_?", potion_)
@@ -51,14 +51,28 @@ def go_test():
     #         potion_ = "1" + potion_
     #         print("potion_ = '1' + potion_", potion_)
     #
-    # potion_ = text_check_get(730, 1004, 759, 1016, cla)
-    # print("전체4자리 potion_2?", potion_)
-    #
-    # potion_ = text_check_get(730, 1004, 752, 1016, cla)
-    # print("앞3자리 potion_?", potion_)
-    #
-    # potion_ = text_check_get(738, 1004, 759, 1016, cla)
-    # print("뒷3자리 potion_??", potion_)
+    full_path = "c:\\nightcrow\\imgs\\dungeon\juljun_potion.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(440, 960, 510, 1030, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("juljun_potion 일딴 물약 있다", imgs_)
+
+    potion_ = text_check_get(476, 1007, 505, 1022, cla)
+    print("전체4자리 potion_475?", potion_)
+
+
+    for i in range(10):
+        potion_ = text_check_get(472 + i, 1007, 505, 1022, cla)
+        print(472 + i)
+        print("전체4자리", potion_)
+
+
+    potion_ = text_check_get(475, 1007, 497, 1022, cla)
+    print("앞3자리 potion_?", potion_)
+
+    potion_ = text_check_get(482, 1007, 505, 1022, cla)
+    print("뒷3자리 potion_??", potion_)
 
 
 
