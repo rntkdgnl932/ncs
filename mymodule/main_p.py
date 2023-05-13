@@ -644,7 +644,7 @@ class FirstTab(QWidget):
         self.my_limit_gold_spot = QLabel("사냥터 : " + str(v_.onForceGoldSpot))
 
         sub_q = QComboBox()
-        limit_gold = ['얼마이하', '50만', '100만', '200만']
+        limit_gold = ['얼마이하', '10만', '50만', '100만', '200만']
         sub_q.addItems(limit_gold)
 
         sub_h = QComboBox()
