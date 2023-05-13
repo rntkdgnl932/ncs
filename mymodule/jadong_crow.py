@@ -664,6 +664,8 @@ def go_to_spot(cla, data):
 
         print("사냥터 이동중")
 
+        attack_ready = False
+
         move_ = False
         move_count = 0
         while move_ is False:
@@ -720,7 +722,10 @@ def go_to_spot(cla, data):
             if imgs_ is not None and imgs_ != False:
                 flying = True
                 fly_to_the_sky = False
+                fly_to_the_sky_count = 0
                 while fly_to_the_sky is False:
+                    fly_to_the_sky_count += 1
+
                     full_path = "c:\\nightcrow\\imgs\\jadong\\flying_.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -752,6 +757,19 @@ def go_to_spot(cla, data):
                         imgs_ = imgs_set_(480, 880, 500, 900, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             print("in_spot_walking_2 보여...이동중")
+                            if fly_to_the_sky_count > 20:
+                                fly_to_the_sky = True
+                                attack_ready = True
+                                full_path = "c:\\nightcrow\\imgs\\check\\random_move_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    if data == "sub":
+                                        myQuest_play_add(cla, "서브퀘스트")
+                                        clean_screen(cla)
+
                         else:
                             fly_to_the_sky = True
 
@@ -768,7 +786,7 @@ def go_to_spot(cla, data):
                     flying = True
             time.sleep(0.2)
 
-        attack_ready = False
+        # attack_ready = False
         attack_ready_count = 0
         while attack_ready is False:
             full_path = "c:\\nightcrow\\imgs\\jadong\\in_spot_walking_2.PNG"
@@ -788,6 +806,7 @@ def go_to_spot(cla, data):
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         if data == "sub":
+                            attack_ready = True
                             myQuest_play_add(cla, "서브퀘스트")
                             clean_screen(cla)
             else:
