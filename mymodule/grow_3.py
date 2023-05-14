@@ -364,21 +364,31 @@ def quest_check(cla):
                 talgut_board_(cla)
 
         # 붕붕 날아다니자
-        full_path = "c:\\nightcrow\\imgs\\jadong\\fly_.PNG"
+        full_path = "c:\\nightcrow\\imgs\\jadong\\flying_.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(770, 970, 960, 1030, cla, img, 0.7)
+        imgs_ = imgs_set_(820, 880, 910, 970, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            click_pos_reg(imgs_.x, imgs_.y, cla)
 
             full_path = "c:\\nightcrow\\imgs\\grow\\grow_3\\gyunway_bawigil.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(80, 80, 200, 110, cla, img, 0.8)
+            imgs_ = imgs_set_(40, 75, 160, 110, cla, img, 0.75)
             if imgs_ is not None and imgs_ != False:
+                time.sleep(0.1)
                 pyautogui.keyDown('a')
                 time.sleep(0.1)
                 pyautogui.keyUp('a')
+                time.sleep(0.1)
+                print("pyautogui.press('a')")
+
+            full_path = "c:\\nightcrow\\imgs\\jadong\\fly_.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(770, 970, 960, 1030, cla, img, 0.7)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                print("플라잉 부스터!!!")
 
 
 
