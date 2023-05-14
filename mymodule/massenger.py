@@ -173,6 +173,8 @@ def line_to_me(cla, why):
                 my_token = "qwERHZyXhOvohyX0ONQcA0rsCh2aEur1djCC7zEplhH"
             elif read_result[0] == "ccocco":
                 my_token = "hKXb6oosWTnH2JCrhtnchbVV5WN5WN3G3yMtZF4UTos"
+            elif read_result[0] == "dongho":
+                my_token ="5rIzia52SHouogmxph3z3CBFmk2gSamnMcTaP9fCq3l"
 
             message = "\n" + str(read_result[0]) + "님\n" + str(read_result[1]) + " 컴퓨터\n[" + str(cla) + "클라] 확인 요망\n=> " + str(why)
             TARGET_URL = 'https://notify-api.line.me/api/notify'
