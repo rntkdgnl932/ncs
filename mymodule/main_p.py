@@ -2358,7 +2358,7 @@ class game_Playing(QThread):
 
                 print("나이트크로우 실행 모드(ver " + version + ")")
 
-                quest_look(v_.now_cla)
+
 
                 full_path = "c:\\nightcrow\\imgs\\check\\touching.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -2367,6 +2367,8 @@ class game_Playing(QThread):
                 if imgs_ is not None and imgs_ != False:
                     print("touching", imgs_)
                 else:
+                    quest_look(v_.now_cla)
+
                     print("없")
 
                     result_schedule = myQuest_play_check(v_.now_cla, "check")
