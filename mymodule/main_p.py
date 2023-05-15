@@ -2295,6 +2295,9 @@ class FirstTab(QWidget):
                 # with open(file_path3, "w", encoding='UTF8') as file:
                 #     file.write(reset_schedule_)
 
+                with open(file_path, "w", encoding='UTF8') as file:
+                    file.write(datas)
+
                 ishow_ = True
                 reset_schedule_ = ""
                 lines = datas
