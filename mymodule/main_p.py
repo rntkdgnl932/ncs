@@ -71,7 +71,7 @@ onMaul = "none"
 
 isgloballoop = False
 
-version = "1.40"
+version = "1.41"
 
 # 기존 오토모드 관련##############################################
 
@@ -96,6 +96,8 @@ class MyApp(QDialog):
 
     def __init__(self):
         super().__init__()
+
+        self.setWindowFlags(Qt.WindowCloseButtonHint | Qt.WindowMaximizeButtonHint | Qt.WindowMinimizeButtonHint)
 
         self.initUI()
 
@@ -631,6 +633,9 @@ class FirstTab(QWidget):
         # 스케쥴 초기화
         self.clear = QPushButton('초기화')
         self.clear.clicked.connect(self.mySchedule_refresh)
+        # 스케쥴 완전 초기화
+        self.all_clear = QPushButton('완전 초기화')
+        self.all_clear.clicked.connect(self.mySchedule_refresh_all)
 
         # self.setItems = QPushButton('Set Items')
         # self.setItems.clicked.connect(self.set_rand_int)
@@ -904,6 +909,7 @@ class FirstTab(QWidget):
         hbox1.addWidget(self.again_restart)
         hbox1.addWidget(self.del_)
         hbox1.addWidget(self.clear)
+        hbox1.addWidget(self.all_clear)
 
         hbox7 = QHBoxLayout()
         hbox7.addWidget(sche_up_modify)
@@ -1996,6 +2002,119 @@ class FirstTab(QWidget):
             print(e)
             return 0
 
+
+    def mySchedule_refresh_all(self):
+        try:
+            ##############다시 코딩
+
+            v_.one_cla_count = 0
+            v_.two_cla_count = 0
+            v_.one_cla_ing = 'check'
+            v_.two_cla_ing = 'check'
+            v_.one_cla_get_event = False
+            v_.two_cla_get_event = False
+
+            # myQuest_number_check('all', 'refresh')
+
+            dir_path = "C:\\nightcrow"
+            file_path = dir_path + "\\mysettings\\myschedule\\schedule.txt"
+            file_path2 = dir_path + "\\mysettings\\refresh_time\\quest.txt"
+            file_path3 = dir_path + "\\mysettings\\myschedule\\schedule2.txt"
+            file_path13 = dir_path + "\\mysettings\\refresh_time\\refresh_time.txt"
+
+            if os.path.isdir(dir_path) == False:
+                print('디렉토리 존재하지 않음')
+                os.makedirs(dir_path)
+
+            isRefresh = False
+            while isRefresh is False:
+                if os.path.isfile(file_path13) == True:
+                    with open(file_path13, "r", encoding='UTF8') as file:
+                        refresh_time = file.read()
+                        refresh_time_bool = refresh_time.isdigit()
+                        if refresh_time_bool == True:
+                            isRefresh = True
+                            print("refresh_time", refresh_time)
+                        else:
+                            with open(file_path13, "w", encoding='UTF8') as file:
+                                file.write(str(4))
+                else:
+                    with open(file_path13, "w", encoding='UTF8') as file:
+                        file.write(str(4))
+
+            with open(file_path3, "r", encoding='UTF8') as file:
+                reset_schedule_ = ""
+                with open(file_path, "r", encoding='UTF8') as file:
+                    lines = file.read().splitlines()
+                    lines = ' '.join(lines).split()
+
+                    isSchedule_ = False
+                    while isSchedule_ is False:
+                        if lines == [] or lines == "":
+                            print("스케쥴이 비었다 : myQuest_play_check")
+                            with open(file_path3, "r", encoding='UTF8') as file:
+                                schedule_ready = file.read()
+                            with open(file_path, "w", encoding='UTF8') as file:
+                                file.write(schedule_ready)
+                            with open(file_path, "r", encoding='UTF8') as file:
+                                lines = file.read().splitlines()
+                        else:
+                            isSchedule_ = True
+
+                    for i in range(len(lines)):
+                        complete_ = lines[i].split(":")
+                        for j in range(len(complete_)):
+                            if j < 3:
+                                reset_schedule_ += complete_[j] + ":"
+                            if j == 3:
+                                reset_schedule_ += '대기중:'
+                            if 3 < j < 7:
+                                reset_schedule_ += complete_[j] + ":"
+                            if j == 7:
+                                reset_schedule_ += "대기중\n"
+                    print('reset_schedule_', reset_schedule_)
+                    with open(file_path, "w", encoding='UTF8') as file:
+                        file.write(reset_schedule_)
+                    with open(file_path3, "w", encoding='UTF8') as file:
+                        file.write(reset_schedule_)
+            # with open(file_path, "w", encoding='UTF8') as file:
+            #     file.write(lines)
+            with open(file_path3, "r", encoding='UTF8') as file:
+                lines = file.read()
+
+            nowDay_ = datetime.today().strftime("%Y%m%d")
+            nowDay = int(nowDay_)
+            nowTime = int(datetime.today().strftime("%H"))
+            yesterday_ = date.today() - timedelta(1)
+            yesterday = int(yesterday_.strftime('%Y%m%d'))
+
+            if nowTime >= int(refresh_time):
+                nowDay = str(nowDay)
+            else:
+                nowDay = yesterday
+                nowDay = str(nowDay)
+            with open(file_path2, "w", encoding='UTF8') as file:
+                file.write(str(nowDay) + ":" + str(refresh_time) + "\n")
+
+            remove_ = self.tableWidget.rowCount()
+            print("remove_", remove_)
+            for i in range(remove_ - 1):
+                self.tableWidget.removeRow(0)
+
+            refresh_result = lines.split("\n")
+            rowcount = self.tableWidget.rowCount()
+            print("refresh_rowcount", self.tableWidget.rowCount())
+            count_ = len(refresh_result) - rowcount - 1
+            for i in range(count_):
+                self.tableWidget.insertRow(self.tableWidget.rowCount())
+            print("refresh_rowcount2", self.tableWidget.rowCount())
+            self.set_rand_int()
+
+        except Exception as e:
+            print(e)
+            return 0
+
+
     def mySchedule_is(self):
         try:
             ##############다시 코딩
@@ -2059,54 +2178,192 @@ class FirstTab(QWidget):
             print("how_", how_)
             if how_ == "add":
                 with open(file_path, "a", encoding='UTF8') as file:
+                    print("add????", datas)
                     file.write(datas)
                     ishow_ = True
-                    reset_schedule_ = ""
-                    with open(file_path, "r", encoding='UTF8') as file:
-                        lines = file.read().splitlines()
-                        lines = ' '.join(lines).split()
-                        print("lineslineslineslineslineslineslineslineslineslineslines", lines)
-                        for i in range(len(lines)):
-                            complete_ = lines[i].split(":")
-                            for j in range(len(complete_)):
-                                if j < 3:
+                # reset_schedule_ = ""
+                # with open(file_path, "r", encoding='UTF8') as file:
+                #     lines = file.read().splitlines()
+                #     lines = ' '.join(lines).split()
+                #     print("lineslineslineslineslineslineslineslineslineslineslines", lines)
+                #     for i in range(len(lines)):
+                #         complete_ = lines[i].split(":")
+                #         for j in range(len(complete_)):
+                #             if j < 3:
+                #                 reset_schedule_ += complete_[j] + ":"
+                #             if j == 3:
+                #                 reset_schedule_ += '대기중:'
+                #             if 3 < j < 7:
+                #                 reset_schedule_ += complete_[j] + ":"
+                #             if j == 7:
+                #                 reset_schedule_ += "대기중\n"
+                #     print("reset_schedule_reset_schedule_reset_schedule_reset_schedule_reset_schedule_",
+                #           reset_schedule_)
+                #     with open(file_path3, "w", encoding='UTF8') as file:
+                #         file.write(reset_schedule_)
+                ishow_ = True
+                reset_schedule_ = ""
+                lines = datas
+                lines = lines.split('\n')
+                lines = ' '.join(lines).split()
+
+                isSchedule_ = False
+                while isSchedule_ is False:
+                    if lines == [] or lines == "":
+                        print("스케쥴이 비었다 : myQuest_play_check")
+                        with open(file_path3, "r", encoding='UTF8') as file:
+                            schedule_ready = file.read()
+                        with open(file_path, "w", encoding='UTF8') as file:
+                            file.write(schedule_ready)
+                        with open(file_path, "r", encoding='UTF8') as file:
+                            lines = file.read().splitlines()
+                    else:
+                        isSchedule_ = True
+
+                for i in range(len(lines)):
+                    complete_ = lines[i].split(":")
+                    for j in range(len(complete_)):
+                        if j < 3:
+                            reset_schedule_ += complete_[j] + ":"
+                        if j == 3:
+
+                            if '_' in complete_[2]:
+                                dunjeon_spl_ = complete_[2].split("_")
+                                print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                                print("dunjeon_spl_[1]", dunjeon_spl_[1])
+
+                                if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
                                     reset_schedule_ += complete_[j] + ":"
-                                if j == 3:
+                                else:
                                     reset_schedule_ += '대기중:'
-                                if 3 < j < 7:
-                                    reset_schedule_ += complete_[j] + ":"
-                                if j == 7:
+                            else:
+                                reset_schedule_ += '대기중:'
+
+                            # if complete_[2] == "지하감옥":
+                            #     reset_schedule_ += complete_[j] + ":"
+                            # else:
+                            #     reset_schedule_ += '대기중:'
+                        if 3 < j < 7:
+                            reset_schedule_ += complete_[j] + ":"
+                        if j == 7:
+
+                            if '_' in complete_[6]:
+                                dunjeon_spl_ = complete_[6].split("_")
+                                print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                                print("dunjeon_spl_[1]", dunjeon_spl_[1])
+
+                                if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                    reset_schedule_ += complete_[j] + "\n"
+                                else:
                                     reset_schedule_ += "대기중\n"
-                        print("reset_schedule_reset_schedule_reset_schedule_reset_schedule_reset_schedule_",
-                              reset_schedule_)
-                        with open(file_path3, "w", encoding='UTF8') as file:
-                            file.write(reset_schedule_)
-                    self.set_rand_int()
+                            else:
+                                reset_schedule_ += "대기중\n"
+
+                            # if complete_[6] == "지하감옥":
+                            #     reset_schedule_ += complete_[j] + "\n"
+                            # else:
+                            #     reset_schedule_ += "대기중\n"
+
+                print('reset_schedule_', reset_schedule_)
+                with open(file_path, "w", encoding='UTF8') as file:
+                    file.write(reset_schedule_)
+                with open(file_path3, "w", encoding='UTF8') as file:
+                    file.write(reset_schedule_)
+                self.set_rand_int()
 
             elif how_ == "modify":
 
-                with open(file_path, "w", encoding='UTF8') as file:
-                    file.write(datas)
-                    ishow_ = True
-                    reset_schedule_ = ""
-                    lines = datas
-                    lines = lines.split('\n')
-                    lines = ' '.join(lines).split()
-                    for i in range(len(lines)):
-                        complete_ = lines[i].split(":")
-                        for j in range(len(complete_)):
-                            if j < 3:
-                                reset_schedule_ += complete_[j] + ":"
-                            if j == 3:
+                # with open(file_path, "w", encoding='UTF8') as file:
+                #     file.write(datas)
+                #     ishow_ = True
+                #     reset_schedule_ = ""
+                #     lines = datas
+                #     lines = lines.split('\n')
+                #     lines = ' '.join(lines).split()
+                #     for i in range(len(lines)):
+                #         complete_ = lines[i].split(":")
+                #         for j in range(len(complete_)):
+                #             if j < 3:
+                #                 reset_schedule_ += complete_[j] + ":"
+                #             if j == 3:
+                #                 reset_schedule_ += '대기중:'
+                #             if 3 < j < 7:
+                #                 reset_schedule_ += complete_[j] + ":"
+                #             if j == 7:
+                #                 reset_schedule_ += "대기중\n"
+                #
+                # with open(file_path3, "w", encoding='UTF8') as file:
+                #     file.write(reset_schedule_)
+
+                ishow_ = True
+                reset_schedule_ = ""
+                lines = datas
+                lines = lines.split('\n')
+                lines = ' '.join(lines).split()
+
+                isSchedule_ = False
+                while isSchedule_ is False:
+                    if lines == [] or lines == "":
+                        print("스케쥴이 비었다 : myQuest_play_check")
+                        with open(file_path3, "r", encoding='UTF8') as file:
+                            schedule_ready = file.read()
+                        with open(file_path, "w", encoding='UTF8') as file:
+                            file.write(schedule_ready)
+                        with open(file_path, "r", encoding='UTF8') as file:
+                            lines = file.read().splitlines()
+                    else:
+                        isSchedule_ = True
+
+                for i in range(len(lines)):
+                    complete_ = lines[i].split(":")
+                    for j in range(len(complete_)):
+                        if j < 3:
+                            reset_schedule_ += complete_[j] + ":"
+                        if j == 3:
+
+                            if '_' in complete_[2]:
+                                dunjeon_spl_ = complete_[2].split("_")
+                                print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                                print("dunjeon_spl_[1]", dunjeon_spl_[1])
+
+                                if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                    reset_schedule_ += complete_[j] + ":"
+                                else:
+                                    reset_schedule_ += '대기중:'
+                            else:
                                 reset_schedule_ += '대기중:'
-                            if 3 < j < 7:
-                                reset_schedule_ += complete_[j] + ":"
-                            if j == 7:
+
+                            # if complete_[2] == "지하감옥":
+                            #     reset_schedule_ += complete_[j] + ":"
+                            # else:
+                            #     reset_schedule_ += '대기중:'
+                        if 3 < j < 7:
+                            reset_schedule_ += complete_[j] + ":"
+                        if j == 7:
+
+                            if '_' in complete_[6]:
+                                dunjeon_spl_ = complete_[6].split("_")
+                                print("dunjeon_spl_[0]", dunjeon_spl_[0])
+                                print("dunjeon_spl_[1]", dunjeon_spl_[1])
+
+                                if dunjeon_spl_[1] == "신전" or dunjeon_spl_[1] == "동굴":
+                                    reset_schedule_ += complete_[j] + "\n"
+                                else:
+                                    reset_schedule_ += "대기중\n"
+                            else:
                                 reset_schedule_ += "대기중\n"
 
-                    with open(file_path3, "w", encoding='UTF8') as file:
-                        file.write(reset_schedule_)
-                    self.set_rand_int()
+                            # if complete_[6] == "지하감옥":
+                            #     reset_schedule_ += complete_[j] + "\n"
+                            # else:
+                            #     reset_schedule_ += "대기중\n"
+
+                print('reset_schedule_', reset_schedule_)
+                with open(file_path, "w", encoding='UTF8') as file:
+                    file.write(reset_schedule_)
+                with open(file_path3, "w", encoding='UTF8') as file:
+                    file.write(reset_schedule_)
+                self.set_rand_int()
 
             return ishow_
         except Exception as e:
