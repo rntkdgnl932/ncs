@@ -2304,18 +2304,7 @@ class FirstTab(QWidget):
                 lines = lines.split('\n')
                 lines = ' '.join(lines).split()
 
-                isSchedule_ = False
-                while isSchedule_ is False:
-                    if lines == [] or lines == "":
-                        print("스케쥴이 비었다 : myQuest_play_check")
-                        with open(file_path3, "r", encoding='UTF8') as file:
-                            schedule_ready = file.read()
-                        with open(file_path, "w", encoding='UTF8') as file:
-                            file.write(schedule_ready)
-                        with open(file_path, "r", encoding='UTF8') as file:
-                            lines = file.read().splitlines()
-                    else:
-                        isSchedule_ = True
+
 
                 for i in range(len(lines)):
                     complete_ = lines[i].split(":")
