@@ -390,7 +390,21 @@ def soojib(cla):
                 menu_open(cla)
                 click_pos_2(930, 140, cla)
             time.sleep(0.5)
-
+        col_last = False
+        collect_count = 0
+        while col_last is False:
+            collect_count += 1
+            if collect_count > 15:
+                col_last = True
+            full_path = "c:\\nightcrow\\imgs\\check\\collection_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(30, 30, 140, 80, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("collection_1", imgs_)
+                click_pos_2(930, 60, cla)
+            else:
+                col_last = True
 
     except Exception as e:
         print(e)

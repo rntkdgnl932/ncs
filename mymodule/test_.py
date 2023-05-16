@@ -21,7 +21,7 @@ def go_test():
     from potion import maul_potion, change_potion
     from action import skill_check_
 
-    cla = "one"
+    cla = "two"
 
     if cla == 'one':
         plus = 0
