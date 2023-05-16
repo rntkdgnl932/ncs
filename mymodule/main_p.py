@@ -46,7 +46,7 @@ from grow_2 import main_quest_grow
 from grow_3 import sub_quest_grow
 from dungeon import dungeon_play
 from jadong_crow import jadong_play
-from get_item import get_items
+from get_item import get_items, get_item_checking
 from potion import maul_potion
 from action import maul_check, bag_open, quest_look
 
@@ -71,7 +71,7 @@ onMaul = "none"
 
 isgloballoop = False
 
-version = "1.41"
+version = "1.42"
 
 # 기존 오토모드 관련##############################################
 
@@ -649,7 +649,7 @@ class FirstTab(QWidget):
         self.my_limit_gold_spot = QLabel("사냥터 : " + str(v_.onForceGoldSpot))
 
         sub_q = QComboBox()
-        limit_gold = ['얼마이하', '10만', '50만', '100만', '200만']
+        limit_gold = ['얼마이하', '1만', '10만', '50만', '100만', '200만']
         sub_q.addItems(limit_gold)
 
         sub_h = QComboBox()
@@ -2617,6 +2617,8 @@ class game_Playing(QThread):
                     print("touching", imgs_)
                 else:
                     quest_look(v_.now_cla)
+
+                    get_item_checking(v_.now_cla)
 
                     print("없")
 

@@ -172,6 +172,254 @@ def soojib(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("collection_1", imgs_)
 
+                    col_1 = True
+
+                    full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("confirm_1 : collection", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    print("몬스터")
+                    collect_1 = False
+                    collect_count2 = 0
+                    while collect_1 is False:
+                        collect_count2 += 1
+                        if collect_count2 > 15:
+                            collect_1 = True
+                        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(90, 70, 150, 130, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("point : col_1", imgs_)
+                            click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
+                            time.sleep(0.3)
+                            full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(220, 130, 620, 990, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("point : collection", imgs_)
+                                click_pos_reg(imgs_.x - 20, imgs_.y + 20, cla)
+                                time.sleep(0.5)
+                                click_pos_2(830, 950, cla)
+                                time.sleep(0.5)
+                            full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("confirm_1 : collection", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
+                            full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("confirm_1 : collection", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            collect_1 = True
+
+                    print("골동품")
+                    collect_1 = False
+                    collect_count2 = 0
+                    while collect_1 is False:
+                        collect_count2 += 1
+                        if collect_count2 > 15:
+                            collect_1 = True
+                        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(415, 70, 470, 130, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("point : col_1", imgs_)
+                            click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
+                            time.sleep(0.3)
+                            full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(220, 130, 620, 990, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("point : collection", imgs_)
+                                click_pos_reg(imgs_.x - 20, imgs_.y + 20, cla)
+                                time.sleep(0.5)
+                                click_pos_2(830, 950, cla)
+                                time.sleep(0.5)
+                            full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("confirm_1 : collection", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
+                            full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("confirm_1 : collection", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            collect_1 = True
+
+
+
+                else:
+                    menu_open(cla)
+                    click_pos_2(930, 140, cla)
+                time.sleep(0.5)
+
+        print("몬스터 장비 골동품 수집 안함")
+        col_1 = False
+        collect_count = 0
+        while col_1 is False:
+            collect_count += 1
+            if collect_count > 15:
+                col_1 = True
+            full_path = "c:\\nightcrow\\imgs\\check\\collection_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(30, 30, 140, 80, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("collection_1", imgs_)
+
+                col_1 = True
+
+                full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("confirm_1 : collection", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                print("업적")
+                collect_1 = False
+                collect_count2 = 0
+                while collect_1 is False:
+                    collect_count2 += 1
+                    if collect_count2 > 15:
+                        collect_1 = True
+                    full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(180, 70, 270, 130, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("point : col_1", imgs_)
+                        click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
+                        time.sleep(0.3)
+                        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(220, 130, 620, 990, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("point : collection", imgs_)
+                            click_pos_reg(imgs_.x - 20, imgs_.y + 20, cla)
+                            time.sleep(0.5)
+                            click_pos_2(830, 950, cla)
+                            time.sleep(0.5)
+                        full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("confirm_1 : collection", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
+                        full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("confirm_1 : collection", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        collect_1 = True
+
+                print("이벤트")
+                collect_1 = False
+                collect_count2 = 0
+                while collect_1 is False:
+                    collect_count2 += 1
+                    if collect_count2 > 15:
+                        collect_1 = True
+                    full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(530, 70, 610, 130, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("point : col_1", imgs_)
+                        click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
+                        time.sleep(0.3)
+                        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(220, 130, 620, 990, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("point : collection", imgs_)
+                            click_pos_reg(imgs_.x - 20, imgs_.y + 20, cla)
+                            time.sleep(0.5)
+                            click_pos_2(830, 950, cla)
+                            time.sleep(0.5)
+                        full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("confirm_1 : collection", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
+                        full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("confirm_1 : collection", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        collect_1 = True
+
+
+            else:
+                menu_open(cla)
+                click_pos_2(930, 140, cla)
+            time.sleep(0.5)
+
+
+    except Exception as e:
+        print(e)
+
+def soojib_exam(cla):
+    try:
+        from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2, drag_pos
+        from action import menu_open, dead_die_before
+        from get_item import get_items, get_upjuk
+        from jadong_crow import jadong_play
+
+        import numpy as np
+        import pyautogui
+        import cv2
+
+        if v_.onCollection == True:
+            col_1 = False
+            collect_count = 0
+            while col_1 is False:
+                collect_count += 1
+                if collect_count > 15:
+                    col_1 = True
+                full_path = "c:\\nightcrow\\imgs\\check\\collection_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(30, 30, 140, 80, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("collection_1", imgs_)
+
                     full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -230,6 +478,117 @@ def soojib(cla):
                 time.sleep(0.5)
         else:
             print("수집 안함")
+            col_1 = False
+            collect_count = 0
+            while col_1 is False:
+                collect_count += 1
+                if collect_count > 15:
+                    col_1 = True
+                full_path = "c:\\nightcrow\\imgs\\check\\collection_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(30, 30, 140, 80, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("collection_1", imgs_)
+
+                    col_1 = True
+
+                    full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("confirm_1 : collection", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    collect_1 = False
+                    collect_count2 = 0
+                    while collect_1 is False:
+                        collect_count2 += 1
+                        if collect_count2 > 15:
+                            collect_1 = True
+                        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(180, 70, 270, 130, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("point : col_1", imgs_)
+                            click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
+                            time.sleep(0.3)
+                            full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(220, 130, 620, 990, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("point : collection", imgs_)
+                                click_pos_reg(imgs_.x - 20, imgs_.y + 20, cla)
+                                time.sleep(0.5)
+                                click_pos_2(830, 950, cla)
+                                time.sleep(0.5)
+                            full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("confirm_1 : collection", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
+                            full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("confirm_1 : collection", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            collect_1 = True
+                    collect_1 = False
+                    collect_count2 = 0
+                    while collect_1 is False:
+                        collect_count2 += 1
+                        if collect_count2 > 15:
+                            collect_1 = True
+                        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(530, 70, 610, 130, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("point : col_1", imgs_)
+                            click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
+                            time.sleep(0.3)
+                            full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(220, 130, 620, 990, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("point : collection", imgs_)
+                                click_pos_reg(imgs_.x - 20, imgs_.y + 20, cla)
+                                time.sleep(0.5)
+                                click_pos_2(830, 950, cla)
+                                time.sleep(0.5)
+                            full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("confirm_1 : collection", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
+                            full_path = "c:\\nightcrow\\imgs\\check\\confirm_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(490, 580, 630, 630, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("confirm_1 : collection", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            collect_1 = True
+
+
+                else:
+                    menu_open(cla)
+                    click_pos_2(930, 140, cla)
+                time.sleep(0.5)
 
 
     except Exception as e:

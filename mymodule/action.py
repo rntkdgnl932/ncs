@@ -1002,11 +1002,12 @@ def menu_open(cla):
                 imgs_ = imgs_set_(900, 275, 960, 365, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("pvp_1", imgs_)
+                    menu_ready_ = True
+                    go_ = True
                 else:
                     click_pos_2(930, 60, cla)
-                menu_ready_ = True
 
-                go_ = True
+
 
                 time.sleep(0.5)
             else:

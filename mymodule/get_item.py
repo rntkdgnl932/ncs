@@ -39,6 +39,9 @@ def get_items(cla):
         # 신념전승
         print("신념전승")
         sinnyum_junseong(cla)
+        # 길드 체크
+        print("길드 체크")
+        guild_check(cla)
         # 우편 받기
         print("우편 받기")
         get_post(cla)
@@ -55,6 +58,39 @@ def get_items(cla):
     except Exception as e:
         print(e)
 
+
+def get_item_checking(cla):
+    try:
+        import cv2
+        import numpy as np
+        from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos
+        from action import clean_screen, menu_open
+
+        go_ = False
+
+        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(150, 0, 220, 100, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            print("시즌패스 체크", imgs_)
+            go_ = True
+
+        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(770, 0, 830, 100, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("이벤트 체크", imgs_)
+            go_ = True
+
+        if go_ == True:
+            get_items(cla)
+
+    except Exception as e:
+        print(e)
+
+
 def get_post(cla):
     try:
         import cv2
@@ -63,7 +99,11 @@ def get_post(cla):
         from action import clean_screen, menu_open
 
         in_post_ = False
+        in_post_count = 0
         while in_post_ is False:
+            in_post_count += 1
+            if in_post_count > 5:
+                in_post_ = True
             full_path = "c:\\nightcrow\\imgs\\get_item\\post_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -328,7 +368,11 @@ def get_event(cla):
         clean_screen(cla)
         time.sleep(1)
         complete_ = False
+        complete_count = 0
         while complete_ is False:
+            complete_count += 1
+            if complete_count > 5:
+                complete_ = True
             full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -417,7 +461,11 @@ def get_upjuk(cla):
         from action import clean_screen, menu_open
 
         get_upjuk_ = False
+        get_upjuk_count = 0
         while get_upjuk_ is False:
+            get_upjuk_count += 1
+            if get_upjuk_count > 5:
+                get_upjuk_ = True
             full_path = "c:\\nightcrow\\imgs\\get_item\\upjuk_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -583,7 +631,11 @@ def sinnyum_junseong(cla):
         from action import clean_screen, menu_open
 
         get_trust = False
+        get_trust_count = 0
         while get_trust is False:
+            get_trust_count += 1
+            if get_trust_count > 5:
+                get_trust = True
             full_path = "c:\\nightcrow\\imgs\\get_item\\sinnyum_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -662,6 +714,83 @@ def sinnyum_junseong(cla):
                     time.sleep(1.5)
                 else:
                     get_trust = True
+
+
+
+    except Exception as e:
+        print(e)
+
+
+def guild_check(cla):
+    try:
+        import cv2
+        import numpy as np
+        from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos
+        from action import clean_screen, menu_open
+
+        get_guild = False
+        get_guild_count = 0
+        while get_guild is False:
+            get_guild_count += 1
+            if get_guild_count > 7:
+                get_guild = True
+            full_path = "c:\\nightcrow\\imgs\\guild\\guild_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+
+                time.sleep(0.2)
+                full_path = "c:\\nightcrow\\imgs\\guild\\guild_information.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(20, 80, 150, 150, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(430, 950, cla)
+                    time.sleep(0.1)
+                    click_pos_2(430, 950, cla)
+                    time.sleep(0.1)
+                    click_pos_2(430, 950, cla)
+                    time.sleep(0.1)
+
+                    giboo_ = False
+                    giboo_count = 0
+                    while giboo_ is False:
+                        giboo_count += 1
+                        if giboo_count > 7:
+                            giboo_ = True
+
+                        full_path = "c:\\nightcrow\\imgs\\guild\\guild_giboo.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(440, 330, 510, 380, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            full_path = "c:\\nightcrow\\imgs\\guild\\giboo_zero.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(240, 440, 280, 470, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("길드 체크 끝")
+                            else:
+                                click_pos_2(230, 670, cla)
+                            time.sleep(0.2)
+                        else:
+                            click_pos_2(555, 950, cla)
+                        time.sleep(0.5)
+                else:
+                    get_guild = True
+            else:
+                menu_open(cla)
+
+                full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(740, 235, 770, 270, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(745, 260, cla)
+                    time.sleep(1.5)
+                else:
+                    get_guild = True
 
 
 

@@ -29,6 +29,7 @@ def go_test():
         plus = 960
 
     print("여긴 테스트")
+    soojib(cla)
 
     # hp_ = text_check_get(79, 980, 165, 1030, cla)
     # print("내 체력?", hp_)
