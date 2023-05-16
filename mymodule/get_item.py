@@ -765,15 +765,14 @@ def guild_check(cla):
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(440, 330, 510, 380, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            full_path = "c:\\nightcrow\\imgs\\guild\\giboo_zero.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(240, 440, 280, 470, cla, img, 0.85)
-                            if imgs_ is not None and imgs_ != False:
-                                print("길드 체크 끝")
-                            else:
+                            giboo_ = True
+                            for i in range(5):
                                 click_pos_2(230, 670, cla)
-                            time.sleep(0.2)
+                            time.sleep(0.1)
+                            for i in range(2):
+                                click_pos_2(930, 60, cla)
+                            clean_screen(cla)
+
                         else:
                             click_pos_2(555, 950, cla)
                         time.sleep(0.5)

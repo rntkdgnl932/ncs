@@ -29,7 +29,12 @@ def go_test():
         plus = 960
 
     print("여긴 테스트")
-    soojib(cla)
+    full_path = "c:\\nightcrow\\imgs\\guild\\giboo_zero.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(210, 420, 300, 480, cla, img, 0.5)
+    if imgs_ is not None and imgs_ != False:
+        print("길드 체크 끝")
 
     # hp_ = text_check_get(79, 980, 165, 1030, cla)
     # print("내 체력?", hp_)
@@ -52,28 +57,28 @@ def go_test():
     #         potion_ = "1" + potion_
     #         print("potion_ = '1' + potion_", potion_)
     #
-    full_path = "c:\\nightcrow\\imgs\\dungeon\juljun_potion.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(440, 960, 510, 1030, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("juljun_potion 일딴 물약 있다", imgs_)
-
-    potion_ = text_check_get(476, 1007, 505, 1022, cla)
-    print("전체4자리 potion_475?", potion_)
-
-
-    for i in range(10):
-        potion_ = text_check_get(472 + i, 1007, 505, 1022, cla)
-        print(472 + i)
-        print("전체4자리", potion_)
-
-
-    potion_ = text_check_get(475, 1007, 497, 1022, cla)
-    print("앞3자리 potion_?", potion_)
-
-    potion_ = text_check_get(482, 1007, 505, 1022, cla)
-    print("뒷3자리 potion_??", potion_)
+    # full_path = "c:\\nightcrow\\imgs\\dungeon\juljun_potion.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(440, 960, 510, 1030, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("juljun_potion 일딴 물약 있다", imgs_)
+    #
+    # potion_ = text_check_get(476, 1007, 505, 1022, cla)
+    # print("전체4자리 potion_475?", potion_)
+    #
+    #
+    # for i in range(10):
+    #     potion_ = text_check_get(472 + i, 1007, 505, 1022, cla)
+    #     print(472 + i)
+    #     print("전체4자리", potion_)
+    #
+    #
+    # potion_ = text_check_get(475, 1007, 497, 1022, cla)
+    # print("앞3자리 potion_?", potion_)
+    #
+    # potion_ = text_check_get(482, 1007, 505, 1022, cla)
+    # print("뒷3자리 potion_??", potion_)
 
 
 
