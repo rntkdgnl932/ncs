@@ -130,11 +130,11 @@ def potion_check(cla):
 
                             else:
                                 print("potion => 숫자 아님")
-            if potion_ is None:
-                v_.potion_count += 1
-                if v_.potion_count > 20:
-                    v_.potion_count = 0
-                    maul_potion(cla)
+            # if potion_ is None:
+            #     v_.potion_count += 1
+            #     if v_.potion_count > 20:
+            #         v_.potion_count = 0
+            #         maul_potion(cla)
         else:
             full_path = "c:\\nightcrow\\imgs\\potion\\out_potion_2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
