@@ -189,6 +189,8 @@ def get_post(cla):
             else:
                 menu_open(cla)
 
+                time.sleep(0.5)
+
                 full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -609,6 +611,8 @@ def get_upjuk(cla):
             else:
                 menu_open(cla)
 
+                time.sleep(0.5)
+
                 full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -704,6 +708,8 @@ def sinnyum_junseong(cla):
 
             else:
                 menu_open(cla)
+
+                time.sleep(0.5)
 
                 full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -823,6 +829,8 @@ def guild_check(cla):
                     get_guild = True
             else:
                 menu_open(cla)
+
+                time.sleep(0.5)
 
                 full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
