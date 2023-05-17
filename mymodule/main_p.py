@@ -2627,6 +2627,13 @@ class game_Playing(QThread):
                     print("result_schedule", result_schedule)
                     result_schedule_ = result_schedule[0][2]
 
+                    dongool_check = "none"
+
+                    if "_" in result_schedule_:
+                        dungeon_ = result_schedule_.split("_")
+                        if dungeon_[1] == "동굴":
+                            dongool_check = "dongool"
+
                     # 동굴던전인지...
                     isjuljun = False
                     full_path = "c:\\nightcrow\\imgs\\dungeon\juljun_mode.PNG"
@@ -2635,15 +2642,19 @@ class game_Playing(QThread):
                     imgs_ = imgs_set_(400, 120, 600, 160, v_.now_cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         isjuljun = True
-                        if "_" in result_schedule_:
-                            dungeon_ = result_schedule_.split("_")
-                            if dungeon_[1] != "동굴":
-                                print("동굴 던전이 아니니 절전모드는 해제하겠다.")
-                                drag_pos(360, 550, 600, 550, v_.now_cla)
+                        if dongool_check != "dongool":
+                            print("동굴 던전이 아니니 절전모드는 해제하겠다.")
+                            drag_pos(360, 550, 600, 550, v_.now_cla)
+
+                        # if "_" in result_schedule_:
+                        #     dungeon_ = result_schedule_.split("_")
+                        #     if dungeon_[1] != "동굴":
+                        #         print("동굴 던전이 아니니 절전모드는 해제하겠다.")
+                        #         drag_pos(360, 550, 600, 550, v_.now_cla)
 
 
                     # 최초1회만...
-                    if result_schedule_ != "각종템받기" and result_schedule_ != "튜토육성" and isjuljun != True:
+                    if result_schedule_ != "각종템받기" and result_schedule_ != "튜토육성" and isjuljun != True and dungeon_[1] != "동굴":
                         if v_.just_one == False:
                             print("최초 1회 : 마을일 경우 물약 ㄱㄱ", v_.just_one)
                             v_.just_one = True
@@ -2689,6 +2700,7 @@ class game_Playing(QThread):
                             if dungeon_[0] == "던전":
 
                                 if dungeon_[1] == "동굴":
+                                    v_.just_one = True
                                     full_path = "c:\\nightcrow\\imgs\\potion\\janhwa_1.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
