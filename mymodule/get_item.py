@@ -837,6 +837,20 @@ def guild_check(cla):
                                 click_pos_2(555, 950, cla)
                             time.sleep(0.5)
                     else:
+                        time.sleep(0.2)
+                        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(840, 940, 890, 990, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("guild_point", imgs_)
+                            click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
+                            time.sleep(0.1)
+                            click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
+                            time.sleep(0.1)
+                            click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
+                            time.sleep(0.1)
+
                         click_pos_2(430, 990, cla)
                         time.sleep(0.1)
                         click_pos_2(430, 990, cla)

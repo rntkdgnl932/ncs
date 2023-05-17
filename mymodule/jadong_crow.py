@@ -216,7 +216,11 @@ def in_spot(cla, result_schedule_):
         from massenger import line_to_me
 
         in_map = False
+        in_map_count = 0
         while in_map is False:
+            in_map_count += 1
+            if in_map_count > 20:
+                in_map = True
             full_path = "c:\\nightcrow\\imgs\\jadong\\sin_triesde.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -289,6 +293,9 @@ def in_spot(cla, result_schedule_):
                     in_worldmap = False
                     in_worldmap_count = 0
                     while in_worldmap is False:
+                        in_worldmap_count += 1
+                        if in_worldmap_count > 20:
+                            in_worldmap = True
                         full_path = "c:\\nightcrow\\imgs\\jadong\\world_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -369,9 +376,7 @@ def in_spot(cla, result_schedule_):
                                 line_to_me(cla, "나크 자동사냥 자료 없다.")
 
                         else:
-                            in_worldmap_count += 1
-                            if in_worldmap_count > 20:
-                                in_worldmap = True
+
                             print("다시 월드맵 진입중")
                         time.sleep(0.3)
 
@@ -404,7 +409,11 @@ def in_spot_to_walking_ready(cla):
 
             # 우선 월드 지도 펼치기
             in_worldmap = False
+            in_worldmap_count = 0
             while in_worldmap is False:
+                in_worldmap_count += 1
+                if in_worldmap_count > 20:
+                    in_worldmap = True
                 full_path = "c:\\nightcrow\\imgs\\jadong\\world_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -497,7 +506,11 @@ def in_spot_to_walking_ready(cla):
                         if result_[0] == gold_spot:
                             print("완벽", result_[1])
                             in_spot_start = False
+                            in_spot_start_count = 0
                             while in_spot_start is False:
+                                in_spot_start_count += 1
+                                if in_spot_start_count > 20:
+                                    in_spot_start = True
                                 full_path = "c:\\nightcrow\\imgs\\jadong\\confirm_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
