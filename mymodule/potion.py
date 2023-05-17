@@ -189,7 +189,7 @@ def maul_potion(cla):
         import cv2
         import numpy as np
         from function import text_check_get, int_put_, click_pos_2, imgs_set_, click_pos_reg, in_number_check
-        from action import out_check, clean_screen, bag_open, maul_check
+        from action import out_check, clean_screen, bag_open, maul_check, dead_die_before
         from realtime import soojib, moogi_, jaelyo_, boonhae_
         from schedule import myQuest_play_add
         from get_item import get_items
@@ -465,6 +465,7 @@ def maul_potion(cla):
                 clean_screen(cla)
 
         jaelyo_(cla)
+        dead_die_before(cla)
 
     except Exception as e:
         print(e)

@@ -39,8 +39,12 @@ def go_test():
     else:
         print("no look")
 
-    nowDay_ = datetime.today().strftime("%Y년%m월%d일 %H시%M분%S초")
-    print("현재시간", nowDay_)
+    full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(840, 940, 890, 990, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("point", imgs_)
 
     # hp_ = text_check_get(79, 980, 165, 1030, cla)
     # print("내 체력?", hp_)

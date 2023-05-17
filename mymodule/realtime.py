@@ -657,6 +657,8 @@ def jaelyo_(cla):
                             imgs_ = imgs_set_(50, 80, 110, 110, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_2(930, 265, cla)
+                                time.sleep(0.5)
+                                click_pos_2(170, 1010, cla)
 
                                 dir_path = "C:\\nightcrow"
                                 file_path = dir_path + "\\items\\chango\\jaelyo.txt"
@@ -722,6 +724,86 @@ def jaelyo_(cla):
 
                             else:
                                 click_pos_2(20, 200, cla)
+
+                        in_chango_3 = False
+                        in_chango_3_count = 0
+                        while in_chango_3 is False:
+                            in_chango_3_count += 1
+                            if in_chango_3_count > 5:
+                                in_chango_3 = True
+                            full_path = "c:\\nightcrow\\imgs\\chango\\maul_chango_4.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(50, 80, 110, 110, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(930, 145, cla)
+                                time.sleep(0.5)
+                                click_pos_2(170, 1010, cla)
+
+                                dir_path = "C:\\nightcrow"
+                                file_path = dir_path + "\\items\\chango\\jaelyo.txt"
+                                ###
+                                if os.path.isfile(file_path) == True:
+                                    with open(file_path, "r", encoding='UTF8') as file:
+                                        jaelyo_ready = file.read().splitlines()
+                                        print("jaelyos", jaelyo_ready)
+                                ###
+                                for i in range(len(jaelyo_ready)):
+                                    full_path = "c:\\nightcrow\\imgs\\chango\\" + jaelyo_ready[i] + ".PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("재료 있")
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        time.sleep(0.1)
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        time.sleep(0.1)
+                                        full_path = "c:\\nightcrow\\imgs\\chango\\bogwan.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(500, 400, 600, 500, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                sj_ = False
+                                sj_count = 0
+                                while sj_ is False:
+                                    sj_count += 1
+                                    if sj_count > 5:
+                                        sj_ = True
+                                    full_path = "c:\\nightcrow\\imgs\\chango\\soojib_item.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(680, 90, 910, 880, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("수집재료 있")
+                                        click_pos_reg(imgs_.x + 15, imgs_.y + 15, cla)
+                                        time.sleep(0.1)
+                                        click_pos_reg(imgs_.x + 15, imgs_.y + 15, cla)
+                                        time.sleep(0.1)
+                                        full_path = "c:\\nightcrow\\imgs\\chango\\bogwan.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(500, 400, 600, 500, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                                    else:
+                                        full_path = "c:\\nightcrow\\imgs\\chango\\maul_chango_4.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(50, 80, 110, 110, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_2(930, 60, cla)
+                                        else:
+                                            in_chango_1 = True
+                                            in_chango_2 = True
+                                            in_chango_3 = True
+                                            sj_ = True
+                                            print("창고 정리 끝")
+
+                            else:
+                                click_pos_2(20, 150, cla)
 
                     else:
                         if in_chango_2_count == 1:
