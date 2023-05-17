@@ -53,3 +53,6 @@ just_one = False
 
 # 얼음 동굴
 who_attack_ = False
+
+# 일일퀘스트
+sub_quest_count = 0

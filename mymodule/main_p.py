@@ -44,6 +44,7 @@ from test_ import go_test
 from grow_1 import tuto_grow
 from grow_2 import main_quest_grow
 from grow_3 import sub_quest_grow
+from grow_4 import select_daily_quest_grow
 from dungeon import dungeon_play
 from jadong_crow import jadong_play
 from get_item import get_items, get_item_checking
@@ -782,7 +783,7 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 퀘스트, 각종템받기, 거래소등록하기')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '튜토육성', '메인퀘스트', '서브퀘스트', '각종템받기', '거래소등록']
+        list6 = ['스케쥴 선택', '튜토육성', '메인퀘스트', '서브퀘스트', '일일퀘스트', '각종템받기', '거래소등록']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -2713,6 +2714,9 @@ class game_Playing(QThread):
                                 # 자체에 스케쥴 완료 있음
                             if result_schedule_ == "서브퀘스트":
                                 sub_quest_grow(v_.now_cla)
+                                # 자체에 스케쥴 완료 있음
+                            if result_schedule_ == "일일퀘스트":
+                                select_daily_quest_grow(v_.now_cla)
                                 # 자체에 스케쥴 완료 있음
 
 
