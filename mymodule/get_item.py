@@ -111,6 +111,21 @@ def get_post(cla):
             if imgs_ is not None and imgs_ != False:
                 print("우편함", imgs_)
 
+                point_search = False
+                point_search_count = 0
+                while point_search is False:
+                    point_search_count += 1
+                    if point_search_count > 10:
+                        point_search = True
+                    full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        point_search = True
+                        print("point search compleate", imgs_)
+                    time.sleep(0.2)
+
                 full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -475,6 +490,20 @@ def get_upjuk(cla):
             if imgs_ is not None and imgs_ != False:
                 get_upjuk_ = True
                 print("업적", imgs_)
+                point_search = False
+                point_search_count = 0
+                while point_search is False:
+                    point_search_count += 1
+                    if point_search_count > 10:
+                        point_search = True
+                    full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        point_search = True
+                        print("point search compleate", imgs_)
+                    time.sleep(0.2)
                 # 성장
                 full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
