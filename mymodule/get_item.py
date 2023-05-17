@@ -512,6 +512,7 @@ def get_upjuk(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("성장", imgs_)
                     click_pos_reg(imgs_.x - 40, imgs_.y + 10, cla)
+
                     sungjang = False
                     while sungjang is False:
                         full_path = "c:\\nightcrow\\imgs\\get_item\\upjuk_sungjang.PNG"
@@ -543,7 +544,7 @@ def get_upjuk(cla):
                     click_pos_reg(imgs_.x - 40, imgs_.y + 10, cla)
                     sungjang = False
                     while sungjang is False:
-                        full_path = "c:\\nightcrow\\imgs\\get_item\\upjuk_hyubdong.PNG.PNG"
+                        full_path = "c:\\nightcrow\\imgs\\get_item\\upjuk_hyubdong.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(160, 90, 240, 140, cla, img, 0.8)
