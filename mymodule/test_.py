@@ -21,7 +21,7 @@ def go_test():
     from potion import maul_potion, change_potion
     from action import skill_check_
 
-    cla = "two"
+    cla = "one"
 
     if cla == 'one':
         plus = 0
@@ -29,12 +29,14 @@ def go_test():
         plus = 960
 
     print("여긴 테스트")
-    full_path = "c:\\nightcrow\\imgs\\guild\\giboo_zero.PNG"
+    full_path = "c:\\nightcrow\\imgs\\guild\\guild_giboo.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(210, 420, 300, 480, cla, img, 0.5)
+    imgs_ = imgs_set_(400, 800, 900, 1030, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("길드 체크 끝")
+        print("길드정보 보", imgs_)
+    else:
+        print("no look")
 
     # hp_ = text_check_get(79, 980, 165, 1030, cla)
     # print("내 체력?", hp_)

@@ -728,6 +728,8 @@ def guild_check(cla):
         from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos
         from action import clean_screen, menu_open
 
+        #clean_screen(cla)
+
         get_guild = False
         get_guild_count = 0
         while get_guild is False:
@@ -744,7 +746,7 @@ def guild_check(cla):
                 full_path = "c:\\nightcrow\\imgs\\guild\\guild_information.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(20, 80, 150, 150, cla, img, 0.8)
+                imgs_ = imgs_set_(400, 800, 900, 1030, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(430, 950, cla)
                     time.sleep(0.1)
