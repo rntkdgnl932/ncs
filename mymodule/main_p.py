@@ -2654,7 +2654,7 @@ class game_Playing(QThread):
 
 
                     # 최초1회만...
-                    if result_schedule_ != "각종템받기" and result_schedule_ != "튜토육성" and isjuljun != True and dungeon_[1] != "동굴":
+                    if result_schedule_ != "각종템받기" and result_schedule_ != "튜토육성" and isjuljun != True and dongool_check != "dongool":
                         if v_.just_one == False:
                             print("최초 1회 : 마을일 경우 물약 ㄱㄱ", v_.just_one)
                             v_.just_one = True

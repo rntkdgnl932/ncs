@@ -100,7 +100,6 @@ def select_daily_quest_grow(cla):
                 print("fit_1", imgs_)
                 click_pos_reg(imgs_.x - 50, imgs_.y + 10, cla)
                 time.sleep(0.5)
-                item_open(cla)
 
             # 확인 버튼
             full_path = "c:\\nightcrow\\imgs\\clean_screen\\confirm_1.PNG"
