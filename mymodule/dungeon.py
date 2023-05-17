@@ -16,6 +16,7 @@ def dungeon_play(cla, result_schedule_):
         from function import text_check_get, int_put_, imgs_set_, click_pos_2, click_pos_reg, drag_pos
         from action import menu_open, clean_screen
         from massenger import line_to_me
+        from potion import maul_potion
 
         print("dungeon")
 
@@ -206,6 +207,10 @@ def dungeon_play(cla, result_schedule_):
                                         click_pos_2(930, 60, cla)
                                         print("not_enough_gold2")
                         else:
+
+                            if dungeon_name == "dongool_1":
+                                maul_potion(v_.now_cla)
+
                             menu_open(cla)
                             click_pos_2(840, 200, cla)
                             print("진입중")
@@ -829,13 +834,24 @@ def juljun_attack(cla, dun_):
                     print("juljun_potion_re", imgs_)
                     in_dungeon__ = True
                 else:
-                    full_path = "c:\\nightcrow\\imgs\\check\\random_move_1.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        # 이동 했으면 다시 사냥 시작 후 절전모드 하기
+
+                    fast_random_move_ = False
+                    fast_random_move_count = 0
+                    while fast_random_move_ is False:
+                        fast_random_move_count += 1
+                        if fast_random_move_count > 10:
+                            fast_random_move_ = True
+                        full_path = "c:\\nightcrow\\imgs\\check\\random_move_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(250, 960, 420, 1030, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            fast_random_move_ = True
+                            # 이동 했으면 다시 사냥 시작 후 절전모드 하기
+                        else:
+                            click_pos_2(340, 990, cla)
+                        time.sleep(0.1)
 
                         juljun_ready = False
                         juljun_ready_count = 0

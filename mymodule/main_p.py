@@ -2699,20 +2699,20 @@ class game_Playing(QThread):
 
                             if dungeon_[0] == "던전":
 
-                                if dungeon_[1] == "동굴":
-                                    v_.just_one = True
-                                    full_path = "c:\\nightcrow\\imgs\\potion\\janhwa_1.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        print("마을이면 물약 ㄱㄱ", imgs_)
-                                        maul_potion(v_.now_cla)
-                                    else:
-                                        result_maul = maul_check(v_.now_cla)
-                                        if result_maul == True:
-                                            click_pos_2(230, 90, v_.now_cla)
-                                            maul_potion(v_.now_cla)
+                                # if dungeon_[1] == "동굴":
+                                #     v_.just_one = True
+                                #     full_path = "c:\\nightcrow\\imgs\\potion\\janhwa_1.PNG"
+                                #     img_array = np.fromfile(full_path, np.uint8)
+                                #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                #     imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.8)
+                                #     if imgs_ is not None and imgs_ != False:
+                                #         print("마을이면 물약 ㄱㄱ", imgs_)
+                                #         maul_potion(v_.now_cla)
+                                #     else:
+                                #         result_maul = maul_check(v_.now_cla)
+                                #         if result_maul == True:
+                                #             click_pos_2(230, 90, v_.now_cla)
+                                #             maul_potion(v_.now_cla)
 
                                 result = dungeon_play(v_.now_cla, result_schedule_)
                                 if result == True:
