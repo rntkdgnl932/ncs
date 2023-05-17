@@ -56,11 +56,11 @@ def select_daily_quest_grow(cla):
             result_auto = go_auto_ing_(cla)
             if result_auto == True:
                 quest_check(cla)
-
-
-            result_maul = in_maul_check(cla)
-            if result_maul == True:
-                maul_potion(cla)
+            #
+            #
+            # result_maul = in_maul_check(cla)
+            # if result_maul == True:
+            #     maul_potion(cla)
 
             # skip
             full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\skip_1.PNG"

@@ -272,7 +272,17 @@ def soojib(cla):
 
                 else:
                     menu_open(cla)
-                    click_pos_2(930, 140, cla)
+
+                    time.sleep(1)
+
+                    full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(925, 110, 950, 150, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("point : soojib", imgs_)
+
+                        click_pos_2(930, 140, cla)
                 time.sleep(0.5)
 
         print("몬스터 장비 골동품 수집 안함")

@@ -30,23 +30,12 @@ def go_test():
         plus = 960
 
     print("여긴 테스트")
-    full_path = "c:\\nightcrow\\imgs\\potion\\small_potion.PNG"
+    full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(0, 90, 80, 1030, cla, img, 0.83)
+    imgs_ = imgs_set_(925, 110, 950, 150, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("small_potion", imgs_)
-    else:
-        print("no look")
-
-    full_path = "c:\\nightcrow\\imgs\\potion\\middle_potion.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(0, 90, 80, 1030, cla, img, 0.83)
-    if imgs_ is not None and imgs_ != False:
-        print("middle_potion", imgs_)
-    else:
-        print("no!")
+        print("point : soojib", imgs_)
 
     # hp_ = text_check_get(79, 980, 165, 1030, cla)
     # print("내 체력?", hp_)
