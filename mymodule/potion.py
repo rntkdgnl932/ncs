@@ -301,6 +301,16 @@ def maul_potion(cla):
                 print("janhwa_2", imgs_)
                 jab_1_count = 0
                 time.sleep(0.2)
+                # lv. 45 부터 사용 가능한 물약
+                # full_path = "c:\\nightcrow\\imgs\\potion\\middle_potion.PNG"
+                # img_array = np.fromfile(full_path, np.uint8)
+                # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                # imgs_ = imgs_set_(0, 90, 80, 1030, cla, img, 0.83)
+                # if imgs_ is not None and imgs_ != False:
+                #     print("middle_potion", imgs_)
+                #     jab_2 = True
+                #     click_pos_reg(imgs_.x + 70, imgs_.y, cla)
+                # else:
                 full_path = "c:\\nightcrow\\imgs\\potion\\small_potion.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
