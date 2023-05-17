@@ -10,6 +10,7 @@ import variable as v_
 
 
 def go_test():
+    from datetime import date, timedelta, datetime
     from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2
     from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_
     from get_item import get_items, get_upjuk
@@ -37,6 +38,9 @@ def go_test():
         print("길드정보 보", imgs_)
     else:
         print("no look")
+
+    nowDay_ = datetime.today().strftime("%Y년%m월%d일 %H시%M분%S초")
+    print("현재시간", nowDay_)
 
     # hp_ = text_check_get(79, 980, 165, 1030, cla)
     # print("내 체력?", hp_)

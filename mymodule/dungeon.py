@@ -646,6 +646,7 @@ def juljun_attack(cla, dun_):
     try:
         import cv2
         import numpy as np
+        from datetime import date, timedelta, datetime
         from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos
         from massenger import line_to_me
         from potion import change_potion
@@ -807,8 +808,10 @@ def juljun_attack(cla, dun_):
                                 drag_maul_potion_(cla, dun_)
 
         else:
+            nowtime_ = datetime.today().strftime("%Y년%m월%d일 %H시%M분%S초")
+            # print("현재시간", nowtime_)
             print("한대 맞은 듯...랜덤 이동 보이면 바로 이동하기!!")
-            line_to_me(cla, "어떤 놈이 공격했다")
+            line_to_me(cla, str(nowtime_) + "에 어떤 놈이 공격했다")
 
             in_dungeon__ = False
             in_dungeon__count = 0
