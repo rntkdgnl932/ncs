@@ -260,10 +260,14 @@ def item_open(cla):
 
                     tal_1 = False
                     tal_1_2 = False
+                    item_count = 0
                     while tal_1 is False:
                         item_count += 1
                         print("item_count", item_count)
                         if item_count > 20:
+                            for i in range(2):
+                                click_pos_2(480, 1010, cla)
+                                time.sleep(0.1)
                             item_count = 0
                             tal_1 = True
                         full_path = "c:\\nightcrow\\imgs\\item_1\\exit_1.PNG"
@@ -362,10 +366,14 @@ def item_open(cla):
 
                     tal_1 = False
                     tal_1_2 = False
+                    item_count = 0
                     while tal_1 is False:
                         item_count += 1
                         print("item_count3", item_count)
                         if item_count > 20:
+                            for i in range(2):
+                                click_pos_2(480, 1010, cla)
+                                time.sleep(0.1)
                             item_count = 0
                             tal_1 = True
                         full_path = "c:\\nightcrow\\imgs\\item_1\\exit_1.PNG"
