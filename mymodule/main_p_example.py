@@ -2266,8 +2266,8 @@ class FirstTab(QWidget):
                                 #     reset_schedule_ += "대기중\n"
 
                     print('reset_schedule_', reset_schedule_)
-                    # with open(file_path, "w", encoding='UTF8') as file:
-                    #     file.write(reset_schedule_)
+                    with open(file_path, "w", encoding='UTF8') as file:
+                        file.write(reset_schedule_)
                     with open(file_path3, "w", encoding='UTF8') as file:
                         file.write(reset_schedule_)
                 self.set_rand_int()
@@ -2352,8 +2352,8 @@ class FirstTab(QWidget):
                             #     reset_schedule_ += "대기중\n"
 
                 print('reset_schedule_', reset_schedule_)
-                # with open(file_path, "w", encoding='UTF8') as file:
-                #     file.write(reset_schedule_)
+                with open(file_path, "w", encoding='UTF8') as file:
+                    file.write(reset_schedule_)
                 with open(file_path3, "w", encoding='UTF8') as file:
                     file.write(reset_schedule_)
                 self.set_rand_int()
