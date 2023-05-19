@@ -399,6 +399,20 @@ def soojib(cla):
             else:
                 menu_open(cla)
                 click_pos_2(930, 140, cla)
+                in_soojib_ = False
+                in_soojib_count = 0
+                while in_soojib_ is False:
+                    in_soojib_count += 1
+                    if in_soojib_count > 5:
+                        in_soojib_ = True
+                    full_path = "c:\\nightcrow\\imgs\\check\\collection_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(30, 30, 140, 80, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("collection_1", imgs_)
+                    time.sleep(0.2)
+
             time.sleep(0.5)
         col_last = False
         collect_count = 0
