@@ -2528,6 +2528,9 @@ class game_Playing_onecla(QThread):
             v_.now_cla = 'one'
             v_.global_howcla = 'onecla'
 
+            m_ = Monitoring_one(self)
+            m_.start()
+
             self.x_ = game_Playing()
             self.x_.start()
 
@@ -2561,6 +2564,9 @@ class game_Playing_twocla(QThread):
 
             v_.now_cla = 'two'
             v_.global_howcla = 'twocla'
+
+            m_ = Monitoring_two(self)
+            m_.start()
 
             self.x_ = game_Playing()
             self.x_.start()
