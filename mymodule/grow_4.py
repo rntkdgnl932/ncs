@@ -287,6 +287,95 @@ def talgut_board_check(cla):
                         v_.sub_quest_count = 0
                         click_pos_reg(imgs_.x, imgs_.y, cla)
 
+        sojin_ = False
+        for i in range(10):
+            full_path = "c:\\nightcrow\\imgs\\quest\\sub_sojin_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(400, 70, 550, 120, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("sub_sojin_1", imgs_)
+                sojin_ = True
+                break
+            else:
+                full_path = "c:\\nightcrow\\imgs\\quest\\sub_sojin_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(400, 70, 550, 120, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("sub_sojin_1", imgs_)
+                    sojin_ = True
+                    break
+
+        if sojin_ == True:
+            in_quest_title = False
+            in_quest_title_count = 0
+            while in_quest_title is False:
+                in_quest_title_count += 1
+                if in_quest_title_count > 5:
+                    in_quest_title = True
+                full_path = "c:\\nightcrow\\imgs\\quest\\quest_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(30, 30, 120, 80, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\nightcrow\\imgs\\quest\\in_quest_dungeon.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 130, 160, 900, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        give_up_ready = False
+                        give_up_ready_count = 0
+                        while give_up_ready is False:
+                            give_up_ready_count += 1
+                            if give_up_ready_count > 10:
+                                give_up_ready = True
+
+                            full_path = "c:\\nightcrow\\imgs\\quest\\in_quest_dungeon.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 130, 160, 900, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("in_quest_dungeon", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y + 30, cla)
+
+                                full_path = "c:\\nightcrow\\imgs\\quest\\give_up_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(560, 150, 630, 330, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    full_path = "c:\\nightcrow\\imgs\\quest\\give_up_2.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(850, 120, 950, 200, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                else:
+                                    give_up_ready = True
+                                    in_quest_title = True
+                            time.sleep(1)
+                            full_path = "c:\\nightcrow\\imgs\\quest\\y_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(500, 580, 600, 630, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        click_pos_2(345, 105, cla)
+                else:
+                    menu_open(cla)
+                    click_pos_2(745, 190, cla)
+            time.sleep(0.5)
+            clean_screen(cla)
+            full_path = "c:\\nightcrow\\imgs\\quest\\quest_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(30, 30, 120, 80, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(930, 60, cla)
+        if sojin_ == True:
+            go_ = False
 
         return go_
     except Exception as e:
