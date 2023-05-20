@@ -49,7 +49,7 @@ from dungeon import dungeon_play
 from jadong_crow import jadong_play
 from get_item import get_items, get_item_checking
 from potion import maul_potion
-from action import maul_check, bag_open, quest_look
+from action import maul_check, bag_open, quest_look, character_change
 
 import variable as v_
 
@@ -72,7 +72,7 @@ onMaul = "none"
 
 isgloballoop = False
 
-version = "1.43"
+version = "1.44"
 
 # 기존 오토모드 관련##############################################
 
@@ -783,7 +783,7 @@ class FirstTab(QWidget):
         # 마을 의뢰
         self.com_group6 = QGroupBox('육성, 퀘스트, 각종템받기, 거래소등록하기')
         cb6 = QComboBox()
-        list6 = ['스케쥴 선택', '튜토육성', '메인퀘스트', '서브퀘스트', '일일퀘스트', '각종템받기', '거래소등록']
+        list6 = ['스케쥴 선택', '캐릭터바꾸기', '튜토육성', '메인퀘스트', '서브퀘스트', '일일퀘스트', '각종템받기', '거래소등록']
         cb6.addItems(list6)
         vbox6 = QHBoxLayout()
         vbox6.addWidget(cb6)
@@ -2623,14 +2623,13 @@ class game_Playing(QThread):
                 if imgs_ is not None and imgs_ != False:
                     print("touching", imgs_)
                 else:
-                    quest_look(v_.now_cla)
 
-                    get_item_checking(v_.now_cla)
 
                     print("없")
 
                     result_schedule = myQuest_play_check(v_.now_cla, "check")
                     print("result_schedule", result_schedule)
+                    character_id = result_schedule[0][1]
                     result_schedule_ = result_schedule[0][2]
 
                     dongool_check = "none"
@@ -2652,12 +2651,14 @@ class game_Playing(QThread):
                             print("동굴 던전이 아니니 절전모드는 해제하겠다.")
                             drag_pos(360, 550, 600, 550, v_.now_cla)
 
-                        # if "_" in result_schedule_:
-                        #     dungeon_ = result_schedule_.split("_")
-                        #     if dungeon_[1] != "동굴":
-                        #         print("동굴 던전이 아니니 절전모드는 해제하겠다.")
-                        #         drag_pos(360, 550, 600, 550, v_.now_cla)
+                    # 먼저 캐릭터 변환할 것인지 물어보기
+                    if result_schedule_ == "캐릭터바꾸기":
+                        character_change(cla, character_id)
 
+                    # 우측 상단 퀘스트 보이게 하기
+                    quest_look(v_.now_cla)
+                    # 새로운 아이템 받을 것 체크하기
+                    get_item_checking(v_.now_cla)
 
                     # 최초1회만...
                     if result_schedule_ != "각종템받기" and result_schedule_ != "튜토육성" and isjuljun != True and dongool_check != "dongool":

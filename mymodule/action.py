@@ -1521,3 +1521,93 @@ def skill_check_(cla):
 
     except Exception as e:
         print(e)
+
+def character_change(cla, character_id):
+    try:
+
+        from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
+        from massenger import line_to_me
+        import numpy as np
+        import cv2
+
+        print("캐릭터 체인지")
+
+        cha_select = False
+        cha_select_count = 0
+        while cha_select is False:
+            cha_select_count += 1
+            if cha_select_count > 10:
+                cha_select = True
+                line_to_me(cla, "처음 스타트 화면에 문제가 있다.")
+
+            # 캐릭터 선택 화면
+            full_path = "c:\\nightcrow\\imgs\\character_start\\game_start_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(810, 990, 950, 1040, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                # 좌표
+                if int(character_id) == 1:
+                    click_pos_2(60, 180, cla)
+                if int(character_id) == 2:
+                    click_pos_2(55, 280, cla)
+                time.sleep(0.2)
+
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.1)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                time.sleep(1)
+
+                full_path = "c:\\nightcrow\\imgs\\character_start\\game_start_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(810, 990, 950, 1040, cla, img, 0.8)
+                if imgs_ is None:
+                    # 진입여부 파악
+                    in_game = False
+                    in_game_count = 0
+                    while in_game is False:
+                        in_game_count += 1
+                        if in_game_count > 40:
+                            in_game = True
+                            line_to_me(cla, "게임화면 진입에 문제가 있다.")
+                        result_out = out_check(cla)
+                        if result_out == True:
+                            cha_select = True
+                            in_game = True
+                        else:
+                            print("진입중")
+                        time.sleep(0.5)
+            else:
+                # 추후 대기중 화면 설정하기
+                # 대기중 화면이 아닐때
+
+                full_path = "c:\\nightcrow\\imgs\\character_start\\y_.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(480, 580, 630, 630, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    is_select = False
+                    is_select_count = 0
+                    while is_select is False:
+                        is_select_count += 1
+                        if is_select_count > 30:
+                            is_select = True
+                            line_to_me(cla, "캐릭 선택화면으로 가는 것에 문제가 있다.")
+                        full_path = "c:\\nightcrow\\imgs\\character_start\\game_start_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(810, 990, 950, 1040, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            is_select = True
+                        time.sleep(0.5)
+                else:
+                    menu_open(cla)
+                    click_pos_2(930, 1000, cla)
+                time.sleep(0.5)
+
+    except Exception as e:
+        print(e)
