@@ -2653,7 +2653,7 @@ class game_Playing(QThread):
 
                     # 먼저 캐릭터 변환할 것인지 물어보기
                     if result_schedule_ == "캐릭터바꾸기":
-                        character_change(cla, character_id)
+                        character_change(v_.now_cla, character_id)
 
                     # 우측 상단 퀘스트 보이게 하기
                     quest_look(v_.now_cla)
