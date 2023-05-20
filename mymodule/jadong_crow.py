@@ -692,6 +692,12 @@ def go_to_spot(cla, data):
             if imgs_ is not None and imgs_ != False:
                 print("in_spot_walking_2 보여")
                 move_ = True
+                full_path = "c:\\nightcrow\\imgs\\check\\bag_check.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(850, 80, 910, 120, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(935, 100, cla)
             time.sleep(0.2)
 
         bihangjang = False

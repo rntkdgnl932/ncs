@@ -12,7 +12,7 @@ import variable as v_
 def go_test():
     from datetime import date, timedelta, datetime
     from function import imgs_set_, click_pos_reg, imgs_set, text_check_get, int_put_, text_check_get_3, click_pos_2
-    from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_
+    from action import menu_open, dead_die_before, item_open, clean_screen, bag_open, quest_look, out_check, go_quest_ing_, character_change
     from get_item import get_items, get_upjuk
     from jadong_crow import jadong_play
     from realtime import soojib, moogi_
@@ -22,7 +22,7 @@ def go_test():
     from potion import maul_potion, change_potion
     from action import skill_check_
 
-    cla = "one"
+    cla = "two"
 
     if cla == 'one':
         plus = 0
@@ -30,12 +30,16 @@ def go_test():
         plus = 960
 
     print("여긴 테스트")
-    full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(925, 110, 950, 150, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("point : soojib", imgs_)
+
+
+    character_change(cla, 2)
+    #
+    # full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(925, 110, 950, 150, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("point : soojib", imgs_)
 
     # hp_ = text_check_get(79, 980, 165, 1030, cla)
     # print("내 체력?", hp_)
