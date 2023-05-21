@@ -1623,7 +1623,21 @@ def character_change(cla, character_id):
                         time.sleep(0.5)
                 else:
                     menu_open(cla)
+                    time.sleep(0.1)
                     click_pos_2(930, 1000, cla)
+                    wait_y = False
+                    wait_y_count = 0
+                    while wait_y is False:
+                        wait_y_count += 1
+                        if wait_y_count > 20:
+                            wait_y = True
+                        full_path = "c:\\nightcrow\\imgs\\character_start\\y_.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(480, 580, 630, 630, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            wait_y = True
+                        time.sleep(0.3)
                 time.sleep(0.5)
 
     except Exception as e:
