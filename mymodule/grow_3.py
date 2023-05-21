@@ -615,6 +615,19 @@ def talgut_board_(cla):
         #
 
         if go_ == False:
+
+            full_path = "c:\\nightcrow\\imgs\\check\\quest_check.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(895, 95, 925, 120, cla, img, 0.75)
+            if imgs_ is not None and imgs_ != False:
+                print("quest_check", imgs_)
+                click_pos_2(700, 110, cla)
+            else:
+                click_pos_2(930, 110, cla)
+                time.sleep(0.2)
+                click_pos_2(700, 110, cla)
+
             print("sub_quest_count", sub_quest_count)
             sub_quest_count += 1
             if sub_quest_count > 1:
