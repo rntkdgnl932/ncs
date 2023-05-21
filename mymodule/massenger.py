@@ -192,7 +192,7 @@ def line_monitor(game, cla):
     import numpy as np
     import os.path
     import cv2
-    from function import imgs_set
+    from function import imgs_set, click_pos_reg
     import time
     from datetime import datetime, timedelta, date
     try:
@@ -243,6 +243,16 @@ def line_monitor(game, cla):
             if imgs_ is None:
                 ms_ = str(game) + str(" 꺼진것 같다")
                 line_to_me(cla, ms_)
+
+            #나가기 버튼
+            full_path = "c:\\nightcrow\\imgs\\item_1\\exit_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set(400, 980, 570, 1030, cla, img)
+            if imgs_ is not None and imgs_ != False:
+                print("monitoring catch exit")
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+
 
 
 

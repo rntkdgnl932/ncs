@@ -619,6 +619,12 @@ def item_open(cla):
                             tal_1 = True
                 else:
                     print("상자 없")
+                full_path = "c:\\nightcrow\\imgs\\item_1\\exit_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(400, 980, 570, 1030, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
 
             # 골드상자
             x_reg = 0
@@ -685,6 +691,12 @@ def item_open(cla):
                                     click_pos_reg(x_reg, y_reg, cla)
 
                     time.sleep(0.3)
+                    full_path = "c:\\nightcrow\\imgs\\item_1\\exit_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 980, 570, 1030, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
 
             else:
                 print("골드 상자 없")
