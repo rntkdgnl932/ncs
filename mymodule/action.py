@@ -1600,8 +1600,7 @@ def character_change(cla, character_id):
                 # 추후 대기중 화면 설정하기
                 # 대기중 화면이 아닐때
 
-                click_pos_2(290, 990, cla)
-                time.sleep(5)
+
 
                 full_path = "c:\\nightcrow\\imgs\\character_start\\y_.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -1625,6 +1624,11 @@ def character_change(cla, character_id):
                             is_select = True
                         time.sleep(0.5)
                 else:
+                    clean_screen(cla)
+
+                    click_pos_2(290, 990, cla)
+                    time.sleep(5)
+
                     menu_open(cla)
                     time.sleep(0.1)
                     click_pos_2(930, 1000, cla)
