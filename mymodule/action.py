@@ -1419,6 +1419,8 @@ def skill_check_(cla):
         in_skill_all_count = 0
         in_skill_1 = False
         in_skill_2 = False
+        in_skill_3 = False
+        in_skill_4 = False
         while in_skill_all is False:
             in_skill_all_count += 1
             if in_skill_all_count > 10:
@@ -1437,7 +1439,7 @@ def skill_check_(cla):
                     full_path = "c:\\nightcrow\\imgs\\dungeon\\skill_5.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 930, 50, 960, cla, img, 0.8)
+                    imgs_ = imgs_set_(0, 920, 50, 960, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         in_skill_1 = True
                         print("반복사용 체크 완료")
@@ -1445,17 +1447,73 @@ def skill_check_(cla):
                         full_path = "c:\\nightcrow\\imgs\\dungeon\\skill_2.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(0, 930, 50, 960, cla, img, 0.8)
+                        imgs_ = imgs_set_(0, 920, 50, 960, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             print("반복사용 체크 중")
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            full_path = "c:\\nightcrow\\imgs\\dungeon\\skill_22.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 920, 50, 960, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("반복사용 체크 중2")
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.2)
+                    full_path = "c:\\nightcrow\\imgs\\dungeon\\skill_5.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(125, 920, 160, 960, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        in_skill_2 = True
+                        print("pvp 시 사용 체크 완료")
+                    else:
+                        full_path = "c:\\nightcrow\\imgs\\dungeon\\skill_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(125, 920, 160, 960, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("pvp 시 사용 체크 중")
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            full_path = "c:\\nightcrow\\imgs\\dungeon\\skill_22.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(125, 920, 160, 960, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("pvp 시 사용 체크 중2")
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.2)
+                    full_path = "c:\\nightcrow\\imgs\\dungeon\\skill_5.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 955, 50, 980, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        in_skill_3 = True
+                        print("사용 불가 건너뛰기 체크 완료")
+                    else:
+                        full_path = "c:\\nightcrow\\imgs\\dungeon\\skill_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 955, 50, 980, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("사용 불가 건너뛰기 체크 중")
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            full_path = "c:\\nightcrow\\imgs\\dungeon\\skill_22.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 955, 50, 980, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("사용 불가 건너뛰기 체크 중2")
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.2)
                     full_path = "c:\\nightcrow\\imgs\\dungeon\\skill_4.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(60, 900, 140, 940, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        in_skill_2 = True
+                        in_skill_4 = True
                         print("자동사용 켬 완료")
                     else:
                         full_path = "c:\\nightcrow\\imgs\\dungeon\\skill_3.PNG"
@@ -1465,7 +1523,9 @@ def skill_check_(cla):
                         if imgs_ is not None and imgs_ != False:
                             print("자동사용 켜는 중")
                             click_pos_reg(imgs_.x, imgs_.y, cla)
-                    if in_skill_1 == True and in_skill_2 == True:
+                    if in_skill_1 == True and in_skill_2 == True and in_skill_3 == True and in_skill_4 == True:
+                        in_skill_all = True
+
                         in_skill_last_count = 0
                         in_skill_last = False
                         while in_skill_last is False:
@@ -1494,7 +1554,7 @@ def skill_check_(cla):
                                         in_skill_last = True
                                         in_skill_last2 = True
                                         v_.skill_checked_ = True
-                                        in_skill_all = True
+
                                     time.sleep(0.2)
                             else:
                                 full_path = "c:\\nightcrow\\imgs\\dungeon\\skill_6.PNG"
@@ -1525,7 +1585,22 @@ def skill_check_(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(700, 900, 760, 960, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    for i in range(4):
+                        full_path = "c:\\nightcrow\\imgs\\dungeon\\skill_3.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(830, 610, 910, 800, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("자동사용 켜는 중")
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.3)
+
+                    full_path = "c:\\nightcrow\\imgs\\dungeon\\skill_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(700, 900, 760, 960, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
                 else:
                     menu_open(cla)
                     click_pos_2(885, 60, cla)
@@ -1627,8 +1702,11 @@ def character_change(cla, character_id):
                 else:
                     clean_screen(cla)
 
-                    click_pos_2(290, 990, cla)
-                    time.sleep(5)
+                    # 마을이 아니라면...
+                    result_maul_check = in_maul_check(cla)
+                    if result_maul_check == False:
+                        click_pos_2(290, 990, cla)
+                        time.sleep(5)
 
                     menu_open(cla)
                     time.sleep(0.1)

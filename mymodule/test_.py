@@ -31,14 +31,8 @@ def go_test():
 
     print("여긴 테스트")
 
-    full_path = "c:\\nightcrow\\imgs\\guild\\jinhang.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(350, 530, 420, 565, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("진행 보여", imgs_)
-    else:
-        print("진행 안 보여")
+    skill_check_(cla)
+
     #
     # full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
