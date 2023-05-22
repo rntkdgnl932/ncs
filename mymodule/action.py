@@ -225,7 +225,7 @@ def item_open(cla):
             file_path = dir_path + "\\items\\item_open\\talgut.txt"
             ###
             if os.path.isfile(file_path) == True:
-                with open(file_path, "r", encoding='UTF8') as file:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
                     box_ = file.read().splitlines()
                     print("box_", box_)
             ###
@@ -331,7 +331,7 @@ def item_open(cla):
             file_path = dir_path + "\\items\\item_open\\moogi.txt"
             ###
             if os.path.isfile(file_path) == True:
-                with open(file_path, "r", encoding='UTF8') as file:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
                     box_ = file.read().splitlines()
                     print("box_", box_)
             ###
@@ -496,7 +496,7 @@ def item_open(cla):
             file_path = dir_path + "\\items\\item_open\\bag_item.txt"
             ###
             if os.path.isfile(file_path) == True:
-                with open(file_path, "r", encoding='UTF8') as file:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
                     box_ = file.read().splitlines()
                     print("box_", box_)
             ###

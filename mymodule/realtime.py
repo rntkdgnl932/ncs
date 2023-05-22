@@ -688,7 +688,7 @@ def jaelyo_(cla):
                                 file_path = dir_path + "\\items\\chango\\jaelyo.txt"
                                 ###
                                 if os.path.isfile(file_path) == True:
-                                    with open(file_path, "r", encoding='UTF8') as file:
+                                    with open(file_path, "r", encoding='utf-8-sig') as file:
                                         jaelyo_ready = file.read().splitlines()
                                         print("jaelyos", jaelyo_ready)
                                 ###
@@ -768,7 +768,7 @@ def jaelyo_(cla):
                                 file_path = dir_path + "\\items\\chango\\jaelyo.txt"
                                 ###
                                 if os.path.isfile(file_path) == True:
-                                    with open(file_path, "r", encoding='UTF8') as file:
+                                    with open(file_path, "r", encoding='utf-8-sig') as file:
                                         jaelyo_ready = file.read().splitlines()
                                         print("jaelyos", jaelyo_ready)
                                 ###

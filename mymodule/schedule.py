@@ -31,12 +31,12 @@ def myQuest_play_check(cla, data):
         isRefresh = False
         while isRefresh is False:
             if os.path.isfile(file_path13) == True:
-                with open(file_path13, "r", encoding='UTF8') as file:
+                with open(file_path13, "r", encoding='utf-8-sig') as file:
                     isRefresh = True
                     refresh_time = file.read()
                     print("refresh_time", refresh_time)
             else:
-                with open(file_path13, "w", encoding='UTF8') as file:
+                with open(file_path13, "w", encoding='utf-8-sig') as file:
                     file.write(str(6))
 
 
@@ -53,7 +53,7 @@ def myQuest_play_check(cla, data):
         if os.path.isfile(file_path2) == True:
             print("nowDay : ", nowDay)
             # 파일 읽기
-            with open(file_path2, "r", encoding='UTF8') as file:
+            with open(file_path2, "r", encoding='utf-8-sig') as file:
                 lines2 = file.read().splitlines()
                 day_ = lines2[0].split(":")
             if day_[0] == nowDay:
@@ -64,12 +64,12 @@ def myQuest_play_check(cla, data):
 
                 if datetime.today().weekday() == 0:
 
-                    with open(file_path2, "w", encoding='UTF8') as file:
+                    with open(file_path2, "w", encoding='utf-8-sig') as file:
                         file.write(str(nowDay) + ":" + str(refresh_time) + "\n")
                         # 새로 갱신이니 1번 캐릭 선택으로...and 스케쥴 초기화 tttttttttttttttttttttttttttttttttttttttttttt
                         print("새로 갱신..and 스케쥴 초기화")
                         reset_schedule_ = ""
-                        with open(file_path, "r", encoding='UTF8') as file:
+                        with open(file_path, "r", encoding='utf-8-sig') as file:
                             lines = file.read().splitlines()
                             lines = ' '.join(lines).split()
 
@@ -77,11 +77,11 @@ def myQuest_play_check(cla, data):
                             while isSchedule_ is False:
                                 if lines == [] or lines == "":
                                     print("스케쥴이 비었다 : myQuest_play_check")
-                                    with open(file_path3, "r", encoding='UTF8') as file:
+                                    with open(file_path3, "r", encoding='utf-8-sig') as file:
                                         schedule_ready = file.read()
-                                    with open(file_path, "w", encoding='UTF8') as file:
+                                    with open(file_path, "w", encoding='utf-8-sig') as file:
                                         file.write(schedule_ready)
-                                    with open(file_path, "r", encoding='UTF8') as file:
+                                    with open(file_path, "r", encoding='utf-8-sig') as file:
                                         lines = file.read().splitlines()
                                 else:
                                     isSchedule_ = True
@@ -98,17 +98,17 @@ def myQuest_play_check(cla, data):
                                     if j == 7:
                                         reset_schedule_ += "대기중\n"
                             print('reset_schedule_', reset_schedule_)
-                            with open(file_path, "w", encoding='UTF8') as file:
+                            with open(file_path, "w", encoding='utf-8-sig') as file:
                                 file.write(reset_schedule_)
-                            with open(file_path3, "w", encoding='UTF8') as file:
+                            with open(file_path3, "w", encoding='utf-8-sig') as file:
                                 file.write(reset_schedule_)
                 else:
-                    with open(file_path2, "w", encoding='UTF8') as file:
+                    with open(file_path2, "w", encoding='utf-8-sig') as file:
                         file.write(str(nowDay) + ":" + str(refresh_time) + "\n")
                         # 새로 갱신이니 1번 캐릭 선택으로...and 스케쥴 초기화 tttttttttttttttttttttttttttttttttttttttttttt
                         print("새로 갱신..and 스케쥴 초기화")
                         reset_schedule_ = ""
-                        with open(file_path, "r", encoding='UTF8') as file:
+                        with open(file_path, "r", encoding='utf-8-sig') as file:
                             lines = file.read().splitlines()
                             lines = ' '.join(lines).split()
 
@@ -116,11 +116,11 @@ def myQuest_play_check(cla, data):
                             while isSchedule_ is False:
                                 if lines == [] or lines == "":
                                     print("스케쥴이 비었다 : myQuest_play_check")
-                                    with open(file_path3, "r", encoding='UTF8') as file:
+                                    with open(file_path3, "r", encoding='utf-8-sig') as file:
                                         schedule_ready = file.read()
-                                    with open(file_path, "w", encoding='UTF8') as file:
+                                    with open(file_path, "w", encoding='utf-8-sig') as file:
                                         file.write(schedule_ready)
-                                    with open(file_path, "r", encoding='UTF8') as file:
+                                    with open(file_path, "r", encoding='utf-8-sig') as file:
                                         lines = file.read().splitlines()
                                 else:
                                     isSchedule_ = True
@@ -170,9 +170,9 @@ def myQuest_play_check(cla, data):
                                         #     reset_schedule_ += "대기중\n"
 
                             print('reset_schedule_', reset_schedule_)
-                            with open(file_path, "w", encoding='UTF8') as file:
+                            with open(file_path, "w", encoding='utf-8-sig') as file:
                                 file.write(reset_schedule_)
-                            with open(file_path3, "w", encoding='UTF8') as file:
+                            with open(file_path3, "w", encoding='utf-8-sig') as file:
                                 file.write(reset_schedule_)
                 refresh_ = True
                 v_.one_cla_count = 0
@@ -184,7 +184,7 @@ def myQuest_play_check(cla, data):
 
 
         else:
-            with open(file_path2, "w", encoding='UTF8') as file:
+            with open(file_path2, "w", encoding='utf-8-sig') as file:
                 file.write(str(nowDay) + ":" + str(refresh_time) + "\n")
                 myQuest_play_check(cla, data)
 
@@ -193,17 +193,17 @@ def myQuest_play_check(cla, data):
         if os.path.isfile(file_path) == True:
             print("3_", nowDay)
             # 파일 읽기
-            with open(file_path, "r", encoding='UTF8') as file:
+            with open(file_path, "r", encoding='utf-8-sig') as file:
                 lines = file.read().splitlines()
                 isSchedule_ = False
                 while isSchedule_ is False:
                     if lines == [] or lines == "":
                         print("스케쥴이 비었다 : myQuest_grow_check")
-                        with open(file_path3, "r", encoding='UTF8') as file:
+                        with open(file_path3, "r", encoding='utf-8-sig') as file:
                             schedule_ready = file.read()
-                        with open(file_path, "w", encoding='UTF8') as file:
+                        with open(file_path, "w", encoding='utf-8-sig') as file:
                             file.write(schedule_ready)
-                        with open(file_path, "r", encoding='UTF8') as file:
+                        with open(file_path, "r", encoding='utf-8-sig') as file:
                             lines = file.read().splitlines()
                     else:
                         isSchedule_ = True
@@ -272,17 +272,17 @@ def myQuest_play_check(cla, data):
             print('파일 없당')
             if os.path.isdir(dir_path) == True:
                 print('디렉토리 존재함')
-                with open(file_path3, "r", encoding='UTF8') as file:
+                with open(file_path3, "r", encoding='utf-8-sig') as file:
                     shcedule = file.read().splitlines()
-                with open(file_path, "w", encoding='UTF8') as file:
+                with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write(shcedule)
                     myQuest_play_check(cla, data)
             else:
                 print('디렉토리 존재하지 않음')
                 os.makedirs(dir_path)
-                with open(file_path3, "r", encoding='UTF8') as file:
+                with open(file_path3, "r", encoding='utf-8-sig') as file:
                     shcedule = file.read().splitlines()
-                with open(file_path, "w", encoding='UTF8') as file:
+                with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write(shcedule)
                     myQuest_play_check(cla, data)
 
@@ -330,12 +330,12 @@ def myQuest_play_add(cla, data):
         isRefresh = False
         while isRefresh is False:
             if os.path.isfile(file_path13) == True:
-                with open(file_path13, "r", encoding='UTF8') as file:
+                with open(file_path13, "r", encoding='utf-8-sig') as file:
                     isRefresh = True
                     refresh_time = file.read()
                     print("refresh_time", refresh_time)
             else:
-                with open(file_path13, "w", encoding='UTF8') as file:
+                with open(file_path13, "w", encoding='utf-8-sig') as file:
                     file.write(str(6))
 
         if nowTime >= int(refresh_time):
@@ -353,7 +353,7 @@ def myQuest_play_add(cla, data):
 
         if os.path.isfile(file_path2) == True:
             # 파일 읽기
-            with open(file_path2, "r", encoding='UTF8') as file:
+            with open(file_path2, "r", encoding='utf-8-sig') as file:
                 lines2 = file.read().splitlines()
             day_ = lines2[0].split(":")
             print("lines", lines2)
@@ -365,18 +365,18 @@ def myQuest_play_add(cla, data):
             isNowday = False
             while isNowday is False:
                 if os.path.isfile(file_path2) == True:
-                    with open(file_path2, "r", encoding='UTF8') as file:
+                    with open(file_path2, "r", encoding='utf-8-sig') as file:
                         isNowday = True
                         lines2 = file.read().splitlines()
                         day_ = lines2[0].split(":")
                         print("day_", day_)
                 else:
-                    with open(file_path2, "w", encoding='UTF8') as file:
+                    with open(file_path2, "w", encoding='utf-8-sig') as file:
                         file.write(str(nowDay) + ":" + str(refresh_time) + "\n")
 
-            # with open(file_path2, "w", encoding='UTF8') as file:
+            # with open(file_path2, "w", encoding='utf-8-sig') as file:
             #     file.write(str(nowDay) + ":" + str(refresh_time) + "\n")
-            # with open(file_path2, "r", encoding='UTF8') as file:
+            # with open(file_path2, "r", encoding='utf-8-sig') as file:
             #     lines2 = file.read().splitlines()
             #     day_ = lines2[0].split(":")
 
@@ -392,7 +392,7 @@ def myQuest_play_add(cla, data):
             if os.path.isfile(file_path) == True:
                 print("3_", nowDay)
                 # 파일 읽기
-                with open(file_path, "r", encoding='UTF8') as file:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
                     lines = file.read().splitlines()
                     lines = ' '.join(lines).split()
 
@@ -400,11 +400,11 @@ def myQuest_play_add(cla, data):
                     while isSchedule_ is False:
                         if lines == [] or lines == "":
                             print("스케쥴이 비었다 : myQuest_grow_check")
-                            with open(file_path3, "r", encoding='UTF8') as file:
+                            with open(file_path3, "r", encoding='utf-8-sig') as file:
                                 schedule_ready = file.read()
-                            with open(file_path, "w", encoding='UTF8') as file:
+                            with open(file_path, "w", encoding='utf-8-sig') as file:
                                 file.write(schedule_ready)
-                            with open(file_path, "r", encoding='UTF8') as file:
+                            with open(file_path, "r", encoding='utf-8-sig') as file:
                                 lines = file.read().splitlines()
                         else:
                             isSchedule_ = True
@@ -493,7 +493,7 @@ def myQuest_play_add(cla, data):
                     last_result += lines[i] + "\n"
                 print('lines333', last_result)
 
-                with open(file_path, "w", encoding='UTF8') as file:
+                with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write(last_result)
             else:
                 print("아직 미션 진행중")
@@ -503,12 +503,12 @@ def myQuest_play_add(cla, data):
 
             if datetime.today().weekday() == 0:
 
-                with open(file_path2, "w", encoding='UTF8') as file:
+                with open(file_path2, "w", encoding='utf-8-sig') as file:
                     file.write(str(nowDay) + ":" + str(refresh_time) + "\n")
                     # 새로 갱신이니 1번 캐릭 선택으로...and 스케쥴 초기화 tttttttttttttttttttttttttttttttttttttttttttt
                     print("새로 갱신..and 스케쥴 초기화")
                     reset_schedule_ = ""
-                    with open(file_path, "r", encoding='UTF8') as file:
+                    with open(file_path, "r", encoding='utf-8-sig') as file:
                         lines = file.read().splitlines()
                         lines = ' '.join(lines).split()
 
@@ -516,11 +516,11 @@ def myQuest_play_add(cla, data):
                         while isSchedule_ is False:
                             if lines == [] or lines == "":
                                 print("스케쥴이 비었다 : myQuest_play_check")
-                                with open(file_path3, "r", encoding='UTF8') as file:
+                                with open(file_path3, "r", encoding='utf-8-sig') as file:
                                     schedule_ready = file.read()
-                                with open(file_path, "w", encoding='UTF8') as file:
+                                with open(file_path, "w", encoding='utf-8-sig') as file:
                                     file.write(schedule_ready)
-                                with open(file_path, "r", encoding='UTF8') as file:
+                                with open(file_path, "r", encoding='utf-8-sig') as file:
                                     lines = file.read().splitlines()
                             else:
                                 isSchedule_ = True
@@ -537,17 +537,17 @@ def myQuest_play_add(cla, data):
                                 if j == 7:
                                     reset_schedule_ += "대기중\n"
                         print('reset_schedule_', reset_schedule_)
-                        with open(file_path, "w", encoding='UTF8') as file:
+                        with open(file_path, "w", encoding='utf-8-sig') as file:
                             file.write(reset_schedule_)
-                        with open(file_path3, "w", encoding='UTF8') as file:
+                        with open(file_path3, "w", encoding='utf-8-sig') as file:
                             file.write(reset_schedule_)
             else:
-                with open(file_path2, "w", encoding='UTF8') as file:
+                with open(file_path2, "w", encoding='utf-8-sig') as file:
                     file.write(str(nowDay) + ":" + str(refresh_time) + "\n")
                     # 새로 갱신이니 1번 캐릭 선택으로...and 스케쥴 초기화 tttttttttttttttttttttttttttttttttttttttttttt
                     print("새로 갱신..and 스케쥴 초기화")
                     reset_schedule_ = ""
-                    with open(file_path, "r", encoding='UTF8') as file:
+                    with open(file_path, "r", encoding='utf-8-sig') as file:
                         lines = file.read().splitlines()
                         lines = ' '.join(lines).split()
 
@@ -555,11 +555,11 @@ def myQuest_play_add(cla, data):
                         while isSchedule_ is False:
                             if lines == [] or lines == "":
                                 print("스케쥴이 비었다 : myQuest_play_check")
-                                with open(file_path3, "r", encoding='UTF8') as file:
+                                with open(file_path3, "r", encoding='utf-8-sig') as file:
                                     schedule_ready = file.read()
-                                with open(file_path, "w", encoding='UTF8') as file:
+                                with open(file_path, "w", encoding='utf-8-sig') as file:
                                     file.write(schedule_ready)
-                                with open(file_path, "r", encoding='UTF8') as file:
+                                with open(file_path, "r", encoding='utf-8-sig') as file:
                                     lines = file.read().splitlines()
                             else:
                                 isSchedule_ = True
@@ -609,9 +609,9 @@ def myQuest_play_add(cla, data):
                                     #     reset_schedule_ += "대기중\n"
 
                         print('reset_schedule_', reset_schedule_)
-                        with open(file_path, "w", encoding='UTF8') as file:
+                        with open(file_path, "w", encoding='utf-8-sig') as file:
                             file.write(reset_schedule_)
-                        with open(file_path3, "w", encoding='UTF8') as file:
+                        with open(file_path3, "w", encoding='utf-8-sig') as file:
                             file.write(reset_schedule_)
 
             myQuest_play_add(cla, data)

@@ -145,19 +145,19 @@ def line_to_me(cla, why):
         isLine = False
         while isLine is False:
             if os.path.isfile(file_path) == True:
-                with open(file_path, "r", encoding='UTF8') as file:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
                     read_ = file.read()
                 if read_ == "":
                     print("empty")
                     line_data = "coob:몇번인지몰라."
-                    with open(file_path, "w", encoding='UTF8') as file:
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
                         file.write(line_data)
                 else:
                     isLine = True
                     print("read_", read_)
             else:
                 line_data = "coob:대체 몇"
-                with open(file_path, "w", encoding='UTF8') as file:
+                with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write(line_data)
 
         read_result = read_.split(":")
@@ -295,24 +295,24 @@ def line_monitor(game, cla):
             isRefresh = False
             while isRefresh is False:
                 if os.path.isfile(file_path13) == True:
-                    with open(file_path13, "r", encoding='UTF8') as file:
+                    with open(file_path13, "r", encoding='utf-8-sig') as file:
                         isRefresh = True
                         refresh_time = file.read()
                         print("refresh_time", refresh_time)
                 else:
-                    with open(file_path13, "w", encoding='UTF8') as file:
+                    with open(file_path13, "w", encoding='utf-8-sig') as file:
                         file.write(str(6))
 
             isNowday = False
             while isNowday is False:
                 if os.path.isfile(file_path2) == True:
-                    with open(file_path2, "r", encoding='UTF8') as file:
+                    with open(file_path2, "r", encoding='utf-8-sig') as file:
                         isNowday = True
                         lines2 = file.read().splitlines()
                         day_ = lines2[0].split(":")
                         print("day_", day_)
                 else:
-                    with open(file_path2, "w", encoding='UTF8') as file:
+                    with open(file_path2, "w", encoding='utf-8-sig') as file:
                         file.write(str(nowDay) + ":" + str(refresh_time) + "\n")
 
             if nowTime >= int(refresh_time) + 1:

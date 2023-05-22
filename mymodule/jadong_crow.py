@@ -42,7 +42,7 @@ def jadong_play(cla, result_schedule_):
         file_path2 = dir_path + "\\jadong\\jadong.txt"
 
         if os.path.isfile(file_path) == True:
-            with open(file_path, "r", encoding='UTF8') as file:
+            with open(file_path, "r", encoding='utf-8-sig') as file:
                 read_ready = file.read()
                 read_ready = read_ready.split(":")
                 read_ = read_ready[1].split("/")
@@ -57,7 +57,7 @@ def jadong_play(cla, result_schedule_):
 
 
         if os.path.isfile(file_path2) == True:
-            with open(file_path2, "r", encoding='UTF8') as file:
+            with open(file_path2, "r", encoding='utf-8-sig') as file:
                 read_line = file.read().splitlines()
                 for i in range(len(read_line)):
                     result_ = read_line[i].split("/")
@@ -272,7 +272,7 @@ def in_spot(cla, result_schedule_):
 
 
                 if os.path.isfile(file_path) == True:
-                    with open(file_path, "r", encoding='UTF8') as file:
+                    with open(file_path, "r", encoding='utf-8-sig') as file:
                         read_ready = file.read()
                         read_ready = read_ready.split(":")
                         read_ = read_ready[1].split("/")
@@ -303,7 +303,7 @@ def in_spot(cla, result_schedule_):
                         if imgs_ is not None and imgs_ != False:
                             print("worldmap", imgs_)
                             if os.path.isfile(file_path2) == True:
-                                with open(file_path2, "r", encoding='UTF8') as file:
+                                with open(file_path2, "r", encoding='utf-8-sig') as file:
                                     read_line = file.read().splitlines()
                                     for i in range(len(read_line)):
                                         result_ = read_line[i].split("/")
@@ -499,7 +499,7 @@ def in_spot_to_walking_ready(cla):
                         v_.onForceGoldSpot_go = spot_global
 
             if os.path.isfile(file_path2) == True:
-                with open(file_path2, "r", encoding='UTF8') as file:
+                with open(file_path2, "r", encoding='utf-8-sig') as file:
                     read_line = file.read().splitlines()
                     for i in range(len(read_line)):
                         result_ = read_line[i].split("/")
@@ -553,7 +553,7 @@ def in_spot_to_walking_ready(cla):
                                                 dir_path = "C:\\nightcrow"
                                                 file_path = dir_path + "\\mysettings\\gold_force\\limit_gold_spot.txt"
 
-                                                with open(file_path, "w", encoding='UTF8') as file:
+                                                with open(file_path, "w", encoding='utf-8-sig') as file:
                                                     file.write(gold_spot)
 
 

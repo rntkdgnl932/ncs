@@ -147,13 +147,13 @@ class ThirdTab(QWidget):
             if os.path.isfile(file_path) == True:
                 isFile = True
                 # 파일 읽기
-                with open(file_path, "r", encoding='UTF8') as file:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
                     line = file.read()
                     line_ = line.split(":")
                     print('line', line)
             else:
                 print('line 파일 없당')
-                with open(file_path, "w", encoding='UTF8') as file:
+                with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write("coob:어떤")
 
         self.monitor = QGroupBox('My Cla Monitor')
@@ -229,7 +229,7 @@ class ThirdTab(QWidget):
         dir_path = "C:\\nightcrow"
         file_path = dir_path + "\\mysettings\\line\\line.txt"
 
-        with open(file_path, "w", encoding='UTF8') as file:
+        with open(file_path, "w", encoding='utf-8-sig') as file:
             file.write(write_)
 
     def button_monitoring_one(self):
@@ -255,7 +255,7 @@ class SecondTab(QWidget):
         file_path_two = dir_path + "\\mysettings\\idpw\\twocla.txt"
         if os.path.isfile(file_path_one) == True:
             # 파일 읽기
-            with open(file_path_one, "r", encoding='UTF8') as file:
+            with open(file_path_one, "r", encoding='utf-8-sig') as file:
                 lines_one = file.read().splitlines()
                 print('lines_one', lines_one)
                 thismyid_one = lines_one[0]
@@ -268,7 +268,7 @@ class SecondTab(QWidget):
 
         if os.path.isfile(file_path_two) == True:
             # 파일 읽기
-            with open(file_path_two, "r", encoding='UTF8') as file:
+            with open(file_path_two, "r", encoding='utf-8-sig') as file:
                 lines_two = file.read().splitlines()
                 print('lines_two', lines_two)
                 thismyid_two = lines_two[0]
@@ -515,7 +515,7 @@ class SecondTab(QWidget):
         dir_path = "C:\\nightcrow"
         file_path_one = dir_path + "\\mysettings\\idpw\\onecla.txt"
         file_path_two = dir_path + "\\mysettings\\idpw\\twocla.txt"
-        with open(file_path_one, "w", encoding='UTF8') as file:
+        with open(file_path_one, "w", encoding='utf-8-sig') as file:
             file.write(shcedule)
 
     def button_event2(self):
@@ -533,7 +533,7 @@ class SecondTab(QWidget):
         dir_path = "C:\\nightcrow"
         file_path_one = dir_path + "\\mysettings\\idpw\\onecla.txt"
         file_path_two = dir_path + "\\mysettings\\idpw\\twocla.txt"
-        with open(file_path_two, "w", encoding='UTF8') as file:
+        with open(file_path_two, "w", encoding='utf-8-sig') as file:
             file.write(shcedule)
 
 
@@ -566,30 +566,30 @@ class FirstTab(QWidget):
 
         if os.path.isfile(file_path) == True:
             # 파일 읽기
-            with open(file_path, "r", encoding='UTF8') as file:
+            with open(file_path, "r", encoding='utf-8-sig') as file:
                 lines = file.read().splitlines()
         else:
             print('파일 없당')
             if os.path.isdir(dir_path) == True:
                 print('디렉토리 존재함')
-                with open(file_path3, "r", encoding='UTF8') as file:
+                with open(file_path3, "r", encoding='utf-8-sig') as file:
                     shcedule = file.read().splitlines()
-                    with open(file_path, "w", encoding='UTF8') as file:
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
                         file.write(str(shcedule))
-                        with open(file_path, "r", encoding='UTF8') as file:
+                        with open(file_path, "r", encoding='utf-8-sig') as file:
                             lines = file.read().splitlines()
             else:
                 print('디렉토리 존재하지 않음')
                 os.makedirs(dir_path)
-                with open(file_path3, "r", encoding='UTF8') as file:
+                with open(file_path3, "r", encoding='utf-8-sig') as file:
                     shcedule = file.read().splitlines()
-                    with open(file_path, "w", encoding='UTF8') as file:
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
                         file.write(str(shcedule))
-                        with open(file_path, "r", encoding='UTF8') as file:
+                        with open(file_path, "r", encoding='utf-8-sig') as file:
                             lines = file.read().splitlines()
         if os.path.isfile(file_path5) == True:
             # 파일 읽기
-            with open(file_path5, "r", encoding='UTF8') as file:
+            with open(file_path5, "r", encoding='utf-8-sig') as file:
                 jadong_list = file.read().splitlines()
                 jadong_list_ = ["사냥터"]
                 for i in range(len(jadong_list)):
@@ -735,17 +735,17 @@ class FirstTab(QWidget):
         isRefresh = False
         while isRefresh is False:
             if os.path.isfile(file_path13) == True:
-                with open(file_path13, "r", encoding='UTF8') as file:
+                with open(file_path13, "r", encoding='utf-8-sig') as file:
                     isRefresh = True
                     refresh_time = file.read()
                     print("refresh_time => ", refresh_time)
             else:
-                with open(file_path13, "w", encoding='UTF8') as file:
+                with open(file_path13, "w", encoding='utf-8-sig') as file:
                     file.write(str(6))
 
         if os.path.isfile(file_path2) == True:
             # 파일 읽기
-            with open(file_path2, "r", encoding='UTF8') as file:
+            with open(file_path2, "r", encoding='utf-8-sig') as file:
                 lines2 = file.read().splitlines()
                 day_ = lines2[0].split(":")
                 re_time_ = str(day_[0]) + " => " + str(day_[1] + "시")
@@ -819,7 +819,7 @@ class FirstTab(QWidget):
         file_path3 = dir_path + "\\jadong\\chalano.txt"
 
         if os.path.isfile(file_path1) == True:
-            with open(file_path1, "r", encoding='UTF8') as file:
+            with open(file_path1, "r", encoding='utf-8-sig') as file:
                 read_1 = file.read()
                 read_1 = read_1.split(":")
                 read_1 = "< 아빌리우스 >/" + read_1[1]
@@ -827,7 +827,7 @@ class FirstTab(QWidget):
                 list5 = []
                 for i in range(len(read_1)):
                     list5.append(read_1[i])
-            with open(file_path2, "r", encoding='UTF8') as file:
+            with open(file_path2, "r", encoding='utf-8-sig') as file:
                 read_1 = file.read()
                 read_1 = read_1.split(":")
                 read_1 = "< 바스티움 >/" + read_1[1]
@@ -835,7 +835,7 @@ class FirstTab(QWidget):
                 list55 = []
                 for i in range(len(read_1)):
                     list55.append(read_1[i])
-            with open(file_path3, "r", encoding='UTF8') as file:
+            with open(file_path3, "r", encoding='utf-8-sig') as file:
                 read_1 = file.read()
                 read_1 = read_1.split(":")
                 read_1 = "< 첼라노 >/" + read_1[1]
@@ -1018,14 +1018,14 @@ class FirstTab(QWidget):
         islimitgold = False
         while islimitgold is False:
             if os.path.isfile(file_path) == True:
-                with open(file_path, "r", encoding='UTF8') as file:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
                     v_.onForceGoldSpot = file.read()
                     islimitgold = True
             else:
                 if os.path.isdir(dir_spot) == False:
                     print('강제노역 장소 디렉토리 존재하지 않음')
                     os.makedirs(dir_spot)
-                with open(file_path, "w", encoding='UTF8') as file:
+                with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write("콜리아삼거리")
 
         abilius = dir_path + "\\jadong\\abilius.txt"
@@ -1033,7 +1033,7 @@ class FirstTab(QWidget):
         chalano = dir_path + "\\jadong\\chalano.txt"
 
         jadong_list = v_.onForceGoldSpot
-        with open(abilius, "r", encoding='UTF8') as file:
+        with open(abilius, "r", encoding='utf-8-sig') as file:
             abilius_list = file.read()
             abilius_list_ = abilius_list.split(":")
             abilius_list_result = abilius_list_[1].split("/")
@@ -1041,7 +1041,7 @@ class FirstTab(QWidget):
                 if jadong_list == abilius_list_result[i]:
                     spot_ = "사냥_아빌리우스_" + jadong_list
                     print("spot_1", spot_)
-        with open(bastium, "r", encoding='UTF8') as file:
+        with open(bastium, "r", encoding='utf-8-sig') as file:
             bastium_list = file.read()
             bastium_list_ = bastium_list.split(":")
             bastium_list_result = bastium_list_[1].split("/")
@@ -1049,7 +1049,7 @@ class FirstTab(QWidget):
                 if jadong_list == bastium_list_result[i]:
                     spot_ = "사냥_바스티움_" + jadong_list
                     print("spot_2", spot_)
-        with open(chalano, "r", encoding='UTF8') as file:
+        with open(chalano, "r", encoding='utf-8-sig') as file:
             chalano_list = file.read()
             chalano_list_ = chalano_list.split(":")
             chalano_list_result = chalano_list_[1].split("/")
@@ -1074,14 +1074,14 @@ class FirstTab(QWidget):
             islimitgold = False
             while islimitgold is False:
                 if os.path.isfile(file_path) == True:
-                    with open(file_path, "w", encoding='UTF8') as file:
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
                         file.write(e)
                         islimitgold = True
                 else:
                     if os.path.isdir(dir_spot) == False:
                         print('강제노역 장소 디렉토리 존재하지 않음')
                         os.makedirs(dir_spot)
-                    with open(file_path, "w", encoding='UTF8') as file:
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
                         file.write(e)
         else:
             print("사냥터를 선택해 주세요.")
@@ -1096,14 +1096,14 @@ class FirstTab(QWidget):
         islimitgold = False
         while islimitgold is False:
             if os.path.isfile(file_path) == True:
-                with open(file_path, "r", encoding='UTF8') as file:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
                     v_.onForceGold = file.read()
                     islimitgold = True
             else:
                 if os.path.isdir(dir_gold) == False:
                     print('강제노역 시작 골드 디렉토리 존재하지 않음')
                     os.makedirs(dir_gold)
-                with open(file_path, "w", encoding='UTF8') as file:
+                with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write("50만")
 
         return v_.onForceGold
@@ -1119,14 +1119,14 @@ class FirstTab(QWidget):
             islimitgold = False
             while islimitgold is False:
                 if os.path.isfile(file_path) == True:
-                    with open(file_path, "w", encoding='UTF8') as file:
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
                         file.write(e)
                         islimitgold = True
                 else:
                     if os.path.isdir(dir_gold) == False:
                         print('강제노역 시작 골드 디렉토리 존재하지 않음')
                         os.makedirs(dir_gold)
-                    with open(file_path, "w", encoding='UTF8') as file:
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
                         file.write(e)
         else:
             print("금액을 선택해 주세요.")
@@ -1142,7 +1142,7 @@ class FirstTab(QWidget):
         isToggle = False
         while isToggle is False:
             if os.path.isfile(file_path) == True:
-                with open(file_path, "r", encoding='UTF8') as file:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
 
                     read_tgl = file.read()
                     if read_tgl == "on":
@@ -1155,7 +1155,7 @@ class FirstTab(QWidget):
                 if os.path.isdir(dir_toggle) == False:
                     print('토글 디렉토리 존재하지 않음')
                     os.makedirs(dir_toggle)
-                with open(file_path, "w", encoding='UTF8') as file:
+                with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write("off")
         return v_.onCollection
 
@@ -1170,7 +1170,7 @@ class FirstTab(QWidget):
         isToggle = False
         while isToggle is False:
             if os.path.isfile(file_path) == True:
-                with open(file_path, "w", encoding='UTF8') as file:
+                with open(file_path, "w", encoding='utf-8-sig') as file:
                     isToggle = True
                     if e == True:
                         file.write("on")
@@ -1180,7 +1180,7 @@ class FirstTab(QWidget):
                 if os.path.isdir(dir_toggle) == False:
                     print('토글 디렉토리 존재하지 않음')
                     os.makedirs(dir_toggle)
-                with open(file_path, "w", encoding='UTF8') as file:
+                with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write("off")
         if v_.onCollection == True:
             tgl_now = "On"
@@ -1279,14 +1279,14 @@ class FirstTab(QWidget):
             isRefresh = False
             while isRefresh is False:
                 if os.path.isfile(file_path13) == True:
-                    with open(file_path13, "w", encoding='UTF8') as file:
+                    with open(file_path13, "w", encoding='utf-8-sig') as file:
                         file.write(onRefresh_time)
-                    with open(file_path13, "r", encoding='UTF8') as file:
+                    with open(file_path13, "r", encoding='utf-8-sig') as file:
                         isRefresh = True
                         refresh_time = file.read()
                         print("저장된 초기화 시간", onRefresh_time)
                 else:
-                    with open(file_path13, "w", encoding='UTF8') as file:
+                    with open(file_path13, "w", encoding='utf-8-sig') as file:
                         file.write(onRefresh_time)
 
     def onActivated_dunjeon_add(self):
@@ -1447,22 +1447,22 @@ class FirstTab(QWidget):
         isRefresh = False
         while isRefresh is False:
             if os.path.isfile(file_path13) == True:
-                with open(file_path13, "r", encoding='UTF8') as file:
+                with open(file_path13, "r", encoding='utf-8-sig') as file:
                     refresh_time = file.read()
                     refresh_time_bool = refresh_time.isdigit()
                     if refresh_time_bool == True:
                         isRefresh = True
                         print("refresh_time", refresh_time)
                     else:
-                        with open(file_path13, "w", encoding='UTF8') as file:
+                        with open(file_path13, "w", encoding='utf-8-sig') as file:
                             file.write(str(4))
             else:
-                with open(file_path13, "w", encoding='UTF8') as file:
+                with open(file_path13, "w", encoding='utf-8-sig') as file:
                     file.write(str(4))
 
         if os.path.isfile(file_path2) == True:
             # 파일 읽기
-            with open(file_path2, "r", encoding='UTF8') as file:
+            with open(file_path2, "r", encoding='utf-8-sig') as file:
                 lines2 = file.read().splitlines()
                 day_ = lines2[0].split(":")
                 re_time_ = str(day_[0]) + " => " + str(day_[1] + "시")
@@ -1479,26 +1479,26 @@ class FirstTab(QWidget):
             file_path3 = dir_path + "\\mysettings\\myschedule\\schedule2.txt"
             if os.path.isfile(file_path) == True:
                 # 파일 읽기
-                with open(file_path, "r", encoding='UTF8') as file:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
                     lines = file.read().splitlines()
             else:
                 print('파일 없당')
                 if os.path.isdir(dir_path) == True:
                     print('디렉토리 존재함')
-                    with open(file_path3, "r", encoding='UTF8') as file:
+                    with open(file_path3, "r", encoding='utf-8-sig') as file:
                         shcedule = file.read().splitlines()
-                        with open(file_path, "w", encoding='UTF8') as file:
+                        with open(file_path, "w", encoding='utf-8-sig') as file:
                             file.write(str(shcedule))
-                            with open(file_path, "r", encoding='UTF8') as file:
+                            with open(file_path, "r", encoding='utf-8-sig') as file:
                                 lines = file.read().splitlines()
                 else:
                     print('디렉토리 존재하지 않음')
                     os.makedirs(dir_path)
-                    with open(file_path3, "r", encoding='UTF8') as file:
+                    with open(file_path3, "r", encoding='utf-8-sig') as file:
                         shcedule = file.read().splitlines()
-                        with open(file_path, "w", encoding='UTF8') as file:
+                        with open(file_path, "w", encoding='utf-8-sig') as file:
                             file.write(shcedule)
-                            with open(file_path, "r", encoding='UTF8') as file:
+                            with open(file_path, "r", encoding='utf-8-sig') as file:
                                 lines = file.read().splitlines()
 
             print("ggggggggggggggggg", lines)
@@ -1532,7 +1532,7 @@ class FirstTab(QWidget):
             file_path3 = dir_path + "\\mysettings\\myschedule\\schedule2.txt"
             if os.path.isfile(file_path) == True:
                 # 파일 읽기
-                with open(file_path, "r", encoding='UTF8') as file:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
                     lines = file.read().splitlines()
                     print("lines", lines)
                     print("len(lines)", len(lines))
@@ -1540,20 +1540,20 @@ class FirstTab(QWidget):
                 print('파일 없당')
                 if os.path.isdir(dir_path) == True:
                     print('디렉토리 존재함')
-                    with open(file_path3, "r", encoding='UTF8') as file:
+                    with open(file_path3, "r", encoding='utf-8-sig') as file:
                         shcedule = file.read().splitlines()
-                        with open(file_path, "w", encoding='UTF8') as file:
+                        with open(file_path, "w", encoding='utf-8-sig') as file:
                             file.write(shcedule)
-                            with open(file_path, "r", encoding='UTF8') as file:
+                            with open(file_path, "r", encoding='utf-8-sig') as file:
                                 lines = file.read().splitlines()
                 else:
                     print('디렉토리 존재하지 않음')
                     os.makedirs(dir_path)
-                    with open(file_path3, "r", encoding='UTF8') as file:
+                    with open(file_path3, "r", encoding='utf-8-sig') as file:
                         shcedule = file.read().splitlines()
-                        with open(file_path, "w", encoding='UTF8') as file:
+                        with open(file_path, "w", encoding='utf-8-sig') as file:
                             file.write(shcedule)
-                            with open(file_path, "r", encoding='UTF8') as file:
+                            with open(file_path, "r", encoding='utf-8-sig') as file:
                                 lines = file.read().splitlines()
 
             ########################################
@@ -1951,24 +1951,24 @@ class FirstTab(QWidget):
             isRefresh = False
             while isRefresh is False:
                 if os.path.isfile(file_path13) == True:
-                    with open(file_path13, "r", encoding='UTF8') as file:
+                    with open(file_path13, "r", encoding='utf-8-sig') as file:
                         refresh_time = file.read()
                         refresh_time_bool = refresh_time.isdigit()
                         if refresh_time_bool == True:
                             isRefresh = True
                             print("refresh_time", refresh_time)
                         else:
-                            with open(file_path13, "w", encoding='UTF8') as file:
+                            with open(file_path13, "w", encoding='utf-8-sig') as file:
                                 file.write(str(4))
                 else:
-                    with open(file_path13, "w", encoding='UTF8') as file:
+                    with open(file_path13, "w", encoding='utf-8-sig') as file:
                         file.write(str(4))
 
-            with open(file_path3, "r", encoding='UTF8') as file:
+            with open(file_path3, "r", encoding='utf-8-sig') as file:
                 lines = file.read()
                 # lines = file.read().splitlines()
                 print('line_refresh', lines)
-            with open(file_path, "w", encoding='UTF8') as file:
+            with open(file_path, "w", encoding='utf-8-sig') as file:
                 file.write(lines)
 
             nowDay_ = datetime.today().strftime("%Y%m%d")
@@ -1982,7 +1982,7 @@ class FirstTab(QWidget):
             else:
                 nowDay = yesterday
                 nowDay = str(nowDay)
-            with open(file_path2, "w", encoding='UTF8') as file:
+            with open(file_path2, "w", encoding='utf-8-sig') as file:
                 file.write(str(nowDay) + ":" + str(refresh_time) + "\n")
 
             remove_ = self.tableWidget.rowCount()
@@ -2030,22 +2030,22 @@ class FirstTab(QWidget):
             isRefresh = False
             while isRefresh is False:
                 if os.path.isfile(file_path13) == True:
-                    with open(file_path13, "r", encoding='UTF8') as file:
+                    with open(file_path13, "r", encoding='utf-8-sig') as file:
                         refresh_time = file.read()
                         refresh_time_bool = refresh_time.isdigit()
                         if refresh_time_bool == True:
                             isRefresh = True
                             print("refresh_time", refresh_time)
                         else:
-                            with open(file_path13, "w", encoding='UTF8') as file:
+                            with open(file_path13, "w", encoding='utf-8-sig') as file:
                                 file.write(str(4))
                 else:
-                    with open(file_path13, "w", encoding='UTF8') as file:
+                    with open(file_path13, "w", encoding='utf-8-sig') as file:
                         file.write(str(4))
 
-            with open(file_path3, "r", encoding='UTF8') as file:
+            with open(file_path3, "r", encoding='utf-8-sig') as file:
                 reset_schedule_ = ""
-                with open(file_path, "r", encoding='UTF8') as file:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
                     lines = file.read().splitlines()
                     lines = ' '.join(lines).split()
 
@@ -2053,11 +2053,11 @@ class FirstTab(QWidget):
                     while isSchedule_ is False:
                         if lines == [] or lines == "":
                             print("스케쥴이 비었다 : myQuest_play_check")
-                            with open(file_path3, "r", encoding='UTF8') as file:
+                            with open(file_path3, "r", encoding='utf-8-sig') as file:
                                 schedule_ready = file.read()
-                            with open(file_path, "w", encoding='UTF8') as file:
+                            with open(file_path, "w", encoding='utf-8-sig') as file:
                                 file.write(schedule_ready)
-                            with open(file_path, "r", encoding='UTF8') as file:
+                            with open(file_path, "r", encoding='utf-8-sig') as file:
                                 lines = file.read().splitlines()
                         else:
                             isSchedule_ = True
@@ -2074,13 +2074,13 @@ class FirstTab(QWidget):
                             if j == 7:
                                 reset_schedule_ += "대기중\n"
                     print('reset_schedule_', reset_schedule_)
-                    with open(file_path, "w", encoding='UTF8') as file:
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
                         file.write(reset_schedule_)
-                    with open(file_path3, "w", encoding='UTF8') as file:
+                    with open(file_path3, "w", encoding='utf-8-sig') as file:
                         file.write(reset_schedule_)
-            # with open(file_path, "w", encoding='UTF8') as file:
+            # with open(file_path, "w", encoding='utf-8-sig') as file:
             #     file.write(lines)
-            with open(file_path3, "r", encoding='UTF8') as file:
+            with open(file_path3, "r", encoding='utf-8-sig') as file:
                 lines = file.read()
 
             nowDay_ = datetime.today().strftime("%Y%m%d")
@@ -2094,7 +2094,7 @@ class FirstTab(QWidget):
             else:
                 nowDay = yesterday
                 nowDay = str(nowDay)
-            with open(file_path2, "w", encoding='UTF8') as file:
+            with open(file_path2, "w", encoding='utf-8-sig') as file:
                 file.write(str(nowDay) + ":" + str(refresh_time) + "\n")
 
             remove_ = self.tableWidget.rowCount()
@@ -2123,7 +2123,7 @@ class FirstTab(QWidget):
             file_path = dir_path + "\\mysettings\\myschedule\\schedule.txt"
             if os.path.isfile(file_path) == True:
                 # 파일 읽기
-                with open(file_path, "r", encoding='UTF8') as file:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
                     lines = file.read()
 
             remove_ = self.tableWidget.rowCount()
@@ -2178,12 +2178,12 @@ class FirstTab(QWidget):
 
             print("how_", how_)
             if how_ == "add":
-                with open(file_path, "a", encoding='UTF8') as file:
+                with open(file_path, "a", encoding='utf-8-sig') as file:
                     print("add????", datas)
                     file.write(datas)
                     ishow_ = True
                 # reset_schedule_ = ""
-                # with open(file_path, "r", encoding='UTF8') as file:
+                # with open(file_path, "r", encoding='utf-8-sig') as file:
                 #     lines = file.read().splitlines()
                 #     lines = ' '.join(lines).split()
                 #     print("lineslineslineslineslineslineslineslineslineslineslines", lines)
@@ -2200,11 +2200,11 @@ class FirstTab(QWidget):
                 #                 reset_schedule_ += "대기중\n"
                 #     print("reset_schedule_reset_schedule_reset_schedule_reset_schedule_reset_schedule_",
                 #           reset_schedule_)
-                #     with open(file_path3, "w", encoding='UTF8') as file:
+                #     with open(file_path3, "w", encoding='utf-8-sig') as file:
                 #         file.write(reset_schedule_)
                 ishow_ = True
                 reset_schedule_ = ""
-                with open(file_path, "r", encoding='UTF8') as file:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
                     lines = file.read().splitlines()
                     lines = ' '.join(lines).split()
 
@@ -2212,11 +2212,11 @@ class FirstTab(QWidget):
                     while isSchedule_ is False:
                         if lines == [] or lines == "":
                             print("스케쥴이 비었다 : myQuest_play_check")
-                            with open(file_path3, "r", encoding='UTF8') as file:
+                            with open(file_path3, "r", encoding='utf-8-sig') as file:
                                 schedule_ready = file.read()
-                            with open(file_path, "w", encoding='UTF8') as file:
+                            with open(file_path, "w", encoding='utf-8-sig') as file:
                                 file.write(schedule_ready)
-                            with open(file_path, "r", encoding='UTF8') as file:
+                            with open(file_path, "r", encoding='utf-8-sig') as file:
                                 lines = file.read().splitlines()
                         else:
                             isSchedule_ = True
@@ -2266,15 +2266,15 @@ class FirstTab(QWidget):
                                 #     reset_schedule_ += "대기중\n"
 
                     print('reset_schedule_', reset_schedule_)
-                    with open(file_path, "w", encoding='UTF8') as file:
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
                         file.write(reset_schedule_)
-                    with open(file_path3, "w", encoding='UTF8') as file:
+                    with open(file_path3, "w", encoding='utf-8-sig') as file:
                         file.write(reset_schedule_)
                 self.set_rand_int()
 
             elif how_ == "modify":
 
-                # with open(file_path, "w", encoding='UTF8') as file:
+                # with open(file_path, "w", encoding='utf-8-sig') as file:
                 #     file.write(datas)
                 #     ishow_ = True
                 #     reset_schedule_ = ""
@@ -2293,10 +2293,10 @@ class FirstTab(QWidget):
                 #             if j == 7:
                 #                 reset_schedule_ += "대기중\n"
                 #
-                # with open(file_path3, "w", encoding='UTF8') as file:
+                # with open(file_path3, "w", encoding='utf-8-sig') as file:
                 #     file.write(reset_schedule_)
 
-                with open(file_path, "w", encoding='UTF8') as file:
+                with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write(datas)
 
                 ishow_ = True
@@ -2352,9 +2352,9 @@ class FirstTab(QWidget):
                             #     reset_schedule_ += "대기중\n"
 
                 print('reset_schedule_', reset_schedule_)
-                with open(file_path, "w", encoding='UTF8') as file:
+                with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write(reset_schedule_)
-                with open(file_path3, "w", encoding='UTF8') as file:
+                with open(file_path3, "w", encoding='utf-8-sig') as file:
                     file.write(reset_schedule_)
                 self.set_rand_int()
 
