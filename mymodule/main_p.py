@@ -2623,9 +2623,28 @@ class game_Playing(QThread):
                 if imgs_ is not None and imgs_ != False:
                     print("touching", imgs_)
                 else:
+                    print("touching 없")
 
+                    # 대기자 명단
+                    full_path = "c:\\nightcrow\\imgs\\check\\ready_cancle.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 600, 560, 660, v_.now_cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
 
-                    print("없")
+                        ready_ = False
+                        while ready_ is False:
+                            full_path = "c:\\nightcrow\\imgs\\check\\ready_cancle.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 600, 560, 660, v_.now_cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                just_ready = text_check_get(390, 470, 570, 495, v_.now_cla)
+                                print("대기자?", just_ready)
+                                time.sleep(10)
+                            else:
+                                ready_ = True
+
 
                     result_schedule = myQuest_play_check(v_.now_cla, "check")
                     print("result_schedule", result_schedule)

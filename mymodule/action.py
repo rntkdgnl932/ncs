@@ -1544,6 +1544,7 @@ def character_change(cla, character_id):
 
         print("캐릭터 체인지")
 
+
         cha_select = False
         cha_select_count = 0
         while cha_select is False:
