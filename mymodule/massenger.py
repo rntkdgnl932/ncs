@@ -193,6 +193,7 @@ def line_monitor(game, cla):
     import os.path
     import cv2
     from function import imgs_set, click_pos_reg
+    from popup_18 import fuckyou_popup
     import time
     from datetime import datetime, timedelta, date
     try:
@@ -200,6 +201,10 @@ def line_monitor(game, cla):
 
         # v_.global_howcla
         while isLoop is False:
+
+            # x같은 팝업창
+            fuckyou_popup(cla)
+
             # 블랙 스크린
             nowTime = datetime.today().strftime("%Y/%m/%d %H:%M:%S")
             print(nowTime)
