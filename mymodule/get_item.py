@@ -909,3 +909,53 @@ def guild_check(cla):
 
     except Exception as e:
         print(e)
+
+def guild_jilyung(cla):
+    try:
+        import cv2
+        import numpy as np
+        from function import text_check_get, int_put_, click_pos_reg, imgs_set_, click_pos_2, drag_pos
+        from action import clean_screen, menu_open
+
+        full_path = "c:\\nightcrow\\imgs\\guild\\guild_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            full_path = "c:\\nightcrow\\imgs\\guild\\soolock.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(300, 680, 470, 730, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                is_soolock = False
+                is_soolock_count = 0
+                while is_soolock is False:
+                    is_soolock_count += 1
+                    if is_soolock_count > 5:
+                        is_soolock = True
+                    full_path = "c:\\nightcrow\\imgs\\guild\\jinhang.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(350, 530, 420, 565, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("진행 보여", imgs_)
+                        click_pos_2(930, 60, cla)
+
+                    else:
+                        print("진행 안 보여")
+                        full_path = "c:\\nightcrow\\imgs\\guild\\soolock.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(300, 680, 470, 730, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                    full_path = "c:\\nightcrow\\imgs\\guild\\guild_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("길드지령 체크중")
+                    else:
+                        is_soolock = True
+    except Exception as e:
+        print(e)

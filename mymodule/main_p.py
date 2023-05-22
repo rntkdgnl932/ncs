@@ -47,7 +47,7 @@ from grow_3 import sub_quest_grow
 from grow_4 import select_daily_quest_grow
 from dungeon import dungeon_play
 from jadong_crow import jadong_play
-from get_item import get_items, get_item_checking
+from get_item import get_items, get_item_checking, guild_jilyung
 from potion import maul_potion
 from action import maul_check, bag_open, quest_look, character_change
 
@@ -72,7 +72,7 @@ onMaul = "none"
 
 isgloballoop = False
 
-version = "1.45"
+version = "1.46"
 
 # 기존 오토모드 관련##############################################
 
@@ -2668,6 +2668,9 @@ class game_Playing(QThread):
                         quest_look(v_.now_cla)
                         # 새로운 아이템 받을 것 체크하기
                         get_item_checking(v_.now_cla)
+
+                        # 길드지령 있을 경우 선택하기
+                        guild_jilyung(v_.now_cla)
 
                         # 최초1회만...
                         if result_schedule_ != "각종템받기" and result_schedule_ != "튜토육성" and isjuljun != True and dongool_check != "dongool":

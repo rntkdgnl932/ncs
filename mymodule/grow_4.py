@@ -254,6 +254,7 @@ def talgut_board_(cla):
 
 def talgut_board_check(cla):
     try:
+        from schedule import myQuest_play_add
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
         from action import menu_open, clean_screen, go_quest_ing_, go_auto_ing_
         import numpy as np
@@ -299,6 +300,7 @@ def talgut_board_check(cla):
                         click_pos_reg(imgs_.x, imgs_.y, cla)
 
         sojin_ = False
+        jilyung = False
         for i in range(10):
             full_path = "c:\\nightcrow\\imgs\\quest\\sub_sojin_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -317,7 +319,26 @@ def talgut_board_check(cla):
                     print("sub_sojin_1", imgs_)
                     sojin_ = True
                     break
-
+            full_path = "c:\\nightcrow\\imgs\\quest\\guild_jilyung_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(350, 70, 550, 120, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("guild_jilyung_1", imgs_)
+                jilyung = True
+                break
+            else:
+                full_path = "c:\\nightcrow\\imgs\\quest\\guild_jilyung_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(350, 70, 550, 120, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("guild_jilyung_2", imgs_)
+                    jilyung = True
+                    break
+        if jilyung == True:
+            print("지령 관련 퀘스트 여긴 일일퀘스트")
+            myQuest_play_add(cla, "일일퀘스트")
         if sojin_ == True:
             in_quest_title = False
             in_quest_title_count = 0

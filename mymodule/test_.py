@@ -22,7 +22,7 @@ def go_test():
     from potion import maul_potion, change_potion
     from action import skill_check_
 
-    cla = "two"
+    cla = "one"
 
     if cla == 'one':
         plus = 0
@@ -31,8 +31,14 @@ def go_test():
 
     print("여긴 테스트")
 
-
-    character_change(cla, 2)
+    full_path = "c:\\nightcrow\\imgs\\guild\\jinhang.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(350, 530, 420, 565, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("진행 보여", imgs_)
+    else:
+        print("진행 안 보여")
     #
     # full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
