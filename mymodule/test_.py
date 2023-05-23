@@ -21,6 +21,7 @@ def go_test():
     import cv2
     from potion import maul_potion
     from action import skill_check_
+    from sell_potion import sell_potion_start
 
     cla = "two"
 
@@ -31,14 +32,7 @@ def go_test():
 
     print("여긴 테스트")
 
-    full_path = "c:\\nightcrow\\imgs\\check\\pvp_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(900, 275, 960, 365, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("pvp_1", imgs_)
-    else:
-        print("안보여")
+    sell_potion_start(cla)
 
     #
     # full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
