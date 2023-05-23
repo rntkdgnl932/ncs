@@ -67,7 +67,7 @@ def sell_potion_start(cla):
                                 in_chango_3_count = 0
                                 while in_chango_3 is False:
                                     in_chango_3_count += 1
-                                    if in_chango_3_count > 5:
+                                    if in_chango_3_count > 100:
                                         in_chango_3 = True
 
                                     full_path = "c:\\nightcrow\\imgs\\check\\touching.PNG"
@@ -84,6 +84,7 @@ def sell_potion_start(cla):
                                         if imgs_ is not None and imgs_ != False:
                                             in_chango_1_count = 0
                                             in_chango_2_count = 0
+                                            in_chango_3_count = 0
 
                                             click_pos_reg(imgs_.x, imgs_.y, cla)
                                             time.sleep(0.1)
