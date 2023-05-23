@@ -158,7 +158,10 @@ def soojib(cla):
         import pyautogui
         import cv2
 
+        print("수집")
+
         if v_.onCollection == True:
+            print("수집 on")
             col_1 = False
             collect_count = 0
             while col_1 is False:
@@ -281,11 +284,12 @@ def soojib(cla):
                     imgs_ = imgs_set_(925, 110, 950, 150, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("point : soojib", imgs_)
-
                         click_pos_2(930, 140, cla)
+                    else:
+                        col_1 = True
                 time.sleep(0.5)
 
-        print("몬스터 장비 골동품 수집 안함")
+        print("몬스터 장비 골동품 수집 안함, 수집 off")
         col_1 = False
         collect_count = 0
         while col_1 is False:
@@ -409,6 +413,8 @@ def soojib(cla):
                     print("point : soojib", imgs_)
 
                     click_pos_2(930, 140, cla)
+                else:
+                    col_1 = True
 
                 # click_pos_2(930, 140, cla)
                 # in_soojib_ = False

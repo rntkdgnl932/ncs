@@ -22,7 +22,7 @@ def go_test():
     from potion import maul_potion
     from action import skill_check_
 
-    cla = "one"
+    cla = "two"
 
     if cla == 'one':
         plus = 0
@@ -31,9 +31,14 @@ def go_test():
 
     print("여긴 테스트")
 
-    my_money = text_check_get(400, 510, 470, 530, cla)
-
-    print("내 골드????", my_money)
+    full_path = "c:\\nightcrow\\imgs\\check\\pvp_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(900, 275, 960, 365, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("pvp_1", imgs_)
+    else:
+        print("안보여")
 
     #
     # full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"

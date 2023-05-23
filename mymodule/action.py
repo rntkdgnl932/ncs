@@ -585,15 +585,15 @@ def item_open(cla):
                                 time.sleep(0.1)
                                 click_pos_reg(x_reg, y_reg, cla)
                                 time.sleep(0.3)
-                                full_path = "c:\\nightcrow\\imgs\\item_1\\confirm_1.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(480, 480, 630, 710, cla, img, 0.8)
-                                if imgs_ is not None and imgs_ != False:
-                                    tal_1 = True
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.2)
-                                    click_pos_2(935, 265, cla)
+                                # full_path = "c:\\nightcrow\\imgs\\item_1\\confirm_1.PNG"
+                                # img_array = np.fromfile(full_path, np.uint8)
+                                # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                # imgs_ = imgs_set_(480, 480, 630, 710, cla, img, 0.8)
+                                # if imgs_ is not None and imgs_ != False:
+                                #     tal_1 = True
+                                #     click_pos_reg(imgs_.x, imgs_.y, cla)
+                                #     time.sleep(0.2)
+                                #     click_pos_2(935, 265, cla)
                             else:
                                 click_pos_2(935, 265, cla)
                                 if x_reg != 0:
@@ -1043,6 +1043,7 @@ def menu_open(cla):
 
         menu_ready_ = False
         while menu_ready_ is False:
+            print("menu_open의 out_check")
             out_result = out_check(cla)
             if out_result == True:
 

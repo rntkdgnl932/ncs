@@ -652,9 +652,8 @@ def juljun_attack(cla, dun_):
         import cv2
         import numpy as np
         from datetime import date, timedelta, datetime
-        from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos
+        from function import text_check_get, int_put_, click_pos_2, click_pos_reg, imgs_set_, drag_pos, change_number
         from massenger import line_to_me
-        from potion import change_potion
         from action import in_number_check, bag_open
 
 
@@ -690,7 +689,7 @@ def juljun_attack(cla, dun_):
                 print("전체4자리 potion_?", potion_ready)
                 result_num_in = in_number_check(cla, potion_ready)
                 if result_num_in == True:
-                    potion_ = change_potion(cla, potion_ready)
+                    potion_ = change_number(potion_ready)
                     potion = int_put_(potion_)
                     potion_bloon = potion.isdigit()
                     if potion_bloon == True:
@@ -717,7 +716,7 @@ def juljun_attack(cla, dun_):
                     print("앞3자리 potion_2?", potion_ready)
                     result_num_in = in_number_check(cla, potion_ready)
                     if result_num_in == True:
-                        potion_ = change_potion(cla, potion_ready)
+                        potion_ = change_number(potion_ready)
                         potion = int_put_(potion_)
                         potion_bloon = potion.isdigit()
                         if potion_bloon == True:
@@ -743,7 +742,7 @@ def juljun_attack(cla, dun_):
                         print("뒷3자리 potion_3 =>", potion_ready)
                         result_num_in = in_number_check(cla, potion_ready)
                         if result_num_in == True:
-                            potion_ = change_potion(cla, potion_ready)
+                            potion_ = change_number(potion_ready)
                             potion = int_put_(potion_)
                             potion_bloon = potion.isdigit()
                             if potion_bloon == True:
