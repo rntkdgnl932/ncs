@@ -261,6 +261,37 @@ def talgut_board_check(cla):
         import cv2
         import pyautogui
 
+        # 길드 지령..
+        from get_item import guild_jilyung
+        full_path = "c:\\nightcrow\\imgs\\guild\\guild_jilyung.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+
+            jilyung_is_ = False
+            jilyung_is_count = 0
+            while jilyung_is_ is False:
+                jilyung_is_count += 1
+                if jilyung_is_count > 5:
+                    jilyung_is_ = True
+
+                full_path = "c:\\nightcrow\\imgs\\guild\\guild_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    guild_jilyung(cla)
+                    jilyung_is_ = True
+                else:
+                    full_path = "c:\\nightcrow\\imgs\\guild\\guild_jilyung.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(660, 90, 730, 300, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.4)
+
         # 탈것
         go_ = False
         full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\talgut_1.PNG"
