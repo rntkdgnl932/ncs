@@ -18,7 +18,7 @@ def sell_potion_start(cla):
         import cv2
         import os
 
-        print("재료 창고에 넣기")
+        print("창고 포션 팔기")
         # 창고 가기
 
         in_chango_1 = False
