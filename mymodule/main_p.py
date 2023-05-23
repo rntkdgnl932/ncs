@@ -2652,7 +2652,13 @@ class game_Playing(QThread):
                                     print("대기자?", just_ready)
                                     time.sleep(10)
                                 else:
-                                    ready_ = True
+                                    full_path = "c:\\nightcrow\\imgs\\character_start\\delete_character.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(20, 990, 150, 1040, v_.now_cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        ready_ = True
+                                        time.sleep(1)
 
 
                         result_schedule = myQuest_play_check(v_.now_cla, "check")

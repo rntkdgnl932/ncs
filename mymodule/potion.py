@@ -515,7 +515,7 @@ def maul_potion(cla):
                                 jab_3 = True
                             print("soongan", imgs_)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
-            
+
 
         jab_3 = False
         print("potion_jab_3")
