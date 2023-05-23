@@ -31,7 +31,7 @@ def sell_potion_start(cla):
             full_path = "c:\\nightcrow\\imgs\\check\\touching.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+            imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 print("touching", imgs_)
             else:
@@ -52,7 +52,7 @@ def sell_potion_start(cla):
                         full_path = "c:\\nightcrow\\imgs\\check\\touching.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+                        imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
                             print("touching", imgs_)
                         else:
@@ -73,7 +73,7 @@ def sell_potion_start(cla):
                                     full_path = "c:\\nightcrow\\imgs\\check\\touching.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+                                    imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
                                     if imgs_ is not None and imgs_ != False:
                                         print("touching", imgs_)
                                     else:
@@ -98,7 +98,7 @@ def sell_potion_start(cla):
                                                 full_path = "c:\\nightcrow\\imgs\\check\\touching.PNG"
                                                 img_array = np.fromfile(full_path, np.uint8)
                                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+                                                imgs_ = imgs_set_(0, 0, 960, 1030, cla, img, 0.8)
                                                 if imgs_ is not None and imgs_ != False:
                                                     print("touching", imgs_)
                                                 else:
