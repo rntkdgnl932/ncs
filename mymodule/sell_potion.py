@@ -82,6 +82,7 @@ def sell_potion_start(cla):
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                         imgs_ = imgs_set_(0, 0, 300, 1000, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
+                                            in_chango_3 = True
                                             in_chango_1_count = 0
                                             in_chango_2_count = 0
                                             in_chango_3_count = 0
