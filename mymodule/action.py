@@ -897,7 +897,7 @@ def bag_open(cla):
                                         if money_bool == True:
                                             my_money = int(my_money)
                                             if my_money > 0:
-                                                my_gold_bloon = True
+                                                re_search_ = True
 
                                                 if my_money < onFG:
                                                     print("강제로 서브퀘스트 수행하기, 기준골드 : ", v_.onForceGold)
@@ -908,6 +908,7 @@ def bag_open(cla):
                                                     else:
                                                         print("기준골드보다 돈 많다 강제노역 해제하기, 기준골드 : ", v_.onForceGold)
                                                         v_.force_sub_quest = False
+                                                click_pos_2(860, 895, cla)
                                     else:
                                         click_pos_2(860, 895, cla)
                                     time.sleep(1)
