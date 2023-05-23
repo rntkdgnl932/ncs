@@ -13,7 +13,7 @@ def potion_check(cla):
     try:
         import cv2
         import numpy as np
-        from function import text_check_get, int_put_, imgs_set_, click_pos_2, in_number_check
+        from function import text_check_get, int_put_, imgs_set_, click_pos_2, in_number_check, change_number
         from action import dead_die_before, bag_open
         from realtime import soojib
 
@@ -34,8 +34,7 @@ def potion_check(cla):
             print("전체4자리 potion_?", potion_ready)
             result_num_in = in_number_check(cla, potion_ready)
             if result_num_in == True:
-                potion_ = change_potion(cla, potion_ready)
-                potion = int_put_(potion_)
+                potion = change_number(potion_ready)
                 potion_bloon = potion.isdigit()
                 if potion_bloon == True:
                     potion = int(potion)
@@ -59,8 +58,7 @@ def potion_check(cla):
                 print("전체4자리 potion_2?", potion_ready)
                 result_num_in = in_number_check(cla, potion_ready)
                 if result_num_in == True:
-                    potion_ = change_potion(cla, potion_ready)
-                    potion = int_put_(potion_)
+                    potion = change_number(potion_ready)
                     potion_bloon = potion.isdigit()
                     if potion_bloon == True:
                         potion = int(potion)
@@ -84,8 +82,7 @@ def potion_check(cla):
                     print("앞3자리 potion_?", potion_ready)
                     result_num_in = in_number_check(cla, potion_ready)
                     if result_num_in == True:
-                        potion_ = change_potion(cla, potion_ready)
-                        potion = int_put_(potion_)
+                        potion = change_number(potion_ready)
                         potion_bloon = potion.isdigit()
                         if potion_bloon == True:
                             potion = int(potion)
@@ -109,8 +106,7 @@ def potion_check(cla):
                         print("뒷3자리 potion_??", potion_ready)
                         result_num_in = in_number_check(cla, potion_ready)
                         if result_num_in == True:
-                            potion_ = change_potion(cla, potion_ready)
-                            potion = int_put_(potion_)
+                            potion = change_number(potion_ready)
                             potion_bloon = potion.isdigit()
                             if potion_bloon == True:
                                 potion = int(potion)
@@ -480,43 +476,3 @@ def maul_potion(cla):
     except Exception as e:
         print(e)
 
-def change_potion(cla, many_potion):
-    try:
-
-        potion_ = many_potion
-
-        if " " in potion_:
-            potion_ = potion_.replace(' ', '')
-            print("!!!!!! ['   '] !!!!!!!", potion_)
-        if " " in potion_:
-            potion_ = potion_.replace('고', '2')
-            print("!!!!!! [' 고 => 2 '] !!!!!!!", potion_)
-        if ")" in potion_:
-            potion_ = potion_.replace(')', '1')
-            print("!!!!!! [   ) => 1   ] !!!!!!!", potion_)
-        if ")" in potion_:
-            potion_ = potion_.replace('‘', '1')
-            print("!!!!!! [   ‘ => 1   ] !!!!!!!", potion_)
-        if "?" in potion_:
-            potion_ = potion_.replace('?', '2')
-            print("!!!!!! [   ? => 2  ] !!!!!!!", potion_)
-        if "L" in potion_:
-            potion_ = potion_.replace('L', '1')
-            print("!!!!!! [   L => 1  ] !!!!!!!", potion_)
-        if "|" in potion_:
-            potion_ = potion_.replace('|', '1')
-            print("!!!!!!![   | => 1  ]!!!!!!!!!!!", potion_)
-        if "A" in potion_:
-            potion_ = potion_.replace('A', '8')
-            print("!!!!!!!!![  A = 8 ]!!!!!!!!!!!!!", potion_)
-        if "B" in potion_:
-            potion_ = potion_.replace('B', '8')
-            print("!!!!!!!!![  B => 8  ]!!!!!!!!!!!!!", potion_)
-
-        if potion_[0] == "0":
-            potion_ = "1" + potion_
-            print("potion_ = '1' + potion_", potion_)
-
-        return potion_
-    except Exception as e:
-        print(e)

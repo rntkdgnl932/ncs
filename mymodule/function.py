@@ -59,6 +59,78 @@ def isNumber_(s):
     except ValueError:
         return False
 
+
+def change_number(many_potion):
+    try:
+
+        potion_ = many_potion
+
+        if " " in potion_:
+            potion_ = potion_.replace(' ', '')
+            print("!!!!!! ['   '] !!!!!!!", potion_)
+        if "고" in potion_:
+            potion_ = potion_.replace('고', '2')
+            print("!!!!!! [' 고 => 2 '] !!!!!!!", potion_)
+        if "ㄷ" in potion_:
+            potion_ = potion_.replace('ㄷ', '5')
+            print("!!!!!! [' ㄷ => 5 '] !!!!!!!", potion_)
+        if "요" in potion_:
+            potion_ = potion_.replace('요', '8')
+            print("!!!!!! [' 요 => 8 '] !!!!!!!", potion_)
+        if "°" in potion_:
+            potion_ = potion_.replace('°', '0')
+            print("!!!!!! [   ° => 0   ] !!!!!!!", potion_)
+        if ")" in potion_:
+            potion_ = potion_.replace(')', '1')
+            print("!!!!!! [   ) => 1   ] !!!!!!!", potion_)
+        if "‘" in potion_:
+            potion_ = potion_.replace('‘', '1')
+            print("!!!!!! [   ‘ => 1   ] !!!!!!!", potion_)
+        if "?" in potion_:
+            potion_ = potion_.replace('?', '2')
+            print("!!!!!! [   ? => 2  ] !!!!!!!", potion_)
+        if "L" in potion_:
+            potion_ = potion_.replace('L', '1')
+            print("!!!!!! [   L => 1  ] !!!!!!!", potion_)
+        if "|" in potion_:
+            potion_ = potion_.replace('|', '1')
+            print("!!!!!!![   | => 1  ]!!!!!!!!!!!", potion_)
+        if "A" in potion_:
+            potion_ = potion_.replace('A', '4')
+            print("!!!!!!!!![  A => 4 ]!!!!!!!!!!!!!", potion_)
+        if "D" in potion_:
+            potion_ = potion_.replace('D', '2')
+            print("!!!!!!!!![  D => 2 ]!!!!!!!!!!!!!", potion_)
+        if "G" in potion_:
+            potion_ = potion_.replace('G', '6')
+            print("!!!!!!!!![  G => 6 ]!!!!!!!!!!!!!", potion_)
+        if "B" in potion_:
+            potion_ = potion_.replace('B', '8')
+            print("!!!!!!!!![  B => 8  ]!!!!!!!!!!!!!", potion_)
+        if "T" in potion_:
+            potion_ = potion_.replace('T', '7')
+            print("!!!!!!!!![  T => 7  ]!!!!!!!!!!!!!", potion_)
+        if "S" in potion_:
+            potion_ = potion_.replace('S', '5')
+            print("!!!!!!!!![  S => 5  ]!!!!!!!!!!!!!", potion_)
+        if "Q" in potion_:
+            potion_ = potion_.replace('Q', '9')
+            print("!!!!!!!!![  Q => 9  ]!!!!!!!!!!!!!", potion_)
+        if "R" in potion_:
+            potion_ = potion_.replace('R', '8')
+            print("!!!!!!!!![  R => 8  ]!!!!!!!!!!!!!", potion_)
+
+        potion_ = int_put_(potion_)
+
+        if potion_[0] == "0":
+            potion_ = "1" + potion_
+            print("potion_ = '1' + potion_", potion_)
+
+        return potion_
+    except Exception as e:
+        print(e)
+
+
 def int_put_(data):
     try:
         import re
