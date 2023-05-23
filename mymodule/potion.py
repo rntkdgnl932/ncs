@@ -406,6 +406,37 @@ def maul_potion(cla):
                                     jab_3 = True
                                 print("soongan????", imgs_)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                jab_3 = False
+                click_count = 0
+                while jab_3 is False:
+                    full_path = "c:\\nightcrow\\imgs\\potion\\potion_buy.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("potion_buy", imgs_)
+                        click_pos_2(510, 580, cla)
+                        jab_3 = True
+                        time.sleep(0.5)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.2)
+                        click_pos_2(410, 745, cla)
+                        time.sleep(1.2)
+                    else:
+                        full_path = "c:\\nightcrow\\imgs\\potion\\soongan.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(70, 100, 200, 700, cla, img, 0.83)
+                        if imgs_ is not None and imgs_ != False:
+                            click_count += 1
+                            if click_count > 4:
+                                print("돈 없다. 강제노역이다~!")
+                                v_.force_sub_quest = True
+                                jab_3 = True
+                            print("soongan????", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+
 
         # 마을이동서
         full_path = "c:\\nightcrow\\imgs\\potion\\maul_move_.PNG"
@@ -454,6 +485,37 @@ def maul_potion(cla):
                                     jab_3 = True
                                 print("soongan", imgs_)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                jab_3 = False
+                click_count = 0
+                while jab_3 is False:
+                    full_path = "c:\\nightcrow\\imgs\\potion\\potion_buy.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(500, 700, 600, 770, cla, img, 0.83)
+                    if imgs_ is not None and imgs_ != False:
+                        print("potion_buy", imgs_)
+                        click_pos_2(510, 580, cla)
+                        jab_3 = True
+                        time.sleep(0.5)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.2)
+                        click_pos_2(410, 745, cla)
+                        time.sleep(1.2)
+                    else:
+                        full_path = "c:\\nightcrow\\imgs\\potion\\gujum.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(70, 100, 200, 700, cla, img, 0.83)
+                        if imgs_ is not None and imgs_ != False:
+                            click_count += 1
+                            if click_count > 4:
+                                print("돈 없다. 강제노역이당 흑흑")
+                                v_.force_sub_quest = True
+                                jab_3 = True
+                            print("soongan", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+            
 
         jab_3 = False
         print("potion_jab_3")
