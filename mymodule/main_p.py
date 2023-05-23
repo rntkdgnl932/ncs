@@ -2691,6 +2691,20 @@ class game_Playing(QThread):
                             if imgs_ is not None and imgs_ != False:
                                 character_change(v_.now_cla, character_id)
 
+                            # 현재 진행중인 스케쥴 내 캐릭터 id와 기존 캐릭터 id 비교해서 다르면 캐릭터 바꾸기
+                            dir_path = "C:\\nightcrow"
+                            file_path = dir_path + "\\mysettings\\myschedule\\now_id.txt"
+
+                            if os.path.isfile(file_path) == True:
+
+                                with open(file_path, "r", encoding='utf-8-sig') as file:
+                                    read_id = file.read()
+
+                                if str(character_id) != str(read_id):
+                                    character_change(v_.now_cla, character_id)
+                            else:
+                                character_change(v_.now_cla, character_id)
+
 
                             # 우측 상단 퀘스트 보이게 하기
                             quest_look(v_.now_cla)
@@ -2761,6 +2775,12 @@ class game_Playing(QThread):
                                         #         if result_maul == True:
                                         #             click_pos_2(230, 90, v_.now_cla)
                                         #             maul_potion(v_.now_cla)
+
+
+
+
+
+
 
                                         result = dungeon_play(v_.now_cla, result_schedule_)
                                         if result == True:

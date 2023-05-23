@@ -1616,6 +1616,7 @@ def character_change(cla, character_id):
         from massenger import line_to_me
         import numpy as np
         import cv2
+        import os
 
         print("캐릭터 체인지")
 
@@ -1669,6 +1670,15 @@ def character_change(cla, character_id):
                             if result_out == True:
                                 cha_select = True
                                 in_game = True
+
+                                # 현재 진입한 캐릭터 번호(id)
+                                dir_path = "C:\\nightcrow"
+                                file_path = dir_path + "\\mysettings\\myschedule\\now_id.txt"
+
+                                with open(file_path, "w", encoding='utf-8-sig') as file:
+                                    file.write(str(character_id))
+
+
                             else:
                                 print("진입중")
                             time.sleep(0.5)
