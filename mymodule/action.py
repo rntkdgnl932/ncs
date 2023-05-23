@@ -1672,8 +1672,14 @@ def character_change(cla, character_id):
                                 in_game = True
 
                                 # 현재 진입한 캐릭터 번호(id)
+
+
+
                                 dir_path = "C:\\nightcrow"
-                                file_path = dir_path + "\\mysettings\\myschedule\\now_id.txt"
+                                if cla == 'one':
+                                    file_path = dir_path + "\\mysettings\\myschedule\\one_now_id.txt"
+                                if cla == 'two':
+                                    file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
 
                                 with open(file_path, "w", encoding='utf-8-sig') as file:
                                     file.write(str(character_id))

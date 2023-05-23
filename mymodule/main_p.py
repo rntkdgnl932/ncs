@@ -2691,19 +2691,24 @@ class game_Playing(QThread):
                             if imgs_ is not None and imgs_ != False:
                                 character_change(v_.now_cla, character_id)
 
-                            # 현재 진행중인 스케쥴 내 캐릭터 id와 기존 캐릭터 id 비교해서 다르면 캐릭터 바꾸기
-                            dir_path = "C:\\nightcrow"
-                            file_path = dir_path + "\\mysettings\\myschedule\\now_id.txt"
-
-                            if os.path.isfile(file_path) == True:
-
-                                with open(file_path, "r", encoding='utf-8-sig') as file:
-                                    read_id = file.read()
-
-                                if str(character_id) != str(read_id):
-                                    character_change(v_.now_cla, character_id)
                             else:
-                                character_change(v_.now_cla, character_id)
+
+                                # 현재 진행중인 스케쥴 내 캐릭터 id와 기존 캐릭터 id 비교해서 다르면 캐릭터 바꾸기
+                                dir_path = "C:\\nightcrow"
+                                if v_.now_cla == 'one':
+                                    file_path = dir_path + "\\mysettings\\myschedule\\one_now_id.txt"
+                                if v_.now_cla == 'two':
+                                    file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
+
+                                if os.path.isfile(file_path) == True:
+
+                                    with open(file_path, "r", encoding='utf-8-sig') as file:
+                                        read_id = file.read()
+
+                                    if str(character_id) != str(read_id):
+                                        character_change(v_.now_cla, character_id)
+                                else:
+                                    character_change(v_.now_cla, character_id)
 
 
                             # 우측 상단 퀘스트 보이게 하기
