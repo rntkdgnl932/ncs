@@ -2703,8 +2703,9 @@ class game_Playing(QThread):
                             # 최초1회만...
                             if result_schedule_ != "각종템받기" and result_schedule_ != "튜토육성" and isjuljun != True and dongool_check != "dongool":
                                 if v_.just_one == False:
-                                    print("최초 1회 : 마을일 경우 물약 ㄱㄱ", v_.just_one)
-                                    v_.just_one = True
+                                    # print("최초 1회 : 마을일 경우 물약 ㄱㄱ", v_.just_one)
+                                    # v_.just_one = True
+                                    print("마을일경우 물약 등 체크하기")
                                     full_path = "c:\\nightcrow\\imgs\\potion\\janhwa_1.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
