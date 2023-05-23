@@ -19,7 +19,7 @@ def go_test():
     import numpy as np
     import pyautogui
     import cv2
-    from potion import maul_potion, change_potion
+    from potion import maul_potion
     from action import skill_check_
 
     cla = "one"
@@ -31,7 +31,9 @@ def go_test():
 
     print("여긴 테스트")
 
-    skill_check_(cla)
+    my_money = text_check_get(400, 510, 470, 530, cla)
+
+    print("내 골드????", my_money)
 
     #
     # full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"

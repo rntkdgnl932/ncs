@@ -812,7 +812,7 @@ def bag_open(cla):
     try:
         import cv2
         import numpy as np
-        from function import text_check_get, int_put_, click_pos_2, imgs_set_
+        from function import text_check_get, int_put_, click_pos_2, imgs_set_, change_number
         from massenger import line_to_me
 
         go_ = False
@@ -867,7 +867,7 @@ def bag_open(cla):
                     # my_money = text_check_get(830, 880, 892, 900, cla)
 
                     print("내 골드?", my_money)
-                    my_money = int_put_(my_money)
+                    my_money = change_number(my_money)
                     money_bool = my_money.isdigit()
                     if money_bool == True:
                         my_money = int(my_money)
@@ -877,11 +877,40 @@ def bag_open(cla):
                             onFG_ = int_put_(v_.onForceGold)
                             onFG = int(onFG_) * 10000
                             if my_money < onFG:
-                                print("강제로 서브퀘스트 수행하기, 기준골드 : ", v_.onForceGold)
-                                if v_.force_sub_quest != True:
-                                    v_.force_sub_quest = True
-                                    mg_ = str(my_money) + "골드 있다. 거지다. ㅠㅠ"
-                                    line_to_me(cla, mg_)
+
+                                re_search_ = False
+                                re_search_count = 0
+                                while re_search_ is False:
+                                    re_search_count += 1
+                                    if re_search_count > 5:
+                                        re_search_ = True
+                                    full_path = "c:\\nightcrow\\imgs\\check\\check_my_gold.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(360, 380, 440, 460, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        my_money = text_check_get(400, 510, 470, 530, cla)
+
+                                        print("내 골드????", my_money)
+                                        my_money = change_number(my_money)
+                                        money_bool = my_money.isdigit()
+                                        if money_bool == True:
+                                            my_money = int(my_money)
+                                            if my_money > 0:
+                                                my_gold_bloon = True
+
+                                                if my_money < onFG:
+                                                    print("강제로 서브퀘스트 수행하기, 기준골드 : ", v_.onForceGold)
+                                                    if v_.force_sub_quest != True:
+                                                        v_.force_sub_quest = True
+                                                        mg_ = str(my_money) + "골드 있다. 거지다. ㅠㅠ"
+                                                        line_to_me(cla, mg_)
+                                                    else:
+                                                        print("기준골드보다 돈 많다 강제노역 해제하기, 기준골드 : ", v_.onForceGold)
+                                                        v_.force_sub_quest = False
+                                    else:
+                                        click_pos_2(860, 895, cla)
+                                    time.sleep(1)
                             else:
                                 print("기준골드보다 돈 많다 강제노역 해제하기, 기준골드 : ", v_.onForceGold)
                                 v_.force_sub_quest = False
