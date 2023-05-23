@@ -656,6 +656,7 @@ def jaelyo_(cla):
 
         from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
         from action import out_check, clean_screen, bag_open
+        from sell_potion import sell_potion_start
         import numpy as np
         import cv2
         import os
@@ -687,6 +688,16 @@ def jaelyo_(cla):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(50, 80, 110, 110, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
+
+                        # 물약 있을 경우 전부다 팔아버리기
+                        full_path = "c:\\nightcrow\\imgs\\chango\\sell_potion_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 300, 1000, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            sell_potion_start(cla)
+                            time.sleep(1)
+                            
 
                         in_chango_3 = False
                         in_chango_3_count = 0
