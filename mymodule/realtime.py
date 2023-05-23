@@ -781,7 +781,7 @@ def jaelyo_(cla):
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_2(930, 145, cla)
                                 time.sleep(0.5)
-                                click_pos_2(170, 1010, cla)
+                                # click_pos_2(170, 1010, cla)
 
                                 dir_path = "C:\\nightcrow"
                                 file_path = dir_path + "\\items\\chango\\jaelyo.txt"
