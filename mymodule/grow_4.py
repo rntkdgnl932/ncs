@@ -156,10 +156,26 @@ def quest_check(cla):
                 click_pos_reg(imgs_.x, imgs_.y, cla)
 
             else:
-                is_daily = True
-                result_ = go_quest_ing_(cla)
-                if result_ == False:
-                    talgut_board_(cla)
+                full_path = "c:\\nightcrow\\imgs\\grow\\grow_1\\quest_complete_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(800, 90, 960, 900, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    print("quest_complete_1", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    is_daily = True
+                    result_ = go_quest_ing_(cla)
+                    if result_ == False:
+                        talgut_board_(cla)
+
+                #
+                # is_daily = True
+                # result_ = go_quest_ing_(cla)
+                # if result_ == False:
+                #     talgut_board_(cla)
+
+
 
         # 붕붕 날아다니자
         full_path = "c:\\nightcrow\\imgs\\jadong\\flying_.PNG"
