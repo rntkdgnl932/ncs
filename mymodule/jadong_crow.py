@@ -824,7 +824,11 @@ def go_to_spot(cla, data):
 
         # attack_ready = False
         attack_ready_count = 0
+        overwalking_count = 0
         while attack_ready is False:
+            overwalking_count += 1
+            if overwalking_count > 100:
+                attack_ready = True
             full_path = "c:\\nightcrow\\imgs\\jadong\\in_spot_walking_2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

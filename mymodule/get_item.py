@@ -432,18 +432,28 @@ def get_event(cla):
                                         full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(280, 460, 880, 720, cla, img, 0.9 )
+                                        imgs_ = imgs_set_(280, 460, 880, 720, cla, img, 0.9)
                                         if imgs_ is not None and imgs_ != False:
                                             click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
                                             time.sleep(0.2)
                                             click_pos_2(860, 410, cla)
                                             time.sleep(0.3)
                                         else:
-                                            if get_season_last_count > 5:
-                                                drag_pos(500, 600, 500, 300, cla)
-                                            if get_season_last_count > 10:
-                                                get_season_last = True
-                                            print("1")
+                                            full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(760, 430, 840, 500, cla, img, 0.9)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
+                                                time.sleep(0.2)
+                                                click_pos_2(860, 410, cla)
+                                                time.sleep(0.3)
+                                            else:
+                                                if get_season_last_count > 5:
+                                                    drag_pos(500, 600, 500, 300, cla)
+                                                if get_season_last_count > 10:
+                                                    get_season_last = True
+                                                print("1")
                                         time.sleep(0.3)
                             else:
                                 print("3")
