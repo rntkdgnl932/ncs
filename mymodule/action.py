@@ -1775,3 +1775,33 @@ def character_change(cla, character_id):
 
     except Exception as e:
         print(e)
+
+def my_gold_check(cla):
+    try:
+
+        from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
+        import numpy as np
+        import cv2
+
+        result_out = out_check(cla)
+        if result_out == True:
+            # 가방 열어 골드 파악하는거 서브퀘스트일때 and 300초마다
+            v_.bag_open_count += 1
+            if v_.bag_open_count == 5:
+                time.sleep(0.5)
+                bag_open(cla)
+                time.sleep(0.2)
+                full_path = "c:\\nightcrow\\imgs\\clean_screen\\gabang_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(820, 80, 910, 120, cla, img, 0.83)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(935, 100, cla)
+            if v_.bag_open_count == 100:
+                v_.bag_open_count = 0
+
+
+
+
+    except Exception as e:
+        print(e)

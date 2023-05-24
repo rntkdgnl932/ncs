@@ -49,7 +49,7 @@ from dungeon import dungeon_play
 from jadong_crow import jadong_play
 from get_item import get_items, get_item_checking, guild_jilyung
 from potion import maul_potion
-from action import maul_check, bag_open, quest_look, character_change
+from action import maul_check, bag_open, quest_look, character_change, my_gold_check
 
 import variable as v_
 
@@ -2743,26 +2743,15 @@ class game_Playing(QThread):
                                         if result_maul == True:
                                             click_pos_2(230, 90, v_.now_cla)
                                             maul_potion(v_.now_cla)
-                                        # else:
-                                        #     # 가방 열어 골드 파악하는거 서브퀘스트일때 and 300초마다
-                                        #     v_.bag_open_count += 1
-                                        #     if result_schedule_ == "서브퀘스트":
-                                        #         if v_.bag_open_count == 10:
-                                        #             time.sleep(0.5)
-                                        #             bag_open(v_.now_cla)
-                                        #             time.sleep(0.2)
-                                        #             full_path = "c:\\nightcrow\\imgs\\clean_screen\\gabang_title.PNG"
-                                        #             img_array = np.fromfile(full_path, np.uint8)
-                                        #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        #             imgs_ = imgs_set_(820, 80, 910, 120, v_.now_cla, img, 0.83)
-                                        #             if imgs_ is not None and imgs_ != False:
-                                        #                 click_pos_2(935, 100, v_.now_cla)
+
 
                             if v_.force_sub_quest == True and result_schedule_ != "튜토육성":
                                 # 죽었을때 돈 50만 골드 이하일때 강제노역 보내기
 
                                 jadong_play(v_.now_cla, v_.onForceGoldSpot_go)
                                 # 자체에 스케쥴 완료 없음 돈 벌어야 빠져나옴
+                                my_gold_check(v_.now_cla)
+
                             else:
 
                                 v_.now_ing_schedule = result_schedule_
