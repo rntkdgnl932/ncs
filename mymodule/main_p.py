@@ -2743,16 +2743,20 @@ class game_Playing(QThread):
                                         if result_maul == True:
                                             click_pos_2(230, 90, v_.now_cla)
                                             maul_potion(v_.now_cla)
-                                        else:
-                                            time.sleep(0.5)
-                                            bag_open(v_.now_cla)
-                                            time.sleep(0.2)
-                                            full_path = "c:\\nightcrow\\imgs\\clean_screen\\gabang_title.PNG"
-                                            img_array = np.fromfile(full_path, np.uint8)
-                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(820, 80, 910, 120, v_.now_cla, img, 0.83)
-                                            if imgs_ is not None and imgs_ != False:
-                                                click_pos_2(935, 100, v_.now_cla)
+                                        # else:
+                                        #     # 가방 열어 골드 파악하는거 서브퀘스트일때 and 300초마다
+                                        #     v_.bag_open_count += 1
+                                        #     if result_schedule_ == "서브퀘스트":
+                                        #         if v_.bag_open_count == 10:
+                                        #             time.sleep(0.5)
+                                        #             bag_open(v_.now_cla)
+                                        #             time.sleep(0.2)
+                                        #             full_path = "c:\\nightcrow\\imgs\\clean_screen\\gabang_title.PNG"
+                                        #             img_array = np.fromfile(full_path, np.uint8)
+                                        #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        #             imgs_ = imgs_set_(820, 80, 910, 120, v_.now_cla, img, 0.83)
+                                        #             if imgs_ is not None and imgs_ != False:
+                                        #                 click_pos_2(935, 100, v_.now_cla)
 
                             if v_.force_sub_quest == True and result_schedule_ != "튜토육성":
                                 # 죽었을때 돈 50만 골드 이하일때 강제노역 보내기
