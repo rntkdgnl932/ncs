@@ -281,7 +281,7 @@ def get_season_pass(cla):
                                 full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(150, a, 250, b, cla, img, 0.8)
+                                imgs_ = imgs_set_(240, a, 275, b, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x - 50, imgs_.y + 15, cla)
                                     time.sleep(0.4)
@@ -295,13 +295,13 @@ def get_season_pass(cla):
                                         full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(150, a, 250, b, cla, img, 0.8)
+                                        imgs_ = imgs_set_(240, a, 275, b, cla, img, 0.8)
                                         if imgs_ is not None and imgs_ != False:
 
                                             full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(250, 400, 880, 680, cla, img, 0.85)
+                                            imgs_ = imgs_set_(280, 495, 880, 525, cla, img, 0.85)
                                             if imgs_ is not None and imgs_ != False:
                                                 click_pos_reg(imgs_.x - 20, imgs_.y + 45, cla)
                                                 time.sleep(0.2)
@@ -315,7 +315,7 @@ def get_season_pass(cla):
                                                 full_path = "c:\\nightcrow\\imgs\\get_item\\checked.PNG"
                                                 img_array = np.fromfile(full_path, np.uint8)
                                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                imgs_ = imgs_set_(250, 400, 880, 680, cla, img, 0.8)
+                                                imgs_ = imgs_set_(280, 495, 880, 525, cla, img, 0.8)
                                                 if imgs_ is not None and imgs_ != False:
                                                     drag_pos_reg(imgs_.x, imgs_.y, imgs_.x + result_int, imgs_.y, cla)
 
@@ -329,7 +329,7 @@ def get_season_pass(cla):
                                                     full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                                                     img_array = np.fromfile(full_path, np.uint8)
                                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                                    imgs_ = imgs_set_(250, 400, 880, 680, cla, img, 0.85)
+                                                    imgs_ = imgs_set_(280, 495, 880, 525, cla, img, 0.85)
                                                     if imgs_ is not None and imgs_ != False:
                                                         print("?>???", imgs_)
                                                         click_pos_reg(imgs_.x - 20, imgs_.y + 45, cla)
@@ -418,7 +418,7 @@ def get_event(cla):
                                 full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(150, a, 250, b, cla, img, 0.8)
+                                imgs_ = imgs_set_(200, a, 250, b, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x - 50, imgs_.y + 15, cla)
                                     time.sleep(0.4)
@@ -449,9 +449,9 @@ def get_event(cla):
                                                 click_pos_2(860, 410, cla)
                                                 time.sleep(0.3)
                                             else:
-                                                if get_season_last_count > 5:
+                                                if get_season_last_count > 3:
                                                     drag_pos(500, 600, 500, 300, cla)
-                                                if get_season_last_count > 10:
+                                                if get_season_last_count > 7:
                                                     get_season_last = True
                                                 print("1")
                                         time.sleep(0.3)
@@ -932,6 +932,15 @@ def guild_jilyung(cla):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
+
+            full_path = "c:\\nightcrow\\imgs\\guild\\jilyung_refresh_3.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(800, 990, 900, 1030, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(1)
+
             full_path = "c:\\nightcrow\\imgs\\guild\\soolock.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
