@@ -35,9 +35,9 @@ myId_2 = 0
 now_cla = 'none'
 global_howcla = 'none'
 
-## 나크 관련
+# 나크 관련
 # 버젼
-#import os
+# import os
 
 dir_path = "C:\\nightcrow"
 file_path = dir_path + "\\mymodule\\version.txt"
@@ -46,14 +46,14 @@ with open(file_path, "r", encoding='utf-8-sig') as file:
     version_ = file.read()
     print("version???", version_)
 
-#자동모드 관련
+# 자동모드 관련
 potion_count = 0
 
-#던전 진행중 여부
+# 던전 진행중 여부
 now_dungeon_ing = False
 skill_checked_ = False
 now_ing_schedule = "none"
-#강제로 돈벌기
+# 강제로 돈벌기
 forcee_not_sub = False
 force_sub_quest = False
 onForceGold = 5000000
