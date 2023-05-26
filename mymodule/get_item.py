@@ -810,103 +810,116 @@ def guild_check(cla):
                 imgs_ = imgs_set_(400, 900, 700, 1030, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
 
-                    full_path = "c:\\nightcrow\\imgs\\guild\\guild_information.PNG"
+
+                    full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(400, 900, 600, 1030, cla, img, 0.8)
+                    imgs_ = imgs_set_(110, 80, 150, 115, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
-                        time.sleep(0.2)
-                        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                        click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
+
+                        full_path = "c:\\nightcrow\\imgs\\guild\\guild_information.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(840, 940, 890, 990, cla, img, 0.8)
+                        imgs_ = imgs_set_(400, 900, 600, 1030, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            print("guild_point", imgs_)
-                            click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
-                            time.sleep(0.1)
-                            click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
-                            time.sleep(0.1)
-                            click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
-                            time.sleep(0.1)
-
-                        click_pos_2(430, 950, cla)
-                        time.sleep(0.1)
-                        click_pos_2(430, 950, cla)
-                        time.sleep(0.1)
-                        click_pos_2(430, 950, cla)
-                        time.sleep(0.1)
-
-                        giboo_ = False
-                        giboo_count = 0
-                        while giboo_ is False:
-                            giboo_count += 1
-                            if giboo_count > 7:
-                                giboo_ = True
-
-                            full_path = "c:\\nightcrow\\imgs\\guild\\guild_giboo.PNG"
+                            time.sleep(0.2)
+                            full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(440, 330, 510, 380, cla, img, 0.8)
+                            imgs_ = imgs_set_(840, 940, 890, 990, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                giboo_ = True
-                                for i in range(5):
-                                    click_pos_2(230, 670, cla)
+                                print("guild_point", imgs_)
+                                click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
                                 time.sleep(0.1)
-                                for i in range(2):
-                                    click_pos_2(930, 60, cla)
-                                    get_guild = True
-                                clean_screen(cla)
+                                click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
+                                time.sleep(0.1)
+                                click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
+                                time.sleep(0.1)
 
-                            else:
-                                click_pos_2(555, 950, cla)
-                            time.sleep(0.5)
-                    else:
-                        time.sleep(0.2)
-                        full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(840, 940, 890, 990, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            print("guild_point", imgs_)
-                            click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
+                            click_pos_2(430, 950, cla)
                             time.sleep(0.1)
-                            click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
+                            click_pos_2(430, 950, cla)
                             time.sleep(0.1)
-                            click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
+                            click_pos_2(430, 950, cla)
                             time.sleep(0.1)
 
-                        click_pos_2(430, 990, cla)
-                        time.sleep(0.1)
-                        click_pos_2(430, 990, cla)
-                        time.sleep(0.1)
-                        click_pos_2(430, 990, cla)
-                        time.sleep(0.1)
+                            giboo_ = False
+                            giboo_count = 0
+                            while giboo_ is False:
+                                giboo_count += 1
+                                if giboo_count > 7:
+                                    giboo_ = True
 
-                        giboo_ = False
-                        giboo_count = 0
-                        while giboo_ is False:
-                            giboo_count += 1
-                            if giboo_count > 7:
-                                giboo_ = True
+                                full_path = "c:\\nightcrow\\imgs\\guild\\guild_giboo.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(440, 330, 510, 380, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    giboo_ = True
+                                    for i in range(5):
+                                        click_pos_2(230, 670, cla)
+                                    time.sleep(0.1)
+                                    for i in range(2):
+                                        click_pos_2(930, 60, cla)
+                                        get_guild = True
+                                    clean_screen(cla)
 
-                            full_path = "c:\\nightcrow\\imgs\\guild\\guild_giboo.PNG"
+                                else:
+                                    click_pos_2(555, 950, cla)
+                                time.sleep(0.5)
+                        else:
+                            time.sleep(0.2)
+                            full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(440, 330, 510, 380, cla, img, 0.8)
+                            imgs_ = imgs_set_(840, 940, 890, 990, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                giboo_ = True
-                                for i in range(5):
-                                    click_pos_2(230, 670, cla)
+                                print("guild_point", imgs_)
+                                click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
                                 time.sleep(0.1)
-                                for i in range(2):
-                                    click_pos_2(930, 60, cla)
-                                    get_guild = True
-                                clean_screen(cla)
+                                click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
+                                time.sleep(0.1)
+                                click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
+                                time.sleep(0.1)
 
-                            else:
-                                click_pos_2(555, 990, cla)
-                            time.sleep(0.5)
+                            click_pos_2(430, 990, cla)
+                            time.sleep(0.1)
+                            click_pos_2(430, 990, cla)
+                            time.sleep(0.1)
 
+                            giboo_ = False
+                            giboo_count = 0
+                            while giboo_ is False:
+                                giboo_count += 1
+                                if giboo_count > 7:
+                                    giboo_ = True
+
+                                full_path = "c:\\nightcrow\\imgs\\guild\\guild_giboo.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(440, 330, 510, 380, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    giboo_ = True
+                                    for i in range(3):
+                                        click_pos_2(230, 670, cla)
+                                    time.sleep(0.1)
+                                    for i in range(2):
+                                        click_pos_2(930, 60, cla)
+                                        get_guild = True
+                                    clean_screen(cla)
+
+                                else:
+                                    click_pos_2(555, 990, cla)
+                                time.sleep(0.5)
+
+                    full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(350, 80, 420, 115, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x - 70, imgs_.y + 10, cla)
+                        guild_jilyung(cla)
                 else:
                     get_guild = True
             else:
