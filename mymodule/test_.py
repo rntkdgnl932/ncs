@@ -37,29 +37,39 @@ def go_test():
 
     print("여긴 테스트")
 
+    full_path = "c:\\nightcrow\\imgs\\check\\bag_full_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(800, 60, 870, 100, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("point : bag_full_1", imgs_)
+    else:
+        print("nob!!!!!!!")
+
+
     # sell_potion_start(cla)
 
-    dir_path = "C:\\nightcrow"
-    file_path = dir_path + "\\mymodule\\version.txt"
-
-    with open(file_path, "r", encoding='utf-8-sig') as file:
-        v_.version_ = file.read()
-        print("v_.version_", v_.version_)
-
-    url = "https://raw.githubusercontent.com/rntkdgnl932/ncs/master/mymodule/version.txt"
-    response = requests.get(url)
-    version_data = response.text
-    print("테스트가 될까?", version_data)
-    if v_.version_ == version_data:
-        print("버젼이 같다")
-    else:
-        print("버젼이 다르다. git pull 하고 재실행하자")
-        # git pull 실행 부분
-        git_dir = '{https://github.com/rntkdgnl932/ncs.git}'
-        g = git.cmd.Git(git_dir)
-        g.pull()
-        # 실행 후 재시작 부분
-        os.execl(sys.executable, sys.executable, *sys.argv)
+    # dir_path = "C:\\nightcrow"
+    # file_path = dir_path + "\\mymodule\\version.txt"
+    #
+    # with open(file_path, "r", encoding='utf-8-sig') as file:
+    #     v_.version_ = file.read()
+    #     print("v_.version_", v_.version_)
+    #
+    # url = "https://raw.githubusercontent.com/rntkdgnl932/ncs/master/mymodule/version.txt"
+    # response = requests.get(url)
+    # version_data = response.text
+    # print("테스트가 될까?", version_data)
+    # if v_.version_ == version_data:
+    #     print("버젼이 같다")
+    # else:
+    #     print("버젼이 다르다. git pull 하고 재실행하자")
+    #     # git pull 실행 부분
+    #     git_dir = '{https://github.com/rntkdgnl932/ncs.git}'
+    #     g = git.cmd.Git(git_dir)
+    #     g.pull()
+    #     # 실행 후 재시작 부분
+    #     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
 
