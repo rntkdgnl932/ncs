@@ -57,7 +57,7 @@ def go_test():
         # git pull 실행 부분
         git_dir = '{https://github.com/rntkdgnl932/ncs.git}'
         repo = git.Repo(git_dir)
-        repo.remotes.origin.pull()
+        repo.pull()
         # 실행 후 재시작 부분
         os.execl(sys.executable, sys.executable, *sys.argv)
 
