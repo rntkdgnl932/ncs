@@ -14,6 +14,7 @@ import random
 import os.path
 from datetime import date, timedelta
 import re
+import git
 
 import cv2
 # print(cv2.__version__)
@@ -72,7 +73,7 @@ onMaul = "none"
 
 isgloballoop = False
 
-version = "1.51"
+version = v_.version_
 
 # 기존 오토모드 관련##############################################
 

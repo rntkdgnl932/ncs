@@ -19,9 +19,12 @@ def go_test():
     import numpy as np
     import pyautogui
     import cv2
+    import os
     from potion import maul_potion
     from action import skill_check_
     from sell_potion import sell_potion_start
+    import requests
+    import git
 
     cla = "one"
 
@@ -36,15 +39,29 @@ def go_test():
 
     # sell_potion_start(cla)
 
-    full_path = "c:\\nightcrow\\imgs\\check\\impossibletoattack.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(800, 60, 870, 100, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("point : impossibletoattack", imgs_)
-        maul_potion(cla)
+    dir_path = "C:\\nightcrow"
+    file_path = dir_path + "\\mymodule\\version.txt"
+
+    with open(file_path, "r", encoding='utf-8-sig') as file:
+        v_.version_ = file.read()
+        print("v_.version_", v_.version_)
+
+    url = "https://raw.githubusercontent.com/rntkdgnl932/ncs/master/mymodule/version.txt"
+    response = requests.get(url)
+    version_data = response.text
+    print("테스트가 될까?", version_data)
+    if v_.version_ == version_data:
+        print("버젼이 같다")
     else:
-        print("no look impossibletoattack")
+        print("버젼이 다르다. git pull 하고 재실행하자")
+        # git pull 실행 부분
+        git_dir = {'https://github.com/rntkdgnl932/ncs.git'}
+        repo = git.Repo(git_dir)
+        repo.remotes.origin.pull()
+        # 실행 후 재시작 부분
+        os.execl(sys.executable, sys.executable, *sys.argv)
+
+
 
     #
     # full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"

@@ -1,3 +1,4 @@
+# pyqt5 부분
 rowcount = 0
 colcount = 0
 rehi_ = 'none'
@@ -33,6 +34,17 @@ myId_2 = 0
 # 현재실행중인 클라우드
 now_cla = 'none'
 global_howcla = 'none'
+
+## 나크 관련
+# 버젼
+#import os
+
+dir_path = "C:\\nightcrow"
+file_path = dir_path + "\\mymodule\\version.txt"
+
+with open(file_path, "r", encoding='utf-8-sig') as file:
+    version_ = file.read()
+    print("version???", version_)
 
 #자동모드 관련
 potion_count = 0

@@ -14,6 +14,7 @@ import random
 import os.path
 from datetime import date, timedelta
 import re
+import git
 
 import cv2
 # print(cv2.__version__)
