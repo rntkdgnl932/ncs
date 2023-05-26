@@ -56,8 +56,6 @@ def go_test():
         print("버젼이 다르다. git pull 하고 재실행하자")
         # git pull 실행 부분
         git_dir = '{https://github.com/rntkdgnl932/ncs.git}'
-        # repo = git.Repo(git_dir)
-        # repo.pull()
         g = git.cmd.Git(git_dir)
         g.pull()
         # 실행 후 재시작 부분

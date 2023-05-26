@@ -626,7 +626,7 @@ class FirstTab(QWidget):
         self.mytestin.clicked.connect(self.mytestin_)
         self.temporary_pause = QPushButton('일시정지')
         self.temporary_pause.clicked.connect(self.temporary_all_pause_game)
-        self.again_restart = QPushButton('재시작')
+        self.again_restart = QPushButton('업데이트')
         self.again_restart.clicked.connect(self.again_restart_game)
 
         # 스케쥴 선택 삭제
@@ -998,7 +998,13 @@ class FirstTab(QWidget):
         # change_ready_main = False
         # change_ready_step = False
 
-        print("game_Playing(self): again_restart_game")
+        print("업데이트 후 재시작")
+        # git pull 실행 부분
+        git_dir = '{https://github.com/rntkdgnl932/ncs.git}'
+        g = git.cmd.Git(git_dir)
+        g.pull()
+        # 실행 후 재시작 부분
+        os.execl(sys.executable, sys.executable, *sys.argv)
 
         # self.game.isCheck = True
         # self.game.start()
