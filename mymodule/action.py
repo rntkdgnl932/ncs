@@ -813,6 +813,9 @@ def bag_full_check(cla):
         import numpy as np
         from function import imgs_set_
         from potion import maul_potion
+        from realtime import boonhae_
+
+        go_ = False
 
         full_path = "c:\\nightcrow\\imgs\\check\\impossibletoattack.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -820,6 +823,7 @@ def bag_full_check(cla):
         imgs_ = imgs_set_(800, 60, 870, 100, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             print("point : impossibletoattack", imgs_)
+            go_ = True
             maul_potion(cla)
         else:
             full_path = "c:\\nightcrow\\imgs\\check\\bag_full_1.PNG"
@@ -828,7 +832,11 @@ def bag_full_check(cla):
             imgs_ = imgs_set_(800, 60, 870, 100, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 print("point : bag_full_1", imgs_)
+                go_ = True
                 maul_potion(cla)
+        if go_ == True:
+            boonhae_(cla)
+            maul_potion(cla)
 
     except Exception as e:
         print(e)

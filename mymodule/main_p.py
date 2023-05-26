@@ -2726,6 +2726,10 @@ class game_Playing(QThread):
 
                             # 우측 상단 퀘스트 보이게 하기
                             quest_look(v_.now_cla)
+
+                            # 먼저 가방 꽉 찼는지 확인부터...
+                            bag_full_check(v_.now_cla)
+
                             # 새로운 아이템 받을 것 체크하기
                             get_item_checking(v_.now_cla)
 
@@ -2771,32 +2775,11 @@ class game_Playing(QThread):
                                     dungeon_ = result_schedule_.split("_")
 
                                     if dungeon_[0] == "던전":
-
-                                        # if dungeon_[1] == "동굴":
-                                        #     v_.just_one = True
-                                        #     full_path = "c:\\nightcrow\\imgs\\potion\\janhwa_1.PNG"
-                                        #     img_array = np.fromfile(full_path, np.uint8)
-                                        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        #     imgs_ = imgs_set_(0, 90, 220, 350, v_.now_cla, img, 0.8)
-                                        #     if imgs_ is not None and imgs_ != False:
-                                        #         print("마을이면 물약 ㄱㄱ", imgs_)
-                                        #         maul_potion(v_.now_cla)
-                                        #     else:
-                                        #         result_maul = maul_check(v_.now_cla)
-                                        #         if result_maul == True:
-                                        #             click_pos_2(230, 90, v_.now_cla)
-                                        #             maul_potion(v_.now_cla)
-
-
-
-
-                                        bag_full_check(v_.now_cla)
                                         result = dungeon_play(v_.now_cla, result_schedule_)
                                         if result == True:
                                             myQuest_play_add(v_.now_cla, result_schedule_)
 
                                     if dungeon_[0] == "사냥":
-                                        bag_full_check(v_.now_cla)
                                         jadong_play(v_.now_cla, result_schedule_)
                                 else:
                                     if result_schedule_ == "튜토육성":
