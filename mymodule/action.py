@@ -807,6 +807,23 @@ def in_maul_check(cla):
         print(e)
 
 
+def bag_full_check(cla):
+    try:
+        import cv2
+        import numpy as np
+        from function import imgs_set_
+        from potion import maul_potion
+
+        full_path = "c:\\nightcrow\\imgs\\check\\impossibletoattack.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(800, 60, 870, 100, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("point : impossibletoattack", imgs_)
+            maul_potion(cla)
+
+    except Exception as e:
+        print(e)
 
 def bag_open(cla):
     try:

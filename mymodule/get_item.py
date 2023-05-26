@@ -942,6 +942,15 @@ def guild_jilyung(cla):
         imgs_ = imgs_set_(20, 30, 100, 80, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
 
+            # 길드지령 보상 모두 받기
+            full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(130, 745, 210, 780, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x - 50, imgs_.y + 10, cla)
+
+
             full_path = "c:\\nightcrow\\imgs\\guild\\jilyung_refresh_3.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

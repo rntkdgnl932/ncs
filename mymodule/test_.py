@@ -23,7 +23,9 @@ def go_test():
     from action import skill_check_
     from sell_potion import sell_potion_start
 
-    cla = "two"
+    cla = "one"
+
+    # cla = "two"
 
     if cla == 'one':
         plus = 0
@@ -32,7 +34,17 @@ def go_test():
 
     print("여긴 테스트")
 
-    sell_potion_start(cla)
+    # sell_potion_start(cla)
+
+    full_path = "c:\\nightcrow\\imgs\\check\\impossibletoattack.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(800, 60, 870, 100, cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("point : impossibletoattack", imgs_)
+        maul_potion(cla)
+    else:
+        print("no look impossibletoattack")
 
     #
     # full_path = "c:\\nightcrow\\imgs\\check\\point.PNG"

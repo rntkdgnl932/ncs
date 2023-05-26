@@ -49,7 +49,7 @@ from dungeon import dungeon_play
 from jadong_crow import jadong_play
 from get_item import get_items, get_item_checking, guild_jilyung
 from potion import maul_potion
-from action import maul_check, bag_open, quest_look, character_change, my_gold_check
+from action import maul_check, bag_open, quest_look, character_change, my_gold_check, bag_full_check
 
 import variable as v_
 
@@ -72,7 +72,7 @@ onMaul = "none"
 
 isgloballoop = False
 
-version = "1.50"
+version = "1.51"
 
 # 기존 오토모드 관련##############################################
 
@@ -2783,14 +2783,13 @@ class game_Playing(QThread):
 
 
 
-
-
-
+                                        bag_full_check(v_.now_cla)
                                         result = dungeon_play(v_.now_cla, result_schedule_)
                                         if result == True:
                                             myQuest_play_add(v_.now_cla, result_schedule_)
 
                                     if dungeon_[0] == "사냥":
+                                        bag_full_check(v_.now_cla)
                                         jadong_play(v_.now_cla, result_schedule_)
                                 else:
                                     if result_schedule_ == "튜토육성":
