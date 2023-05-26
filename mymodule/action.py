@@ -824,7 +824,6 @@ def bag_full_check(cla):
         if imgs_ is not None and imgs_ != False:
             print("point : impossibletoattack", imgs_)
             go_ = True
-            maul_potion(cla)
         else:
             full_path = "c:\\nightcrow\\imgs\\check\\bag_full_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -833,7 +832,6 @@ def bag_full_check(cla):
             if imgs_ is not None and imgs_ != False:
                 print("point : bag_full_1", imgs_)
                 go_ = True
-                maul_potion(cla)
         if go_ == True:
             boonhae_(cla)
             maul_potion(cla)
