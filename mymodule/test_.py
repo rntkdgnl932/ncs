@@ -26,7 +26,7 @@ def go_test():
     import requests
     import git
 
-    cla = "one"
+    cla = "two"
 
     # cla = "two"
 
