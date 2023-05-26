@@ -835,6 +835,8 @@ def bag_full_check(cla):
         if go_ == True:
             boonhae_(cla)
             maul_potion(cla)
+        else:
+            print("가방 꽉 차지 않았다.")
 
     except Exception as e:
         print(e)
