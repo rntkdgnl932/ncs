@@ -37,22 +37,8 @@ def go_test():
 
     print("여긴 테스트")
 
-    full_path = "c:\\nightcrow\\imgs\\check\\bag_full_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(800, 45, 870, 70, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("point : bag_full_1", imgs_)
-    else:
-        print("nob!!!!!!!")
-    full_path = "c:\\nightcrow\\imgs\\check\\impossibletoattack.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(800, 60, 870, 100, cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        print("point : impossibletoattack", imgs_)
-    else:
-        print("nononononono")
+    my_repo = git.Repo()
+    my_repo.remotes.origin.pull()
 
 
     # sell_potion_start(cla)
