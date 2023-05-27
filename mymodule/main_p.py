@@ -1000,9 +1000,13 @@ class FirstTab(QWidget):
 
         print("업데이트 후 재시작")
         # git pull 실행 부분
-        git_dir = '{https://github.com/rntkdgnl932/ncs.git}'
-        g = git.cmd.Git(git_dir)
-        g.pull()
+        # git_dir = '{https://github.com/rntkdgnl932/ncs.git}'
+        # g = git.cmd.Git(git_dir)
+        # g.pull()
+        # Repo('여기 비워진것은 현재 실행되는 창의 위치란 뜻...현재 실행되는 창의 위치 기준...상대경로임...')
+        my_repo = git.Repo()
+        my_repo.remotes.origin.pull()
+        time.sleep(1)
         # 실행 후 재시작 부분
         os.execl(sys.executable, sys.executable, *sys.argv)
 
