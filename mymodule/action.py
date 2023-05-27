@@ -814,6 +814,7 @@ def bag_full_check(cla):
         from function import imgs_set_
         from potion import maul_potion
         from realtime import boonhae_
+        from massenger import line_to_me
 
         go_ = False
 
@@ -833,6 +834,7 @@ def bag_full_check(cla):
                 print("point : bag_full_1", imgs_)
                 go_ = True
         if go_ == True:
+            line_to_me(cla, "가방 꽉 찼다 확인해줘라")
             boonhae_(cla)
             maul_potion(cla)
         else:

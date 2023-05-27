@@ -138,8 +138,8 @@ class ThirdTab(QWidget):
 
     def initUI(self):
 
-        dir_path = "C:\\nightcrow"
-        file_path = dir_path + "\\mysettings\\line\\line.txt"
+        dir_path = "C:\\my_games"
+        file_path = dir_path + "\\line\\line.txt"
 
         if os.path.isdir(dir_path) == False:
             os.makedirs(dir_path)
@@ -155,7 +155,7 @@ class ThirdTab(QWidget):
             else:
                 print('line 파일 없당')
                 with open(file_path, "w", encoding='utf-8-sig') as file:
-                    file.write("coob:어떤")
+                    file.write("ccocco:메롱")
 
         self.monitor = QGroupBox('My Cla Monitor')
 
@@ -227,8 +227,8 @@ class ThirdTab(QWidget):
         self.own.setText("       현재 소유자 : " + own_ + "\n\n")
         self.computer.setText("       현재 컴퓨터 : " + computer_ + " 컴퓨터\n\n")
         write_ = own_ + ":" + computer_
-        dir_path = "C:\\nightcrow"
-        file_path = dir_path + "\\mysettings\\line\\line.txt"
+        dir_path = "C:\\my_games"
+        file_path = dir_path + "\\line\\line.txt"
 
         with open(file_path, "w", encoding='utf-8-sig') as file:
             file.write(write_)

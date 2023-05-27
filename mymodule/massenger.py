@@ -139,8 +139,8 @@ def line_to_me(cla, why):
     try:
         print("cla", cla)
         print("why", why)
-        dir_path = "C:\\nightcrow"
-        file_path = dir_path + "\\mysettings\\line\\line.txt"
+        dir_path = "C:\\my_games"
+        file_path = dir_path + "\\line\\line.txt"
 
         isLine = False
         while isLine is False:
@@ -149,14 +149,14 @@ def line_to_me(cla, why):
                     read_ = file.read()
                 if read_ == "":
                     print("empty")
-                    line_data = "coob:몇번인지몰라."
+                    line_data = "ccocco:뿌에에에에에엥"
                     with open(file_path, "w", encoding='utf-8-sig') as file:
                         file.write(line_data)
                 else:
                     isLine = True
                     print("read_", read_)
             else:
-                line_data = "coob:대체 몇"
+                line_data = "ccocco:메롱메롱"
                 with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write(line_data)
 
@@ -175,8 +175,8 @@ def line_to_me(cla, why):
                 my_token = "hKXb6oosWTnH2JCrhtnchbVV5WN5WN3G3yMtZF4UTos"
             elif read_result[0] == "dongho":
                 my_token ="5rIzia52SHouogmxph3z3CBFmk2gSamnMcTaP9fCq3l"
-
-            message = "\n" + str(read_result[0]) + "님\n" + str(read_result[1]) + " 컴퓨터\n[" + str(cla) + "클라] 확인 요망\n=> " + str(why)
+            v_.this_game
+            message = "\n" + v_.this_game + "\n" + str(read_result[0]) + "님\n" + str(read_result[1]) + " 컴퓨터\n[" + str(cla) + "클라] 확인 요망\n=> " + str(why)
             TARGET_URL = 'https://notify-api.line.me/api/notify'
             TOKEN = my_token  # 발급받은 토큰
             headers = {'Authorization': 'Bearer ' + TOKEN}

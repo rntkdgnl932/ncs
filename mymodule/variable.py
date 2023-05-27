@@ -46,6 +46,8 @@ with open(file_path, "r", encoding='utf-8-sig') as file:
     version_ = file.read()
     print("version???", version_)
 
+this_game = "나이트크로우"
+
 # 자동모드 관련
 potion_count = 0
 
